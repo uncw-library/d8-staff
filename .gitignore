@@ -1,0 +1,9 @@
+# our custom gitignores
+
+*.swp
+code/
+
+.phpintel/
+
+/mysql
+.htaccess

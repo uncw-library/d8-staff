@@ -1,0 +1,17 @@
+version: '2'
+services:
+  webapp:
+    scale: 1
+    start_on_create: true
+  phpmyadmin:
+    scale: 1
+    start_on_create: true
+  nginx:
+    scale: 1
+    start_on_create: true
+  db-backup:
+    scale: 1
+    start_on_create: true
+  db:
+    scale: 1
+    start_on_create: true
