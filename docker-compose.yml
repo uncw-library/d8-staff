@@ -34,7 +34,8 @@ services:
     volumes:
       - ./sync:/drupal_sync
       - ./themes:/drupal_app/web/themes/contrib
-      - ./modules:/drupal_app/web/modules
+      - ./modules/custom:/drupal_app/web/modules/custom
+      - ./drupal8docker/config/drupal/composer.json:/drupal_app/composer.json
       - drupal_data:/drupal_app
     networks:
       - db_network
