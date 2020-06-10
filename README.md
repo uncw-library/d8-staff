@@ -11,7 +11,6 @@ skip this unless updating the version of drupal8 or its dependencies.
 
 ```
 docker build -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker
-docker push libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base
 ```
 
 
@@ -106,6 +105,26 @@ Stopping the dev box with:
 ctrl-C
 -and/or-
 docker-compose stop 
+```
+#### adding a 3rd party module
+
+```
+** add "module_name": "^version" to "require" section of ./drupal8docker/config/drupal/composer.json **
+docker-compose down
+docker volume rm d8-staff_drupal_data
+docker build -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker
+docker-compose up -d
+docker-compose exec webapp chown -R www-data:www-data /drupal_sync /drupal_app/web/modules /drupal_app/web/themes
+docker-compose exec webapp drush config-import -y
+docker-compose exec webapp drush cache-rebuild
+** see site at localhost:8112 **
+```
+
+#### removing a 3rd party module
+
+```
+** remove the ./modules/contrib/{module name} folder **
+** then, same steps as adding a 3rd party module **
 ```
 
 #### editing a theme file

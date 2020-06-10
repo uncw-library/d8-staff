@@ -19,10 +19,10 @@ RUN wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/down
     && mv drush.phar /usr/bin/drush
 
 RUN composer create-project drupal-composer/drupal-project:8.x-dev /drupal_app --stability dev --no-interaction --no-install
-COPY ./config/drupal/drupal_composer.json /drupal_app/composer.json
+COPY ./config/drupal/composer.json /drupal_app/composer.json
 WORKDIR /drupal_app
 RUN php -d memory_limit=-1 /usr/bin/composer update \
     && chown -R www-data:www-data /drupal_app
 COPY ./config/drupal/settings.php /tmp/drupal_local_settings.php
 RUN cat /tmp/drupal_local_settings.php >> /drupal_app/web/sites/default/settings.php
-RUN cp /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
+RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
