@@ -27,7 +27,15 @@
         "vlucas/phpdotenv": ">=4",
         "webflo/drupal-finder": ">=1",
         "webmozart/path-util": ">=2",
-        "zaporylie/composer-drupal-optimizations": ">=1"
+        "zaporylie/composer-drupal-optimizations": ">=1",
+        "drupal/menu_block" : "^1.6",
+        "drupal/search_api" : "^1.17",
+        "drupal/ctools" : "^3.4",
+        "drupal/imce" : "^2.2",
+        "drupal/backup_migrate" : "^4.1",
+        "drupal/entity" : "^1.0",
+        "drupal/pathauto" : "^1.8",
+        "drupal/token": "1.6"
     },
     "require-dev": {
         "webflo/drupal-core-require-dev": ">=8"
