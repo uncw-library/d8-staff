@@ -10,7 +10,7 @@ cd d8-staff
 skip this unless updating the version of drupal8 or its dependencies.
 
 ```
-docker build -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker
+docker build -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker 
 ```
 
 
@@ -23,11 +23,11 @@ docker build -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./d
 ```
 SSH to the libapps or libapps-staff server as user randall
 cd /home/randall/volumes/
-env GIT_SSL_NO_VERIFY=true git clone {this repo's gitlab url}
-sudo chown randall:uncw-randall /home/randall/volumes/d8-staff
-cd d8-staff
+env GIT_SSL_NO_VERIFY=true git clone ttps://libapps-admin.uncw.edu/randall-dev/d8-staff.git d8staff
+sudo chown randall:uncw-randall /home/randall/volumes/d8staff
+cd d8staff
 git checkout {"master" for production, "staging" for staging, "dev" for development}
-copy the base sqldump to /home/randall/volumes/d8-staff/db_autoimport/
+copy the base sqldump to /home/randall/volumes/d8staff/db_autoimport/
 ```
 
 ###### Making a Rancher service
@@ -44,7 +44,7 @@ Create two load-balancer entries: the phpmyadmin and the nginx.
 
 Copy the url you just created.
 
-Paste that url into the "server_name" line in /home/randall/volumes/d8-staff/config/nginx/default.conf
+Paste that url into the "server_name" line in /home/randall/volumes/d8staff/config/nginx/default.conf
 (This file is mirrored within the container at /etc/nginx/conf.d/default.conf.)
 Restart the nginx service.
 
@@ -53,13 +53,13 @@ Restart the nginx service.
 ```
 If the mysql import failed & you want to delete the whole database data:
 you can stop the Stack in Rancher,
-delete the folder at /home/randall/volumes/d8-staff/mysql
-revise the sqldump at /home/randall/volumes/d8-staff/db_autoimport
+delete the folder at /home/randall/volumes/d8staff/mysql
+revise the sqldump at /home/randall/volumes/d8staff/db_autoimport
 restart the stack.
 The mysql logs will read "MySQL init process done. Ready for start up." if the database succeeded in importing.
 
 Note:
-The d8-mysql folder is the binary files of our d8-staff database.  It is gitignored.
+The d8-mysql folder is the binary files of our d8staff database.  It is gitignored.
 The db_autoimport folder is holds sqldumps.  It is also gitignored.
 ```
 
@@ -174,37 +174,3 @@ docker-compose up --build
 
 1) `docker-compose exec webapp drush sql-dump --result-file=/docker-entrypoint-initdb.d/{some filename}.sql`
 1) look for the file in ./db_autoimport/
-
-#### some docker commands
-
-docker 
-
-    ps    {show active containers}
-
-        -a      {show all containers}
-
-    volume
-
-        ls      {list}
-
-        rm      {removes specific volume}
-
-                - this will destroy the container's persistent data
-
-docker-compose
-
-    up      {start the containers}
-
-        -d  {in detached mode}
-        --build {make the docker image if it doesn't yet exist}
-
-    stop    {halt the containers but keeps them intact}
-
-    down    {halt & remove the containers,
-             preserves volumes and images}
-
-    exec (container_name) echo 'hello world' {or other program from inside the container}
-
-    logs     {show logs}
-
-        -f  {follow the log tail}

@@ -15,7 +15,7 @@ services:
     volumes:
     - /home/randall/volumes/d8staff/sync:/drupal_sync
     - /home/randall/volumes/d8staff/themes:/drupal_app/web/themes/contrib
-    - /home/randall/volumes/d8staff/modules:/drupal_app/web/modules
+    - /home/randall/volumes/d8staff/modules/custom:/drupal_app/web/modules/custom
     - drupal_data:/drupal_app
     tty: true
     labels:
