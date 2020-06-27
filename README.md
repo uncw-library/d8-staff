@@ -1,52 +1,90 @@
 A Drupal8 build
 
+### Background
+
+Apache and drupal are in one container.  Mysql is in another.  Phpmyadmin is along for user convenience.  Apache listens at port 80 & connects to /var/www/html/web inside the container.
+
+The apache/drupal container is based off the dockerfile available at the url listed on line 1 of that dockerfile.
+
+The apache/drupal image contains the last known set of: 
+
+ - apache config file
+ - drupal sync files
+ - contrib modules
+ - uncw custom modules
+ - uncw theme revision
+ - php.ini
+ - settings.php
+
+We expose these files, since revising them allows all the imaginable updates we may choose to make.  We use composer to install drupal core, as drupal9 is expected to require composer for install.  3rd party modules are named in the composer.json and float upward to the most recent version.
+
+The images are agnostic of platform and work equally well on rancher1.x, docker-compose or kubernetes.
+
+A dev box is provided, for creating new code or testing changes.
+
+Production can be updated by upgrading to the newly-made image.
+
+Content stays in the production db.  Config changes feedback to this repo via drupal config export.
+
+### cloning this repo
+
 ```
 env GIT_SSL_NO_VERIFY=true git clone https://libapps-admin.uncw.edu/randall-dev/d8-staff.git
 cd d8-staff
 ```
 
-## building a new drupal8base image
+### building a new drupal8base image
 
-skip this unless updating the version of drupal8 or its dependencies.
+A developer role.  this is only necessary for baking changes into an image.  Mainly before pushing a new image to the docker repo & then to production.
 
 ```
 docker build -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker 
 ```
 
+### pushing to production
+
+```
+docker push libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base
+```
 
 ## Production
 
 #### Creating new site from scratch
 
-###### Putting our site's unique files onto the server
+###### Putting this repo onto the server
 
 ```
 SSH to the libapps or libapps-staff server as user randall
 cd /home/randall/volumes/
-env GIT_SSL_NO_VERIFY=true git clone ttps://libapps-admin.uncw.edu/randall-dev/d8-staff.git d8staff
-sudo chown randall:uncw-randall /home/randall/volumes/d8staff
+env GIT_SSL_NO_VERIFY=true git clone https://libapps-admin.uncw.edu/randall-dev/d8-staff.git d8staff
 cd d8staff
 git checkout {"master" for production, "staging" for staging, "dev" for development}
 copy the base sqldump to /home/randall/volumes/d8staff/db_autoimport/
+sudo chown -R randall:uncw-randall /home/randall/volumes/d8staff
 ```
 
 ###### Making a Rancher service
 
-In Rancher, create a new stack with:
+In Rancher, create a new stack using:
   
-  - Name: {sitename}
-  - docker-compose.yml: this repo's docker-compose-production.yml  (Change the default passwords in this file beforehand.)
+  - Name: d8staff
+  - docker-compose.yml: this repo's docker-compose-rancher.yml  (Change the default passwords in that file beforehand.)
   - racher-compose.yml: this repo's rancher-compose.yml
 
 Create two load-balancer entries: the phpmyadmin and the nginx.
 
-  - Public  HTTPS  {url.libapps.uncw.edu} 443 _ {container_name} 80
+  - Public  HTTPS  {url.libapps.uncw.edu} 443 _ d8staff/webapp 80
+  - Public  HTTPS  {url.libapps.uncw.edu} 443 _ d8staff/pma 80
 
-Copy the url you just created.
+Copy the webapp url you just created. 
 
-Paste that url into the "server_name" line in /home/randall/volumes/d8staff/config/nginx/default.conf
-(This file is mirrored within the container at /etc/nginx/conf.d/default.conf.)
-Restart the nginx service.
+Paste that url into the "server_name" line in /home/randall/volumes/d8staff/drupal8docker/config/apache/000-default.conf
+(This file is mirrored within the container at /etc/apache2/sites-enabled/000-default.conf.)
+Restart the apache/drupal container.
+
+###### Maintaining the production db:
+
+Reasoning:  We'll want one gold-standard database.  Ultimately, that's the production machine.  Folks adding content can add to the production site & it will go directly to the production database.  The developers who want to use that data will need to sqldump that database for local use.  The db sidecar makes automatic sqldumps to /home/randall/volumes/backups/Backups/d8staff.  Maybe we'll keep a slimmed down version or one that has dummy data.  If it's dummy data, we might can git commit it in this repo.  We'll figure that out.  Either way, if you need the database for a dev box, put a copy of the sqldump at ./db_autoimport/d8-staff_sandbox_db.sql.
 
 ###### Troubleshooting failed mysql inport
 
@@ -65,31 +103,25 @@ The db_autoimport folder is holds sqldumps.  It is also gitignored.
 
 #### Updating the config/theme/module from another computer
 
-Merge those changes from that computer to the intended branch of this repo ('master' for production site, 'staging' for staging site, 'dev' for dev sites)
-SSH to /home/randall/volumes/{sitename}/{repo_name}
-git pull origin
-
-(include notes for config import, container rebuild, whatevers necessary to effect the change)
-
+Export the changes using the drupal config export page, or via drush config-export.  The export page creates a zip of config files. Drush exports the files to /drupal_sync.  A dev will those changes to the intended branch of this repo ('master' for production site, 'staging' for staging site, 'dev' for dev sites)  The next docker build or docker-compose will use the new config settings.
 
 ## Dev box
 
-1) change the passwords in the file ".env"  [passwords can be unique to each instance]
-2) copy d8-staff_sandbox_db.sql to ./db_autoimport/
-3) then:
+1) copy d8-staff_sandbox_db.sql to ./db_autoimport/
+2) then:
 
 ```
 docker-compose up -d
 docker-compose logs -f
 ```
 
-   wait until the db container logs say "MySQL init process done. Ready for start up."  Exit log screen with `Ctrl-C`.  Or keep the log screen open & use a second terminal.  Your choice.
+   wait until the db container logs say "MySQL init process done. Ready for start up."  Exit the log screen with `Ctrl-C`.  Or keep the log screen open & use a second terminal.  Your choice.
 
-Fix the file permissions, import the config changes, and refresh the drupal cache with:
+3) then:
 
 ```
-docker-compose exec webapp chown -R www-data:www-data /drupal_sync /drupal_app/web/modules /drupal_app/web/themes
-docker-compose exec webapp drush config-import -y
+docker-compose exec webapp chown -R www-data:www-data /drupal_sync /var/www/html/web/modules /var/www/html/web/themes
+docker-compose exec webapp drush config-import
 docker-compose exec webapp drush cache-rebuild
 ```
 
@@ -106,16 +138,17 @@ ctrl-C
 -and/or-
 docker-compose stop 
 ```
+
 #### adding a 3rd party module
 
 ```
-** add "module_name": "^version" to "require" section of ./drupal8docker/config/drupal/composer.json **
+** add "name": "^version" to the "require" section of ./drupal8docker/config/drupal/composer.json **
 docker-compose down
 docker volume rm d8-staff_drupal_data
-docker build -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker
+docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base:apache ./drupal8docker
 docker-compose up -d
 docker-compose exec webapp chown -R www-data:www-data /drupal_sync /drupal_app/web/modules /drupal_app/web/themes
-docker-compose exec webapp drush config-import -y
+docker-compose exec webapp drush config-import
 docker-compose exec webapp drush cache-rebuild
 ** see site at localhost:8112 **
 ```
@@ -135,7 +168,7 @@ You may have to `docker-compose restart` to clear the cache.
 
 #### editing a module
 
-Revise the files in ./modules.  It is the home to our custom modules.  The folder syncs to the container's /drupal_app/web/modules
+Revise the files in ./modules/custom.  It is the home to our custom modules.  The folder syncs to the container's /drupal_app/web/modules
 
 #### sharing drupal config changes
 
@@ -146,11 +179,11 @@ The drupal sync files are at ./drupal_sync
 
 #### exporting drupal_sync
 
-`docker-compose exec webapp drush config-export -y`
+`docker-compose exec webapp drush config-export`
 
 #### importing drupal_sync:
 
-`docker-composer exec webapp drush config-import -y`
+`docker-composer exec webapp drush config-import`
 
 #### rebuilding the drupal cache
 
@@ -158,15 +191,12 @@ The drupal sync files are at ./drupal_sync
 
 ⋅⋅⋅It's a good habit -- resolves most problems.
 
-#### managing the production db:
-
-Reasoning:  We'll want one gold-standard database.  Ultimately, that's the production machine.  Folks adding content can add to the production site & it will go directly to the production database.  The developers need an sqldump of that database for local use.  Maybe we'll keep a "most recent" database dump on some shared drive or somewhere.  Maybe that "most recent" sqldump is slimmed down or has dummy data.  If it's dummy data, we might can git commit it in this repo.  We'll figure that out.  Either way, get a copy the sqldump to ./db_autoimport.
-
 #### wiping the containers and starting clean:
 
 ```
 docker-compose down
-docker volume rm lilting_seahawk_db_data lilting_seahawk_drupal_data
+docker volume rm d8-staff_drupal_data d8-staff_db_data
+docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base:apache ./drupal8docker
 docker-compose up --build
 ```
 
