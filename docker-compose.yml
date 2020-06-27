@@ -2,44 +2,26 @@ version: '3.7'
 
 volumes:
   db_data:
-  drupal_data:
 
 networks:
   db_network:
     driver: bridge
-  frontend_network:
-    driver: bridge
 
 services:
-  nginx:
-    image: nginx:1.16.0
-    container_name: nginx
-    environment:
-      NGINX_SERVER_ROOT: /drupal_app/web
-    volumes:
-      - ./config/nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - drupal_data:/drupal_app
-    networks:
-      - frontend_network
-    ports:
-      - "8112:80"
-    depends_on:
-      - webapp
-    restart: always
-
   webapp:
-    image: libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base
+    image: libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base:apache
     container_name: webapp
     env_file: .env
     volumes:
-      - ./sync:/drupal_sync
-      - ./themes:/drupal_app/web/themes/contrib
-      - ./modules/custom:/drupal_app/web/modules/custom
-      - ./drupal8docker/config/drupal/composer.json:/drupal_app/composer.json
-      - drupal_data:/drupal_app
+      - ./drupal8docker/sync:/drupal_sync
+      - ./themes:/var/www/html/web/themes/contrib
+      - ./modules/custom:/var/www/html/web/modules/custom
+      - ./drupal8docker/config/drupal/composer.json:/var/www/html/composer.json
+      - ./drupal8docker/composer/apache/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
+    ports:
+      - "8112:80"
     networks:
       - db_network
-      - frontend_network
     depends_on:
       - db
     restart: always
