@@ -1,0 +1,16 @@
+uuid: aa689c53-19c3-48cf-9929-570a712c3651
+langcode: en
+status: true
+dependencies: {  }
+id: webform_editor
+label: 'Webform Editor'
+weight: 3
+is_admin: null
+permissions:
+  - 'access toolbar'
+  - 'create webform'
+  - 'delete any webform'
+  - 'delete own webform'
+  - 'edit any webform'
+  - 'edit own webform'
+  - 'use text format full_html'
