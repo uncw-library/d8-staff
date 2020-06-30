@@ -20,23 +20,24 @@
         "composer/installers": ">=1",
         "cweagans/composer-patches": ">=1",
         "drupal-composer/drupal-scaffold": ">=2",
+        "drupal/backup_migrate": "^4.1",
         "drupal/bootstrap_barrio": ">=4",
         "drupal/console": ">=1",
         "drupal/core": ">=8",
+        "drupal/ctools": "^3.4",
+        "drupal/entity": "^1.0",
+        "drupal/imce": "^2.2",
+        "drupal/menu_block": "^1.6",
+        "drupal/pathauto": "^1.8",
+        "drupal/search_api": "^1.17",
+        "drupal/token": "1.6",
+        "drupal/webform": "^5.17",
         "drush/drush": ">=9",
         "vlucas/phpdotenv": ">=4",
         "webflo/drupal-finder": ">=1",
         "webmozart/path-util": ">=2",
-        "zaporylie/composer-drupal-optimizations": ">=1",
-        "drupal/menu_block" : "^1.6",
-        "drupal/search_api" : "^1.17",
-        "drupal/ctools" : "^3.4",
-        "drupal/imce" : "^2.2",
-        "drupal/backup_migrate" : "^4.1",
-        "drupal/entity" : "^1.0",
-        "drupal/pathauto" : "^1.8",
-        "drupal/token": "1.6",
-        "drupal/webform": "^5.17"
+        "wikimedia/composer-merge-plugin": "^1.4",
+        "zaporylie/composer-drupal-optimizations": ">=1"
     },
     "require-dev": {
         "webflo/drupal-core-require-dev": ">=8"
@@ -88,6 +89,11 @@
                 ".editorconfig": "../.editorconfig",
                 ".gitattributes": "../.gitattributes"
             }
+        },
+        "merge-plugin": {
+            "include": [
+                "web/modules/contrib/webform/composer.libraries.json"
+            ]
         }
     }
 }
