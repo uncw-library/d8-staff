@@ -1,0 +1,14 @@
+uuid: e9ec28b6-f482-4e58-b755-aaa6d36d025b
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.webform_editor
+  module:
+    - user
+id: user_add_role_action.webform_editor
+label: 'Add the Webform Editor role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: webform_editor
