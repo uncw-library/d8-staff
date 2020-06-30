@@ -1,5 +1,6 @@
 # from https://github.com/docker-library/drupal/blob/master/8.9/apache/Dockerfile
-##################################################################################
+# Starting from php image was necessary for adding ldap php extension
+
 # from https://www.drupal.org/docs/8/system-requirements/drupal-8-php-requirements
 FROM php:7.4-apache-buster
 # TODO switch to buster once https://github.com/docker-library/php/issues/865 is resolved in a clean way (either in the PHP image or in PHP itself)
@@ -59,6 +60,7 @@ RUN { \
 		echo 'opcache.fast_shutdown=1'; \
 	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
+# installing extra programs we need, including composer & drush
 
 RUN apt update \
     && apt install wget git curl nano tree unzip default-mysql-client -y
@@ -73,13 +75,21 @@ RUN wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/down
     && chmod +x drush.phar \
     && mv drush.phar /usr/bin/drush
 
+# creating a bare drupal8 project, injecting our composer.json, using composer to install drupal8 + modules
+
 RUN composer create-project drupal-composer/drupal-project:8.x-dev /var/www/html --stability dev --no-interaction --no-install
 COPY ./config/drupal/composer.json /var/www/html/composer.json
 WORKDIR /var/www/html
 RUN php -d memory_limit=-1 /usr/bin/composer update \
     && chown -R www-data:www-data /var/www/html/
+
+# injecting our unique settings.php and php.ini
+
 COPY ./config/drupal/settings.php /tmp/drupal_local_settings.php
 RUN cat /tmp/drupal_local_settings.php >> /var/www/html/web/sites/default/settings.php
 RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
+
+# injecting our drupal_sync files and apache conf
+
 COPY --chown=www-data:www-data ./sync /drupal_sync
 COPY --chown=www-data:www-data ./config/apache/000-default.conf /etc/apache2/sites-enabled/000-default.conf
