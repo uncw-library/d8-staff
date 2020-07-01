@@ -13,11 +13,11 @@ services:
     container_name: webapp
     env_file: .env
     volumes:
-      - ./drupal8docker/sync:/drupal_sync
-      - ./themes:/var/www/html/web/themes/contrib
-      - ./modules/custom:/var/www/html/web/modules/custom
       - ./drupal8docker/config/drupal/composer.json:/var/www/html/composer.json
       - ./drupal8docker/config/apache/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
+      - ./drupal8docker/sync:/drupal_sync
+      - ./drupal8docker/themes/custom/:/var/www/html/web/themes/custom/
+      - ./drupal8docker/modules/custom:/var/www/html/web/modules/custom/
     ports:
       - "8112:80"
     networks:

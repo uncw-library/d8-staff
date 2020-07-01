@@ -93,3 +93,5 @@ RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
 
 COPY --chown=www-data:www-data ./sync /drupal_sync
 COPY --chown=www-data:www-data ./config/apache/000-default.conf /etc/apache2/sites-enabled/000-default.conf
+COPY --chown=www-data:www-data ./themes/custom /var/www/html/web/themes/custom
+COPY --chown=www-data:www-data ./modules/custom /var/www/html/web/modules/custom
