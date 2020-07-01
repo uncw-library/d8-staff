@@ -127,10 +127,8 @@ docker-compose exec webapp drush config-import
 
 ```
 
-See the app at http://localhost:8111
-(the app will error out until the database finishes loading.)
-
-See the phpmyadmin at http://localhost:5112
+See the app at http://localhost:8112
+See the phpmyadmin at http://localhost:8113
 
 
 Stopping the dev box with:

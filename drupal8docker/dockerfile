@@ -85,9 +85,9 @@ RUN php -d memory_limit=-1 /usr/bin/composer update \
 
 # injecting our unique settings.php and php.ini
 
-COPY ./config/drupal/settings.php /tmp/drupal_local_settings.php
-RUN cat /tmp/drupal_local_settings.php >> /var/www/html/web/sites/default/settings.php
-RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
+COPY ./config/drupal/settings.php /tmp/drupal_settings.php
+RUN cat /tmp/drupal_settings.php >> /var/www/html/web/sites/default/settings.php
+RUN cp /usr/local/etc/php/php.ini /usr/local/etc/php/php.ini
 
 # injecting our drupal_sync files and apache conf
 
