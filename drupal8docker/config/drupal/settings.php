@@ -4,6 +4,12 @@ if (getenv('DRUPAL_SALT') && empty($settings['hash_salt'])) {
 };
 
 $settings['config_sync_directory'] = '/drupal_sync';
+$settings['file_private_path'] = $app_root . '/../private';
+
+$settings['trusted_host_patterns'] = [
+  '^localhost$',
+];
+
 
 $databases['default']['default'] = array (
   'database' => getenv('MYSQL_DATABASE'),

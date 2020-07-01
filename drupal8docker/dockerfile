@@ -88,15 +88,19 @@ WORKDIR /var/www/html
 RUN php -d memory_limit=-1 /usr/bin/composer update \
     && chown -R www-data:www-data /var/www/html/
 
-# injecting our unique settings.php and php.ini
+# injecting our additions to settings.php
 
 COPY ./config/drupal/settings.php /tmp/drupal_settings.php
 RUN cat /tmp/drupal_settings.php >> /var/www/html/web/sites/default/settings.php
-RUN cp /usr/local/etc/php/php.ini /usr/local/etc/php/php.ini
 
-# injecting our drupal_sync files and apache conf
+# creating a writable folder outside of webroot for private files
 
-COPY --chown=www-data:www-data ./sync /drupal_sync
+COPY --chown=www-data:www-data ./config/drupal/private_htaccess /var/www/html/private/.htaccess
+
+# injecting our apache conf, custom php.ini, drupal sync, drupal custom subtheme, drupal custom modules 
+
 COPY --chown=www-data:www-data ./config/apache/000-default.conf /etc/apache2/sites-enabled/000-default.conf
+COPY --chown=www-data:www-data ./config/drupal/php.ini /usr/local/etc/php/php.ini
+COPY --chown=www-data:www-data ./sync /drupal_sync
 COPY --chown=www-data:www-data ./themes/custom /var/www/html/web/themes/custom
 COPY --chown=www-data:www-data ./modules/custom /var/www/html/web/modules/custom
