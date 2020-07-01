@@ -185,7 +185,7 @@ The drupal sync files are at ./drupal_sync
 
 #### importing drupal_sync:
 
-`docker-composer exec webapp drush config-import`
+`docker-compose exec webapp drush config-import`
 
 #### rebuilding the drupal cache
 
