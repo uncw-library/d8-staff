@@ -18,6 +18,7 @@ RUN set -eux; \
 	apt-get install -y --no-install-recommends \
 		libfreetype6-dev \
 		libjpeg-dev \
+		libldap2-dev \
 		libpng-dev \
 		libpq-dev \
 		libzip-dev \
@@ -28,9 +29,13 @@ RUN set -eux; \
 		--with-jpeg=/usr \
 	; \
 	\
+    docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/ \
+    ; \
+    \
 	docker-php-ext-install -j "$(nproc)" \
 		gd \
 		opcache \
+		ldap \
 		pdo_mysql \
 		pdo_pgsql \
 		zip \
