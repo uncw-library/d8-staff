@@ -29,16 +29,16 @@ display:
         options: {  }
       empty:
         area_text_custom:
-          admin_label: ''
-          content: 'No front page content has been created yet.<br/>Follow the <a target="_blank" href="https://www.drupal.org/docs/user_guide/en/index.html">User Guide</a> to start building your site.'
-          empty: true
-          field: area_text_custom
-          group_type: group
           id: area_text_custom
-          label: ''
-          relationship: none
           table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
           tokenize: false
+          content: "<p>This site is for internal Randall Library staff surveys. Unless you log in (which is not required) your submissions will be anonymous. We have even removed IP tracking from survey results. Open surveys will be listed below; click on the survey title to add your submission!</p>\r\n\r\n\r\nNo front page content has been created yet.\r\n\r\n"
+          label: ''
           plugin_id: text_custom
         node_listing_empty:
           admin_label: ''

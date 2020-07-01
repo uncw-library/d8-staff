@@ -1,0 +1,24 @@
+uuid: dd1e6ccc-153b-4836-9b17-b33e4a16f756
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: generic_content
+label: 'Generic Content'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  ad629c9d-1167-415d-b7a6-f677ce731ef9:
+    id: node_type
+    bundles:
+      article: article
+      page: page
+      webform: webform
+    negate: false
+    context_mapping:
+      node: node
+    uuid: ad629c9d-1167-415d-b7a6-f677ce731ef9
+selection_logic: and
+weight: -5
+relationships: {  }
