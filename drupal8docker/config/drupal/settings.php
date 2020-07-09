@@ -8,6 +8,7 @@ $settings['file_private_path'] = $app_root . '/../private';
 
 $settings['trusted_host_patterns'] = [
   '^localhost$',
+  '^152.20.25.41$'
 ];
 
 
