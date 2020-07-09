@@ -44,8 +44,6 @@ services:
     env_file: .env
     environment:
       PMA_HOST: ${MYSQL_HOST}
-      PMA_USER: ${MYSQL_USER}
-      PMA_PASSWORD: ${MYSQL_PASSWORD}
       PMA_ARBITRARY: 0
       PMA_PORT: 3306
     networks:
