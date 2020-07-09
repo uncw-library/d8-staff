@@ -204,5 +204,7 @@ docker-compose up --build
 
 #### if you need to export a local database
 
+Use the phpmyadmin at :8113, or run on a command line:
+
 1) `docker-compose exec webapp drush sql-dump --result-file=/docker-entrypoint-initdb.d/{some filename}.sql`
 1) look for the file in ./db_autoimport/
