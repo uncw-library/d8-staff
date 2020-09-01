@@ -1,0 +1,23 @@
+uuid: 5c8366ac-5ac1-4e18-92f2-8204be18ac5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_why_
+    - node.type.shout_outs
+  module:
+    - text
+id: node.shout_outs.field_why_
+field_name: field_why_
+entity_type: node
+bundle: shout_outs
+label: 'Why?'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

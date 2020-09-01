@@ -1,0 +1,24 @@
+uuid: a0fe9b25-181d-4967-832f-9c67fcf2107f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.shout_outs.field_why_
+    - field.field.node.shout_outs.field_your_name
+    - node.type.shout_outs
+  module:
+    - user
+id: node.shout_outs.teaser
+targetEntityType: node
+bundle: shout_outs
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_why_: true
+  field_your_name: true

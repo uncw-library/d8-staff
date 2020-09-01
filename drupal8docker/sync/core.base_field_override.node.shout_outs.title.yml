@@ -1,0 +1,18 @@
+uuid: 59a8609f-f054-4551-8dbf-2d2deb209c55
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.shout_outs
+id: node.shout_outs.title
+field_name: title
+entity_type: node
+bundle: shout_outs
+label: 'Who?'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -13,7 +13,7 @@ followrefs: null
 weight: null
 bind_method: service_account
 binddn: sysLibldap
-bindpw: fake
+bindpw: Fun2r34d
 basedn: 'dc=uncw,dc=edu'
 user_attr: samaccountname
 account_name_attr: ''

@@ -1,20 +1,20 @@
 sids:
   uncw: uncw
-authenticationMode: 1
-loginUIUsernameTxt: ''
-loginUIPasswordTxt: ''
-ldapUserHelpLinkUrl: ''
-ldapUserHelpLinkText: 'Logon Help'
+authenticationMode: 2
+loginUIUsernameTxt: 'Your UNCW username (email without the @uncw.edu)'
+loginUIPasswordTxt: 'Your UNCW password (email)'
+ldapUserHelpLinkUrl: 'https://uncw.edu/passwordreset/'
+ldapUserHelpLinkText: 'Forgot password?'
 emailOption: 3
-emailUpdate: 1
-emailTemplateHandling: if_empty
+emailUpdate: 2
+emailTemplateHandling: none
 emailTemplate: '@username@example.com'
 emailTemplateUsageResolveConflict: false
 emailTemplateUsageNeverUpdate: false
 emailTemplateUsagePromptUser: false
 emailTemplateUsageRedirectOnLogin: false
 emailTemplateUsagePromptRegex: '.*@example\\.com'
-passwordOption: 3
+passwordOption: 2
 allowOnlyIfTextInDn: {  }
 excludeIfTextInDn: {  }
 excludeIfNoAuthorizations: 0

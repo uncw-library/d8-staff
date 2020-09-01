@@ -1,6 +1,6 @@
 palette:
-  top: '#fafafa'
-  bottom: '#fafafa'
+  top: '#d7d7d7'
+  bottom: '#d7d7d7'
   bg: '#ffffff'
   sidebar: '#f6f6f2'
   sidebarborders: '#f9f9f9'
@@ -10,9 +10,9 @@ palette:
   titleslogan: '#fffeff'
   text: '#3b3b3b'
   link: '#006666'
-logo: 'public://color/bootstrap_barrio_subtheme-a109ed07/logo.svg'
+logo: 'public://color/bootstrap_barrio_subtheme-a24f5a8f/logo.svg'
 stylesheets:
-  - 'public://color/bootstrap_barrio_subtheme-a109ed07/colors.css'
+  - 'public://color/bootstrap_barrio_subtheme-a24f5a8f/colors.css'
 files:
-  - 'public://color/bootstrap_barrio_subtheme-a109ed07/logo.svg'
-  - 'public://color/bootstrap_barrio_subtheme-a109ed07/colors.css'
+  - 'public://color/bootstrap_barrio_subtheme-a24f5a8f/logo.svg'
+  - 'public://color/bootstrap_barrio_subtheme-a24f5a8f/colors.css'
