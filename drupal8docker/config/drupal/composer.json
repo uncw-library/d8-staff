@@ -31,6 +31,7 @@
         "drupal/menu_block": "^1.6",
         "drupal/pathauto": "^1.8",
         "drupal/search_api": "^1.17",
+        "drupal/smtp": "^1.0",
         "drupal/token": "^1.6",
         "drupal/webform": "^5.17",
         "drush/drush": ">=9",
