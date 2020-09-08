@@ -38,7 +38,7 @@ cd d8-staff
 A developer role.  this is only necessary for baking changes into an image.  Mainly before pushing a new image to the docker repo & then to production.
 
 ```
-docker build -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker 
+docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker 
 ```
 
 ### pushing to production
@@ -145,7 +145,7 @@ docker-compose stop
 ** add "name": "^version" to the "require" section of ./drupal8docker/config/drupal/composer.json **
 docker-compose down
 docker volume rm d8-staff_drupal_data
-docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base:apache ./drupal8docker
+docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker
 docker-compose up -d
 docker-compose exec webapp chown -R www-data:www-data /drupal_sync /var/www/html/web/modules/custom /var/www/html/web/themes/contrib /etc/apache2/sites-enabled/000-default.conf /var/www/html/composer.json
 docker-compose exec webapp drush cache-rebuild
@@ -198,7 +198,7 @@ The drupal sync files are at ./drupal_sync
 ```
 docker-compose down
 docker volume rm d8-staff_drupal_data d8-staff_db_data
-docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base:apache ./drupal8docker
+docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker
 docker-compose up --build
 ```
 
