@@ -1,0 +1,22 @@
+uuid: 6ef90256-a4c0-4082-b946-160b81691dac
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.shout_outs
+id: node.shout_outs.sticky
+field_name: sticky
+entity_type: node
+bundle: shout_outs
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
