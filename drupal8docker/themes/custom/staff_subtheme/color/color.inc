@@ -115,7 +115,7 @@ $info = [
   ],
 
   // Preview files.
-  'preview_library' => 'bootstrap_barrio_subtheme/color.preview',
+  'preview_library' => 'staff_subtheme/color.preview',
   'preview_html' => 'color/preview.html',
 
   // Attachments.

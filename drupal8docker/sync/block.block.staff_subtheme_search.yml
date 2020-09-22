@@ -1,17 +1,17 @@
-uuid: 8b7d1c9d-2a18-4f7d-8050-f4d4621a0fd8
+uuid: 7fd30ff6-7d0a-4360-ad54-7649850ee89c
 langcode: en
 status: false
 dependencies:
   module:
     - search
   theme:
-    - bootstrap_barrio_subtheme
+    - staff_subtheme
 _core:
   default_config_hash: Q-4EcGAsu26ICu4ejEz0uE1zv4akpiaOsizxgZfAmEw
-id: bootstrap_barrio_subtheme_search
-theme: bootstrap_barrio_subtheme
+id: staff_subtheme_search
+theme: staff_subtheme
 region: sidebar_first
-weight: -1
+weight: -7
 provider: null
 plugin: search_form_block
 settings:

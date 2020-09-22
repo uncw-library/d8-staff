@@ -1,5 +1,5 @@
 bootstrap_barrio_library: production
-bootstrap_barrio_sidebar_position: right
+bootstrap_barrio_sidebar_position: both
 bootstrap_barrio_content_offset: '0'
 bootstrap_barrio_sidebar_first_width: '4'
 bootstrap_barrio_sidebar_first_offset: '0'
@@ -13,21 +13,33 @@ bootstrap_barrio_navbar_toggle: navbar-toggleable-lg
 bootstrap_barrio_navbar_container: 0
 bootstrap_barrio_navbar_top_position: ''
 bootstrap_barrio_navbar_top_color: ''
+bootstrap_barrio_navbar_top_background: ''
 bootstrap_barrio_navbar_position: ''
 bootstrap_barrio_navbar_color: ''
+bootstrap_barrio_navbar_background: ''
+bootstrap_barrio_messages_widget: alerts
+bootstrap_barrio_radio: custom
+bootstrap_barrio_checkbox: switch
+bootstrap_barrio_select: custom
+bootstrap_barrio_file: custom
+bootstrap_barrio_system_messages: messages_white
 bootstrap_barrio_table_hover: 1
+bootstrap_barrio_table_style: table-striped
 _core:
-  default_config_hash: LdPjc1VCTO3_q56LqMexIbDmRvhlTEdTFHajPe4laUs
+  default_config_hash: XVyjqKNCH498_gwxI4iS26Liob1z90U28Oaw1CHOJzc
 features:
   node_user_picture: 1
   comment_user_picture: 1
   comment_user_verification: 1
   favicon: 1
 logo:
-  use_default: 1
+  use_default: 0
   path: ''
 favicon:
-  use_default: 1
+  use_default: 0
+  path: themes/custom/staff_subtheme/seahawk.ico
+  mimetype: image/vnd.microsoft.icon
+bootstrap_barrio_source: '0'
 bootstrap_barrio_region_clean_top_header: 0
 bootstrap_barrio_region_class_top_header: row
 bootstrap_barrio_region_clean_top_header_form: 0
@@ -73,24 +85,19 @@ bootstrap_barrio_region_class_footer_fourth: row
 bootstrap_barrio_region_clean_footer_fifth: 0
 bootstrap_barrio_region_class_footer_fifth: row
 bootstrap_barrio_sidebar_collapse: 0
+bootstrap_barrio_image_fluid: 0
 bootstrap_barrio_navbar_top_navbar: 0
-bootstrap_barrio_navbar_top_background: ''
-bootstrap_barrio_navbar_background: ''
-bootstrap_barrio_messages_widget: alerts
-bootstrap_barrio_radio: standard
-bootstrap_barrio_checkbox: standard
-bootstrap_barrio_select: standard
-bootstrap_barrio_file: standard
+bootstrap_barrio_navbar_top_class: ''
+bootstrap_barrio_navbar_class: ''
+bootstrap_barrio_navbar_flyout: 0
+bootstrap_barrio_navbar_slide: 0
+bootstrap_barrio_tabs_style: ''
 bootstrap_barrio_navbar_top_affix: 0
 bootstrap_barrio_navbar_affix: 0
 bootstrap_barrio_sidebar_first_affix: 0
 bootstrap_barrio_sidebar_second_affix: 0
 bootstrap_barrio_scroll_spy: ''
-bootstrap_barrio_google_fonts: ''
-bootstrap_barrio_icons: ''
-bootstrap_barrio_system_messages: ''
-bootstrap_barrio_table_style: ''
-bootstrap_barrio_table_head: ''
-bootstrap_barrio_navbar_top_class: ''
-bootstrap_barrio_navbar_class: ''
+bootstrap_barrio_google_fonts: open_sans
 bootstrap_barrio_bootstrap_icons: 0
+bootstrap_barrio_icons: ''
+bootstrap_barrio_table_head: ''

@@ -1,4 +1,4 @@
-uuid: da1fbac4-adc6-4684-aa95-b0da093e982b
+uuid: 5e75dff2-17b6-46f8-996a-0f42e01a41b9
 langcode: en
 status: true
 dependencies:
@@ -7,13 +7,13 @@ dependencies:
   module:
     - system
   theme:
-    - bootstrap_barrio_subtheme
+    - staff_subtheme
 _core:
   default_config_hash: rH6PpAn7-RScha1rGkohGAYSSh_1OVeZzioJPzPw6O4
-id: bootstrap_barrio_subtheme_tools
-theme: bootstrap_barrio_subtheme
-region: sidebar_first
-weight: 0
+id: staff_subtheme_tools
+theme: staff_subtheme
+region: sidebar_second
+weight: -5
 provider: null
 plugin: 'system_menu_block:tools'
 settings:

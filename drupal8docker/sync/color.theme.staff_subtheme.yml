@@ -1,0 +1,18 @@
+palette:
+  top: '#fcfcfc'
+  bottom: '#fcfcfc'
+  bg: '#eaeaea'
+  sidebar: '#fcfcfc'
+  sidebarborders: '#f9f9f9'
+  footer: '#fcfcfc'
+  button: '#444444'
+  buttonhover: '#006666'
+  titleslogan: '#000000'
+  text: '#3b3b3b'
+  link: '#006666'
+logo: 'public://color/staff_subtheme-ea86b544/logo.svg'
+stylesheets:
+  - 'public://color/staff_subtheme-ea86b544/colors.css'
+files:
+  - 'public://color/staff_subtheme-ea86b544/logo.svg'
+  - 'public://color/staff_subtheme-ea86b544/colors.css'

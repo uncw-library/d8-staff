@@ -1,8 +1,8 @@
 # Schema for the configuration files of the Bootstrap Barrio Subtheme.
 
-bootstrap_barrio_subtheme.settings:
+staff_subtheme.settings:
   type: theme_settings
-  label: 'Bootstrap Barrio settings'
+  label: 'Staff settings'
   mapping:
 
 # Library.

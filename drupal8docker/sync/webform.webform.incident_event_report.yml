@@ -248,4 +248,40 @@ handlers:
       sender_name: ''
       theme_name: ''
       parameters: {  }
+  email_1:
+    id: email
+    label: 'Your Email'
+    handler_id: email_1
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:your_email:raw]'
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: '[webform_submission:values:your_email:raw]'
+      from_options: {  }
+      from_name: '[webform_submission:values:your_name:raw]'
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+      parameters: {  }
 variants: {  }
