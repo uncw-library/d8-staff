@@ -38,6 +38,6 @@ function staff_subtheme_preprocess_page(&$variables)
 {
   $fonts = theme_get_setting('bootstrap_barrio_google_fonts');
   if ($fonts) {
-    $variables['#attached']['library'][] = ( $fonts == 'open_sans' ? 'YOURTHEME' : 'bootstrap_barrio' ) . '/' . $fonts;
+    $variables['#attached']['library'][] = ( $fonts == 'open_sans' ? 'staff_subtheme' : 'bootstrap_barrio' ) . '/' . $fonts;
   }
 }

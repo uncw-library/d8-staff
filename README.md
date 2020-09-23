@@ -63,6 +63,9 @@ docker-compose exec webapp drush config-import
 
 See the app at http://localhost:8112
 See the phpmyadmin at http://localhost:8113
+
+Some bug requires you go to the web interface > Appearances > Staff Subtheme > Save Configuration.  Otherwise the colors don't apply.
+
 Revise the app via the Drupal interface or via a text editor.  The repo & container folders are linked.
 
 
