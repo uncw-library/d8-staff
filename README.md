@@ -10,7 +10,7 @@ Code is changed on the dev box.  We can QA our changes locally.
 
 ### What's in the git repo
 
-Just enough to build our site.
+1) Just enough to build our site.
 
   - Dockerfile for installing OS-level programs (php, drush, composer, ldap, ssmtp)
   - php.ini & settings.php
