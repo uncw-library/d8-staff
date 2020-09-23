@@ -125,7 +125,7 @@ Use the phpmyadmin at :8113, or run on a command line:
 
 ⋅⋅⋅It's a good habit -- resolves most problems.
 
-#### How to add/remove a drupal module
+#### add/remove a drupal module
 
 With the repo on your local computer, revise composer.json & rebuild the image.
 
@@ -165,20 +165,27 @@ You can use the Drupal web interface, or on a dev box:
 
   - exporting drupal_sync
 
-   `docker-compose exec webapp drush config-export`
+    `docker-compose exec webapp drush config-export`
 
-   or use the drupal web interface
+    or use the drupal web interface
 
   - importing drupal_sync
   
     `docker-compose exec webapp drush config-import`
 
-   or use the drupal web interface
+    or use the drupal web interface
 
 
 ## Production
 
 #### Creating site from scratch
+
+**This may be simplified**
+
+    - Considering not putting git on the server:
+	    - Sharing a volume with user-uploaded files
+    	- Packing all the changing files inside the container
+    	- Using drupal-sync to share config & db export to share database
 
 ###### Putting this repo onto the server
 
