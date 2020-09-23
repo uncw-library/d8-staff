@@ -1,41 +1,102 @@
-A Drupal8 build
-
 ### Background
 
-Apache and drupal are in one container.  Mysql is in another.  Phpmyadmin is along for user convenience.  Apache listens at port 80 & connects to /var/www/html/web inside the container.
+There are three containers:  apache/drupal, mysql, and phpmyadmin.  Apache listens at port 80 & connects to /var/www/html/web inside the apache/drupal container.
 
-The apache/drupal container is based off the dockerfile available at the url listed on line 1 of that dockerfile.
+The dev box runs on your local computer.  No need to ssh to any other server.
 
-The apache/drupal image contains the last known set of: 
+Content/configuration are changed on the live server.  They are saved in the database and in drupal-sync.
 
- - apache config file
- - drupal sync files
- - contrib modules
- - uncw custom modules
- - uncw theme revision
- - php.ini
- - settings.php
+Code is changed on the dev box.  We can QA our changes locally.
 
-We expose these files, since revising them allows all the imaginable updates we may choose to make.  We use composer to install drupal core, as drupal9 is expected to require composer for install.  3rd party modules are named in the composer.json and float upward to the most recent version.
 
-The images are agnostic of platform and work equally well on rancher1.x, docker-compose or kubernetes.
+### How to build a dev box
 
-A dev box is provided, for creating new code or testing changes.
-
-Production can be updated by upgrading to the newly-made image.
-
-Content stays in the production db.  Config changes feedback to this repo via drupal config export.
-
-### cloning this repo
+1) Clone this repo to your local computer
 
 ```
 env GIT_SSL_NO_VERIFY=true git clone https://libapps-admin.uncw.edu/randall-dev/d8-staff.git
 cd d8-staff
+git checkout -b {your_branch}
 ```
+
+2) Get the latest drupal-sync from production
+
+ - in Drupal web interface > Configuration > Configuration synchronization > Export
+ - delete the files in your computer's ./d8-staff/drupal8docker/sync
+ - extract the downloaded file into that folder.
+
+
+3) Get the database dump
+
+- For now, the latest datbase dump is on the Team files tab, but when production is live you'll need to export it from the production server.  phpmyadmin or however.
+
+- Place that {dumpfile name}.sql at ./db_autoimport --- No other files in that folder.
+
+4) Spin up the dev box:
+
+```
+docker-compose up -d
+docker-compose logs -f
+```
+
+   wait until the db container logs say "MySQL init process done. Ready for start up."  Exit the log screen with `Ctrl-C`.  Or keep the log screen open & use a second terminal.  Your choice.
+
+then spruce up the files to make drupal happy:
+
+```
+docker-compose exec webapp chown -R www-data:www-data /drupal_sync /var/www/html/web/modules/custom /var/www/html/web/themes/custom /etc/apache2/sites-enabled/000-default.conf /var/www/html/composer.json
+docker-compose exec webapp drush cache-rebuild
+docker-compose exec webapp drush updatedb
+docker-compose exec webapp drush config-import
+```
+
+See the app at http://localhost:8112
+See the phpmyadmin at http://localhost:8113
+Revise the app via the Drupal interface or via a text editor.  The repo & container folders are linked.
+
+
+This stops the dev box:
+
+```
+ctrl-C
+-and/or-
+docker-compose stop 
+```
+
+6) After you are happy with the changes:
+
+ - git commit your branch
+ - docker build & push the new base image
+ - update rancher
+
+### How to make a new base image
+
+You can always use the latest 'drupal8-base' image from gitlab.  Docker-compose & rancher pull from it automatically.
+
+But sometimes you need to update that image:
+
+ - anytime you've finished a feature/bug-fix on the dev box
+ - anytime you need to update Drupal or some dependency
+
+```
+docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker 
+```
+
+
+### What's in the git repo
+
+Just enough to build our site.
+
+ - Dockerfile for installing OS-level programs (php, drush, composer, ldap, ssmtp)
+ - php.ini & settings.php
+ - the apache config file
+ - our custom modules & themes
+ - drupal-sync files
+ - composer.json
 
 ### building a new drupal8base image
 
-A developer role.  this is only necessary for baking changes into an image.  Mainly before pushing a new image to the docker repo & then to production.
+This is only necessary for baking changes into an image.  Mainly before pushing a new image to the docker repo & then to production.
 
 ```
 docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker 
@@ -49,7 +110,7 @@ docker push libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base
 
 ## Production
 
-#### Creating new site from scratch
+#### Creating site from scratch
 
 ###### Putting this repo onto the server
 
@@ -86,7 +147,7 @@ Restart the apache/drupal container.
 
 Reasoning:  We'll want one gold-standard database.  Ultimately, that's the production machine.  Folks adding content can add to the production site & it will go directly to the production database.  The developers who want to use that data will need to sqldump that database for local use.  The db sidecar makes automatic sqldumps to /home/randall/volumes/backups/Backups/d8staff.  Maybe we'll keep a slimmed down version or one that has dummy data.  If it's dummy data, we might can git commit it in this repo.  We'll figure that out.  Either way, if you need the database for a dev box, put a copy of the sqldump at ./db_autoimport/d8-staff_sandbox_db.sql.
 
-###### Troubleshooting failed mysql inport
+###### Troubleshooting a failed mysql inport on production
 
 ```
 If the mysql import failed & you want to delete the whole database data:
@@ -101,45 +162,9 @@ The d8-mysql folder is the binary files of our d8staff database.  It is gitignor
 The db_autoimport folder is holds sqldumps.  It is also gitignored.
 ```
 
-#### Updating the config/theme/module from another computer
+#### How to add a new module
 
-Export the changes using the drupal config export page, or via drush config-export.  The export page creates a zip of config files. Drush exports the files to /drupal_sync.  A dev will those changes to the intended branch of this repo ('master' for production site, 'staging' for staging site, 'dev' for dev sites)  The next docker build or docker-compose will use the new config settings.
-
-## Dev box
-
-1) copy d8-staff_sandbox_db.sql to ./db_autoimport/
-2) then:
-
-```
-docker-compose up -d
-docker-compose logs -f
-```
-
-   wait until the db container logs say "MySQL init process done. Ready for start up."  Exit the log screen with `Ctrl-C`.  Or keep the log screen open & use a second terminal.  Your choice.
-
-3) then:
-
-```
-docker-compose exec webapp chown -R www-data:www-data /drupal_sync /var/www/html/web/modules/custom /var/www/html/web/themes/custom /etc/apache2/sites-enabled/000-default.conf /var/www/html/composer.json
-docker-compose exec webapp drush cache-rebuild
-docker-compose exec webapp drush updatedb
-docker-compose exec webapp drush config-import
-
-```
-
-See the app at http://localhost:8112
-See the phpmyadmin at http://localhost:8113
-
-
-Stopping the dev box with:
-
-```
-ctrl-C
--and/or-
-docker-compose stop 
-```
-
-#### adding a 3rd party module
+With the repo on your local computer, revise composer.json & rebuild the image.
 
 ```
 ** add "name": "^version" to the "require" section of ./drupal8docker/config/drupal/composer.json **
@@ -155,6 +180,8 @@ docker-compose exec webapp drush config-import
 ** see site at localhost:8112 **
 ```
 
+When you're happy, git push and docker push it.
+
 #### removing a 3rd party module
 
 ```
@@ -164,28 +191,25 @@ docker-compose exec webapp drush config-import
 
 #### editing a theme file
 
-Revise the files in ./themes.  The folder is synced to the container's /drupal_app/web/themes/contrib
+Revise the files in .drupal8docker/themes.  The folder syncd to the dev box's /drupal_app/web/themes/contrib folder.
 
 You may have to `docker-compose restart` to clear the cache.
 
 #### editing a module
 
-Revise the files in ./modules/custom.  It is the home to our custom modules.  The folder syncs to the container's /drupal_app/web/modules
+Revise the files in ./drupal8docker/modules/custom.  The folder syncs to the container's /drupal_app/web/modules folder.
 
 #### sharing drupal config changes
 
-drupal_sync is drupal8's way of sharing drupal config changes amongst developers.
-You can also do this through the frontend, but that breaks version control.
-
+drupal_sync is drupal8's way of sharing drupal config changes.
 The drupal sync files are at ./drupal_sync
+You can use the Drupal web interface, or on a dev box:
 
-#### exporting drupal_sync
+  - exporting drupal_sync
+   `docker-compose exec webapp drush config-export`
 
-`docker-compose exec webapp drush config-export`
-
-#### importing drupal_sync:
-
-`docker-compose exec webapp drush config-import`
+  - importing drupal_sync
+    `docker-compose exec webapp drush config-import`
 
 #### rebuilding the drupal cache
 
@@ -193,18 +217,18 @@ The drupal sync files are at ./drupal_sync
 
 ⋅⋅⋅It's a good habit -- resolves most problems.
 
-#### wiping the containers and starting clean:
+#### wiping the dev box and starting clean:
 
 ```
 docker-compose down
-docker volume rm d8-staff_drupal_data d8-staff_db_data
+docker volume rm d8-staff_db_data
 docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker
-docker-compose up --build
+docker-compose up
 ```
 
-#### if you need to export a local database
+#### exporting a local database
 
 Use the phpmyadmin at :8113, or run on a command line:
 
 1) `docker-compose exec webapp drush sql-dump --result-file=/docker-entrypoint-initdb.d/{some filename}.sql`
-1) look for the file in ./db_autoimport/
+2) look for the file in ./db_autoimport/
