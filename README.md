@@ -10,16 +10,14 @@ Code is changed on the dev box.  We can QA our changes locally.
 
 ### What's in the git repo
 
-1) Just enough to build our site.
-
-  - Dockerfile for installing OS-level programs (php, drush, composer, ldap, ssmtp)
-  - php.ini & settings.php
-  - the apache config file
-  - our custom modules & themes
-  - drupal-sync files
-  - composer.json
-
-  - but not user-uploaded files
+Just enough to build our site.
+ - Dockerfile for installing OS-level programs (php, drush, composer, ldap, ssmtp)
+ - php.ini & settings.php
+ - the apache config file
+ - our custom modules & themes
+ - drupal-sync files
+ - composer.json
+ - but not user-uploaded files
 
 ## Dev box
 
@@ -43,7 +41,6 @@ git checkout -b {your_branch}
 3) Get the database dump
 
 - For now, the latest datbase dump is on the Team files tab, but when production is live you'll need to export it from the production server, using phpmyadmin or however.
-
 - Place that {dumpfile name}.sql at ./db_autoimport --- with no other files in that folder.
 
 4) Spin up the dev box:
