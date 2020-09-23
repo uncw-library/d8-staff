@@ -8,6 +8,18 @@ Content/configuration are changed on the live server.  They are saved in the dat
 
 Code is changed on the dev box.  We can QA our changes locally.
 
+### What's in the git repo
+
+Just enough to build our site.
+
+ - Dockerfile for installing OS-level programs (php, drush, composer, ldap, ssmtp)
+ - php.ini & settings.php
+ - the apache config file
+ - our custom modules & themes
+ - drupal-sync files
+ - composer.json
+
+ - but not user-uploaded files
 
 ## Dev box
 
@@ -84,23 +96,13 @@ But sometimes you need to update that image:
 docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker 
 ```
 
-
-### What's in the git repo
-
-Just enough to build our site.
-
- - Dockerfile for installing OS-level programs (php, drush, composer, ldap, ssmtp)
- - php.ini & settings.php
- - the apache config file
- - our custom modules & themes
- - drupal-sync files
- - composer.json
-
-### pushing to production
+### pushing a new image to production
 
 ```
 docker push libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base
 ```
+
+Then Rancher upgrade & ?how to refresh drupal via the web interface?
 
 #### wiping the dev box and starting clean:
 
