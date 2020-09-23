@@ -12,14 +12,14 @@ Code is changed on the dev box.  We can QA our changes locally.
 
 Just enough to build our site.
 
- Dockerfile for installing OS-level programs (php, drush, composer, ldap, ssmtp)
- php.ini & settings.php
- the apache config file
- our custom modules & themes
- drupal-sync files
- composer.json
+  - Dockerfile for installing OS-level programs (php, drush, composer, ldap, ssmtp)
+  - php.ini & settings.php
+  - the apache config file
+  - our custom modules & themes
+  - drupal-sync files
+  - composer.json
 
- but not user-uploaded files
+  - but not user-uploaded files
 
 ## Dev box
 
