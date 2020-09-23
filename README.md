@@ -183,9 +183,9 @@ You can use the Drupal web interface, or on a dev box:
 **This may be simplified**
 
     - Considering not putting git on the server:
-	    - Sharing a volume with user-uploaded files
-    	- Packing all the changing files inside the container
-    	- Using drupal-sync to share config & db export to share database
+        - Sharing a volume with user-uploaded files
+        - Packing all the changing files inside the container
+        - Using drupal-sync to share config & db export to share database
 
 ###### Putting this repo onto the server
 
