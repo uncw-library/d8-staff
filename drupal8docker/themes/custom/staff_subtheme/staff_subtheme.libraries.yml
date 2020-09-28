@@ -3,7 +3,7 @@ global-styling:
   js:
     js/global.js: {}
   css:
-    component:
+    theme:
       css/style.css: {}
       css/colors.css: {}
 bootstrap:

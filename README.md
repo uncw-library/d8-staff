@@ -83,6 +83,16 @@ docker-compose stop
  - docker build & push the new base image
  - update rancher
 
+#### How to clear the cache
+
+⋅⋅⋅It's a good habit -- resolves most problems.
+
+```
+docker-compose exec webapp drush cache-rebuild
+```
+
+   or use the drupal web interface
+
 ### How to make a new base image
 
 You can always use the latest 'drupal8-base' image from gitlab.  Docker-compose & rancher pull from it automatically.
@@ -117,16 +127,10 @@ docker-compose up
 
 Use the phpmyadmin at :8113, or run on a command line:
 
-1) `docker-compose exec webapp drush sql-dump --result-file=/docker-entrypoint-initdb.d/{some filename}.sql`
-2) look for the file in ./db_autoimport/
-
-#### rebuilding the drupal cache
-
-`docker-compose exec webapp drush cache-rebuild`
-
-   or use the drupal web interface
-
-⋅⋅⋅It's a good habit -- resolves most problems.
+```
+docker-compose exec webapp drush sql-dump --result-file=/docker-entrypoint-initdb.d/{some filename}.sql
+# look for the file in ./db_autoimport/
+```
 
 #### add/remove a drupal module
 
@@ -152,7 +156,11 @@ When you're happy, git push and docker push it.
 
 Revise the files in .drupal8docker/themes.  The folder links to the dev box's /drupal_app/web/themes/contrib folder.
 
-You may have to `docker-compose restart` to clear the cache.
+and clearing the cache:
+
+```
+docker-compose exec webapp drush cache-rebuild
+```
 
 #### editing a module
 
