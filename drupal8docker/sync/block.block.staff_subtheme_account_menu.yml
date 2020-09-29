@@ -12,7 +12,7 @@ _core:
   default_config_hash: 8a31Ywc1t2zlddGd3bmDrFMefWqgSK2E02ceFdr-bfc
 id: staff_subtheme_account_menu
 theme: staff_subtheme
-region: sidebar_second
+region: header
 weight: -6
 provider: null
 plugin: 'system_menu_block:account'
