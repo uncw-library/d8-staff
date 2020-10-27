@@ -1,0 +1,28 @@
+uuid: f8fd8668-4372-43f9-a0e3-57a08b943ad1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.story.field_body
+    - node.type.story
+  module:
+    - text
+    - user
+id: node.story.default
+targetEntityType: node
+bundle: story
+mode: default
+content:
+  field_body:
+    type: text_default
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

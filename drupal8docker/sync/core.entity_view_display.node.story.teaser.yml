@@ -1,33 +1,29 @@
-uuid: 46a3ebb7-1e54-4479-92e7-f264d4318c84
+uuid: 40d461d9-1e28-479d-b138-837eab9697db
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.webform.body
-    - field.field.node.webform.webform
-    - node.type.webform
+    - field.field.node.story.field_body
+    - node.type.story
   module:
     - text
     - user
-_core:
-  default_config_hash: Ls5l3Xs7-YstJnurxFLKj38Exqr2JMZs1j9YeX1Kh2o
-id: node.webform.teaser
+id: node.story.teaser
 targetEntityType: node
-bundle: webform
+bundle: story
 mode: teaser
 content:
-  body:
-    label: hidden
+  field_body:
     type: text_default
     weight: 0
+    region: content
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    region: content
   links:
     weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  webform: true
+hidden: {  }

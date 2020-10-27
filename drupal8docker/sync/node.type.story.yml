@@ -1,0 +1,18 @@
+uuid: 0fe3624c-db46-4338-ace5-242f02a84401
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Story
+type: story
+description: 'A <em>story</em>, similar in form to a <em>page</em>, is ideal for creating and displaying content that informs or engages website visitors. Press releases, site announcements, and informal blog-like entries may all be created with a <em>story</em> entry. By default, a <em>story</em> entry is automatically featured on the site''s initial home page, and provides the ability to post comments.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

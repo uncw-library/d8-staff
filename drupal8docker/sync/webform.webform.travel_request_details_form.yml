@@ -191,6 +191,7 @@ handlers:
   email:
     id: email
     label: 'Email Your Name'
+    notes: ''
     handler_id: email
     status: true
     conditions: {  }
@@ -227,6 +228,7 @@ handlers:
   email_1:
     id: email
     label: 'Supervisor''s Email'
+    notes: ''
     handler_id: email_1
     status: true
     conditions: {  }
@@ -263,6 +265,7 @@ handlers:
   email_2:
     id: email
     label: 'Sherry''s Email'
+    notes: ''
     handler_id: email_2
     status: true
     conditions: {  }
@@ -299,6 +302,7 @@ handlers:
   email_3:
     id: email
     label: 'Division Head Email'
+    notes: ''
     handler_id: email_3
     status: true
     conditions: {  }

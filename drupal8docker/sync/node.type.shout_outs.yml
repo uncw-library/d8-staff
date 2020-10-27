@@ -15,4 +15,4 @@ description: 'Shout Outs recognize co-workers for a job well done!'
 help: "<p>\r\n\tFill out this form to give a Library Staff member a Shout Out.<br />\r\n\r\n\tEvery Friday Team Randall will send out an AllStaff email honoring those who received a Shout Out that week.</p>"
 new_revision: false
 preview_mode: 1
-display_submitted: true
+display_submitted: false

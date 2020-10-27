@@ -1,3 +1,4 @@
+uuid: 7db81696-7cee-43ac-b3e0-2035a6bcfd95
 langcode: en
 status: open
 dependencies: {  }
@@ -193,6 +194,7 @@ handlers:
   email:
     id: email
     label: 'Your Email'
+    notes: ''
     handler_id: email
     status: true
     conditions: {  }
@@ -229,6 +231,7 @@ handlers:
   email_1:
     id: email
     label: 'Sherry''s Email'
+    notes: ''
     handler_id: email_1
     status: true
     conditions: {  }
@@ -265,6 +268,7 @@ handlers:
   email_2:
     id: email
     label: 'Supervisor Email'
+    notes: ''
     handler_id: email_2
     status: true
     conditions: {  }
@@ -299,4 +303,3 @@ handlers:
       theme_name: ''
       parameters: {  }
 variants: {  }
-uuid: 7db81696-7cee-43ac-b3e0-2035a6bcfd95
