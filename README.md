@@ -19,6 +19,71 @@ Just enough to build our site.
  - composer.json
  - but not user-uploaded files
 
+## Production
+
+#### Creating site from scratch
+
+    - The drupal is fully formed in the docker image
+        - Upgrading to a new image will overwrite the drupal sync folder
+        - So, do a drupal config sync export before upgrading, if you want to keep the previous sync settings
+    - The only permanent folders (shared volumes) in drupal are:
+        - ../private   (private uploaded files)
+        - ./sites/default/files   (public uploaded files)
+    - The mysql & its backup each have a permanent folder (shared volume)
+    - Use drupal-sync to share config
+    - Use phpmyadmin export to share database
+
+###### Making a Rancher service
+
+In Rancher, create a new stack using:
+  
+  - Name: d8staff
+  - docker-compose.yml: this repo's docker-compose-rancher.yml  (Change the default passwords in that file beforehand.)
+  - racher-compose.yml: this repo's rancher-compose.yml
+
+Create two load-balancer entries: the phpmyadmin and the nginx.
+
+  - Public  HTTPS  {url.libapps.uncw.edu} 443 _ d8staff/webapp 80
+  - Public  HTTPS  {url.libapps.uncw.edu} 443 _ d8staff/pma 80
+
+Copy the webapp url you just created. 
+
+Paste that url into the "server_name" line in /home/randall/volumes/d8staff/drupal8docker/config/apache/000-default.conf
+(This file is mirrored within the container at /etc/apache2/sites-enabled/000-default.conf.)
+Restart the apache/drupal container.
+
+
+###### Upgrading a drupal image
+
+If you wish to keep the current drupal sync settings, do a drupal config sync export from the Admin menu.  You'll use this exported file to do a drupal config sync import after the upgrade.
+
+Build & tweak the d8-staff using docker-compose on the git repo.  See the above sections for details.
+
+When the docker-compose dev box is good, do a `docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker`  and a `docker push libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base`
+
+Then pull the image into Rancher, with an 'Upgrade service'.
+
+
+###### Maintaining the production db:
+
+Reasoning:  We'll want one gold-standard database.  Ultimately, that's the production machine.  Folks adding content can add to the production site & it will go directly to the production database.  The developers who want to use that data will need to sqldump that database for local use.  The db sidecar makes automatic sqldumps to /home/randall/volumes/backups/Backups/d8-staff.  Maybe we'll keep a slimmed down version or one that has dummy data.  If it's dummy data, we might can git commit it in this repo.  We'll figure that out.  Either way, if you need the database for a dev box, put a copy of the sqldump at ./db_autoimport/d8-staff_sandbox_db.sql.
+
+###### Troubleshooting a failed mysql inport on production
+
+```
+If the mysql import failed & you want to delete the whole database data:
+you can stop the Stack in Rancher,
+delete the folder at /home/randall/volumes/d8staff/mysql
+revise the sqldump at /home/randall/volumes/d8staff/db_autoimport
+restart the stack.
+The mysql logs will read "MySQL init process done. Ready for start up." if the database succeeded in importing.
+
+Note:
+The d8-mysql folder is the binary files of our d8staff database.  It is gitignored.
+The db_autoimport folder is holds sqldumps.  It is also gitignored.
+```
+
+
 ## Dev box
 
 ### How to create a dev box
@@ -150,7 +215,7 @@ docker-compose exec webapp drush config-import
 ** see site at localhost:8112 **
 ```
 
-When you're happy, git push and docker push it.
+When you're happy, git commit & push and docker build & push.
 
 #### editing a theme file
 
@@ -185,68 +250,3 @@ You can use the Drupal web interface, or on a dev box:
     `docker-compose exec webapp drush config-import`
 
     or use the drupal web interface
-
-
-## Production
-
-#### Creating site from scratch
-
-    - The drupal is fully formed in the docker image
-        - Upgrading to a new image will overwrite the drupal sync folder
-        - So, do a drupal config sync export before upgrading, if you want to keep the previous sync settings
-    - The only permanent folders (shared volumes) in drupal are:
-        - ../private   (private uploaded files)
-        - ./sites/default/files   (public uploaded files)
-    - The mysql & its backup each have a permanent folder (shared volume)
-    - Use drupal-sync to share config
-    - Use phpmyadmin export to share database
-
-###### Making a Rancher service
-
-In Rancher, create a new stack using:
-  
-  - Name: d8staff
-  - docker-compose.yml: this repo's docker-compose-rancher.yml  (Change the default passwords in that file beforehand.)
-  - racher-compose.yml: this repo's rancher-compose.yml
-
-Create two load-balancer entries: the phpmyadmin and the nginx.
-
-  - Public  HTTPS  {url.libapps.uncw.edu} 443 _ d8staff/webapp 80
-  - Public  HTTPS  {url.libapps.uncw.edu} 443 _ d8staff/pma 80
-
-Copy the webapp url you just created. 
-
-Paste that url into the "server_name" line in /home/randall/volumes/d8staff/drupal8docker/config/apache/000-default.conf
-(This file is mirrored within the container at /etc/apache2/sites-enabled/000-default.conf.)
-Restart the apache/drupal container.
-
-
-###### Upgrading a drupal image
-
-If you wish to keep the current drupal sync settings, do a drupal config sync export from the Admin menu.  You'll use this exported file to do a drupal config sync import after the upgrade.
-
-Build & tweak the d8-staff using docker-compose on the git repo.  See the above sections for details.
-
-When the docker-compose dev box is good, do a `docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker`  and a `docker push libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base`
-
-Then pull the image into Rancher, with an 'Upgrade service'.
-
-
-###### Maintaining the production db:
-
-Reasoning:  We'll want one gold-standard database.  Ultimately, that's the production machine.  Folks adding content can add to the production site & it will go directly to the production database.  The developers who want to use that data will need to sqldump that database for local use.  The db sidecar makes automatic sqldumps to /home/randall/volumes/backups/Backups/d8-staff.  Maybe we'll keep a slimmed down version or one that has dummy data.  If it's dummy data, we might can git commit it in this repo.  We'll figure that out.  Either way, if you need the database for a dev box, put a copy of the sqldump at ./db_autoimport/d8-staff_sandbox_db.sql.
-
-###### Troubleshooting a failed mysql inport on production
-
-```
-If the mysql import failed & you want to delete the whole database data:
-you can stop the Stack in Rancher,
-delete the folder at /home/randall/volumes/d8staff/mysql
-revise the sqldump at /home/randall/volumes/d8staff/db_autoimport
-restart the stack.
-The mysql logs will read "MySQL init process done. Ready for start up." if the database succeeded in importing.
-
-Note:
-The d8-mysql folder is the binary files of our d8staff database.  It is gitignored.
-The db_autoimport folder is holds sqldumps.  It is also gitignored.
-```

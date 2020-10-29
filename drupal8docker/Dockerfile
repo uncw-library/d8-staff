@@ -41,7 +41,7 @@ RUN set -eux; \
 		zip \
 	; \
 	\
-# reset apt-mark's "manual" list so that "purge --auto-remove" will remove all build dependencies
+	# reset apt-mark's "manual" list so that "purge --auto-remove" will remove all build dependencies
 	apt-mark auto '.*' > /dev/null; \
 	apt-mark manual $savedAptMark; \
 	ldd "$(php -r 'echo ini_get("extension_dir");')"/*.so \
@@ -65,14 +65,14 @@ RUN { \
 		echo 'opcache.fast_shutdown=1'; \
 	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
-# installing extra programs we need, including composer & drush
+# installing extra programs we need, including composer & drush-launcher
 
 RUN apt update \
     && apt install wget git curl nano tree unzip default-mysql-client -y
 
 RUN cd /tmp \
     && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-    && php composer-setup.php \
+    && php composer-setup.php --version=1.10.16 \
     && mv composer.phar /usr/bin/composer \
     && php -r "unlink('composer-setup.php');"
 
@@ -82,11 +82,26 @@ RUN wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/down
 
 # creating a bare drupal8 project, injecting our composer.json, using composer to install drupal8 + modules
 
-RUN composer create-project drupal-composer/drupal-project:8.x-dev /var/www/html --stability dev --no-interaction --no-install
-COPY ./config/drupal/composer.json /var/www/html/composer.json
+RUN composer create-project drupal/recommended-project:8.9.7 /var/www/html --stability dev --no-interaction --no-install
+# COPY ./config/drupal/composer.json /var/www/html/composer.json
 WORKDIR /var/www/html
 RUN php -d memory_limit=-1 /usr/bin/composer update \
     && chown -R www-data:www-data /var/www/html/
+
+RUN php -d memory_limit=-1 /usr/bin/composer require \
+        "cweagans/composer-patches:>=1" \
+        "drupal/backup_migrate:^4.1" \
+        "drupal/bootstrap_barrio:>=4" \
+        "drupal/ctools:^3.4" \
+        "drupal/imce:^2.3" \
+        "drupal/ldap:^3.0@beta" \
+        "drupal/menu_block:^1.6" \
+        "drupal/pathauto:^1.8" \
+        "drupal/search_api:^1.18" \
+        "drupal/smtp:^1.0" \
+        "drupal/token:^1.6" \
+        "drupal/webform:^5.22" \
+        "drush/drush:>=9"
 
 # injecting our additions to settings.php
 

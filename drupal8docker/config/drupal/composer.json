@@ -27,7 +27,7 @@
         "drupal/ctools": "^3.4",
         "drupal/entity": "^1.0",
         "drupal/imce": "^2.2",
-        "drupal/ldap": "^3.0",
+        "drupal/ldap": "^3.0@beta",
         "drupal/menu_block": "^1.6",
         "drupal/pathauto": "^1.8",
         "drupal/search_api": "^1.17",
