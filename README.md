@@ -120,7 +120,7 @@ docker-compose logs -f
 then spruce up the files to make drupal happy:
 
 ```
-docker-compose exec webapp chown -R www-data:www-data /drupal_sync /var/www/html/web/modules/custom /var/www/html/web/themes/custom /etc/apache2/sites-enabled/000-default.conf /var/www/html/composer.json
+docker-compose exec webapp chown -R www-data:www-data /drupal_sync /var/www/html/web/modules/custom /var/www/html/web/themes/custom /etc/apache2/sites-enabled/000-default.conf
 docker-compose exec webapp drush cache-rebuild
 docker-compose exec webapp drush updatedb
 docker-compose exec webapp drush config-import

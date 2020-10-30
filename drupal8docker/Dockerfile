@@ -80,13 +80,22 @@ RUN wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/down
     && chmod +x drush.phar \
     && mv drush.phar /usr/bin/drush
 
-# creating a bare drupal8 project, injecting our composer.json, using composer to install drupal8 + modules
+# creating a bare drupal8 project, then using composer to install drupal8 + modules
 
-RUN composer create-project drupal/recommended-project:8.9.7 /var/www/html --stability dev --no-interaction --no-install
-# COPY ./config/drupal/composer.json /var/www/html/composer.json
 WORKDIR /var/www/html
+RUN composer create-project drupal/recommended-project:8.9.7 /var/www/html --stability dev --no-interaction
+
 RUN php -d memory_limit=-1 /usr/bin/composer update \
-    && chown -R www-data:www-data /var/www/html/
+    && chown -R www-data:www-data /var/www/html/ 
+
+RUN pwd
+
+RUN ls -la
+
+RUN cp web/sites/default/default.settings.php web/sites/default/settings.php \
+	&& cp web/sites/default/default.services.yml web/sites/default/services.yml \
+	&& chown www-data:www-data web/sites/default/settings.php \
+	&& chown www-data:www-data web/sites/default/services.yml
 
 RUN php -d memory_limit=-1 /usr/bin/composer require \
         "cweagans/composer-patches:>=1" \
