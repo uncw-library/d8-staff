@@ -16,7 +16,6 @@ Just enough to build our site.
  - the apache config file
  - our custom modules & themes
  - drupal-sync files
- - composer.json
  - but not user-uploaded files
 
 ## Production
@@ -199,15 +198,15 @@ docker-compose exec webapp drush sql-dump --result-file=/docker-entrypoint-initd
 
 #### add/remove a drupal module
 
-With the repo on your local computer, revise composer.json & rebuild the image.
+With the repo on your local computer:
 
 ```
-** add or remove "name": "^version" in the "require" section of ./drupal8docker/config/drupal/composer.json **
+** add or remove `composer require module:4.3` to the drupal8docker/Dockerfile **
 docker-compose down
 docker volume rm d8-staff_drupal_data
 docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker
 docker-compose up -d
-docker-compose exec webapp chown -R www-data:www-data /drupal_sync /var/www/html/web/modules/custom /var/www/html/web/themes/contrib /etc/apache2/sites-enabled/000-default.conf /var/www/html/composer.json
+docker-compose exec webapp chown -R www-data:www-data /drupal_sync /var/www/html/web/modules/custom /var/www/html/web/themes/contrib /etc/apache2/sites-enabled/000-default.conf
 docker-compose exec webapp drush cache-rebuild
 docker-compose exec webapp drush updatedb
 docker-compose exec webapp drush config-import
@@ -215,7 +214,7 @@ docker-compose exec webapp drush config-import
 ** see site at localhost:8112 **
 ```
 
-When you're happy, git commit & push and docker build & push.
+When you're happy: git commit & push, and docker build & push.
 
 #### editing a theme file
 
@@ -229,7 +228,7 @@ docker-compose exec webapp drush cache-rebuild
 
 #### editing a module
 
-Revise the files in ./drupal8docker/modules/custom.  The folder links to the container's /drupal_app/web/modules folder.
+Revise the files in ./drupal8docker/modules/custom.  The folder matches the container's /drupal_app/web/modules/custom folder.
 
 You may have to docker build again, depending how deep the change was.
 
