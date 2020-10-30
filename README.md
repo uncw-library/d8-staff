@@ -37,7 +37,7 @@ Just enough to build our site.
 In Rancher, create a new stack using:
   
   - Name: d8staff
-  - docker-compose.yml: this repo's docker-compose-rancher.yml  (Change the default passwords in that file beforehand.)
+  - docker-compose.yml: this repo's docker-compose-rancher.yml  (Change the default passwords and drupal hash salt in that file beforehand.)
   - racher-compose.yml: this repo's rancher-compose.yml
 
 Create two load-balancer entries: the phpmyadmin and the nginx.
@@ -45,12 +45,7 @@ Create two load-balancer entries: the phpmyadmin and the nginx.
   - Public  HTTPS  {url.libapps.uncw.edu} 443 _ d8staff/webapp 80
   - Public  HTTPS  {url.libapps.uncw.edu} 443 _ d8staff/pma 80
 
-Copy the webapp url you just created. 
-
-Paste that url into the "server_name" line in /home/randall/volumes/d8staff/drupal8docker/config/apache/000-default.conf
-(This file is mirrored within the container at /etc/apache2/sites-enabled/000-default.conf.)
-Restart the apache/drupal container.
-
+Get the sqldump into the mysql database.  (not settled yet on the best way.  The first round used rsync sqldump to server, move sqldump into mysql container, enter mysql container, then commandline mysql -u root -p < sqldump, but that was a bit of a hack.
 
 ###### Upgrading a drupal image
 
@@ -62,10 +57,9 @@ When the docker-compose dev box is good, do a `docker build --no-cache -t libapp
 
 Then pull the image into Rancher, with an 'Upgrade service'.
 
-
 ###### Maintaining the production db:
 
-Reasoning:  We'll want one gold-standard database.  Ultimately, that's the production machine.  Folks adding content can add to the production site & it will go directly to the production database.  The developers who want to use that data will need to sqldump that database for local use.  The db sidecar makes automatic sqldumps to /home/randall/volumes/backups/Backups/d8-staff.  Maybe we'll keep a slimmed down version or one that has dummy data.  If it's dummy data, we might can git commit it in this repo.  We'll figure that out.  Either way, if you need the database for a dev box, put a copy of the sqldump at ./db_autoimport/d8-staff_sandbox_db.sql.
+Reasoning:  We'll want one gold-standard database.  Ultimately, that's the production machine.  Folks adding content can add to the production site & it will go directly to the production database.  The developers who want to use that data will need to sqldump that database for local use.  The db sidecar makes automatic sqldumps to /home/randall/volumes/backups/Backups/d8-staff.  if you need the database for a dev box, put a copy of the sqldump at ./db_autoimport/d8-staff_sandbox_db.sql.
 
 ###### Troubleshooting a failed mysql inport on production
 

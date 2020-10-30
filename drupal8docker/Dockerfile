@@ -85,12 +85,7 @@ RUN wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/down
 WORKDIR /var/www/html
 RUN composer create-project drupal/recommended-project:8.9.7 /var/www/html --stability dev --no-interaction
 
-RUN php -d memory_limit=-1 /usr/bin/composer update \
-    && chown -R www-data:www-data /var/www/html/ 
-
-RUN pwd
-
-RUN ls -la
+RUN php -d memory_limit=-1 /usr/bin/composer update 
 
 RUN cp web/sites/default/default.settings.php web/sites/default/settings.php \
 	&& cp web/sites/default/default.services.yml web/sites/default/services.yml \
@@ -128,3 +123,5 @@ COPY --chown=www-data:www-data ./config/drupal/php.ini /usr/local/etc/php/php.in
 COPY --chown=www-data:www-data ./sync /drupal_sync
 COPY --chown=www-data:www-data ./themes/custom /var/www/html/web/themes/custom
 COPY --chown=www-data:www-data ./modules/custom /var/www/html/web/modules/custom
+
+RUN chown -R www-data:www-data /var/www/html/
