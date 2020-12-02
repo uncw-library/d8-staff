@@ -33,7 +33,7 @@ settings:
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
-  form_remote_addr: true
+  form_remote_addr: false
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false
@@ -140,6 +140,9 @@ settings:
   results_customize: false
   token_view: false
   token_update: false
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  serial_disabled: false
 access:
   create:
     roles:
@@ -264,7 +267,7 @@ handlers:
       parameters: {  }
   email_2:
     id: email
-    label: 'Sherry''s Email'
+    label: 'Angie''s Email'
     notes: ''
     handler_id: email_2
     status: true
@@ -273,7 +276,7 @@ handlers:
     settings:
       states:
         - completed
-      to_mail: matsons@uncw.edu
+      to_mail: edwardsa@uncw.edu
       to_options: {  }
       cc_mail: ''
       cc_options: {  }

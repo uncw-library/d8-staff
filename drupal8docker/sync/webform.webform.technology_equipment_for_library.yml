@@ -33,7 +33,7 @@ settings:
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
-  form_remote_addr: true
+  form_remote_addr: false
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false
@@ -43,7 +43,7 @@ settings:
   form_disable_autocomplete: false
   form_novalidate: false
   form_disable_inline_errors: false
-  form_required: false
+  form_required: true
   form_unsaved: false
   form_disable_back: false
   form_submit_back: false
@@ -140,6 +140,9 @@ settings:
   results_customize: false
   token_view: false
   token_update: false
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  serial_disabled: false
 access:
   create:
     roles:

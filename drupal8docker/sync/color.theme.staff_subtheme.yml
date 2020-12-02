@@ -10,9 +10,9 @@ palette:
   titleslogan: '#000000'
   text: '#3b3b3b'
   link: '#006666'
-logo: 'public://color/staff_subtheme-048767d7/logo.svg'
+logo: 'public://color/staff_subtheme-2d4b70fb/logo.svg'
 stylesheets:
-  - 'public://color/staff_subtheme-048767d7/colors.css'
+  - 'public://color/staff_subtheme-2d4b70fb/colors.css'
 files:
-  - 'public://color/staff_subtheme-048767d7/logo.svg'
-  - 'public://color/staff_subtheme-048767d7/colors.css'
+  - 'public://color/staff_subtheme-2d4b70fb/logo.svg'
+  - 'public://color/staff_subtheme-2d4b70fb/colors.css'
