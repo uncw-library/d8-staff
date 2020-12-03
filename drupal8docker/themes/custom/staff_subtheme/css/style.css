@@ -43,6 +43,8 @@ div.clearfix.nav {
 	justify-content: flex-end;
 }
 
+/*to make the asterisks show*/
+
 .form-required::after {
 	content: '';
 	vertical-align: super;
