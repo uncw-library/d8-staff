@@ -8,7 +8,8 @@ $settings['file_private_path'] = $app_root . '/../private';
 
 $settings['trusted_host_patterns'] = [
   '^localhost$',
-  '^staff.libapps-staff.uncw.edu$'
+  '^staff.libapps-staff.uncw.edu$',
+  '^d8staff.libapps-staff.uncw.edu$',
 ];
 
 

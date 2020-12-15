@@ -13,7 +13,7 @@ title: 'Library Leadership Professional Development Funding Request'
 description: "<p>This form is to request funds for EHRA/SHRA employees to participate in national library leadership development programs such as the ACRL/Harvard Leadership Program or ACRL Immersion.&nbsp; Randall will allocate up to $5000 annually for this fund.</p>\r\n\r\n<ul>\r\n\t<li>A call soliciting applications for Library Leadership funding will go out in September with applications due Oct. 1st (unless otherwise noted).</li>\r\n\t<li>Individuals will apply for funding by filling out this form. The form will be sent to your Associate Director (and supervisor if applicable).</li>\r\n\t<li>SLT will review applications using this&nbsp;<a href=\"https://share.uncw.edu/sites/aa/library/admin/Shared%20Documents/Travel/Library%20Leadership%20Professional%20Development%20Funding%20Request%20-%20Scoring%20Rubric.docx\">rubric</a>&nbsp;to evaluate applications and prioritize funding.</li>\r\n\t<li>The Associate Director will inform the individual of SLT&rsquo;s decision about funding priority by mid-October.</li>\r\n\t<li>If approved, the individual should complete the online travel request form and select &ldquo;Library Leadership&rdquo; from the &ldquo;Type of travel&rdquo; drop down.</li>\r\n</ul>"
 category: ''
 elements: "your_name:\n  '#type': textfield\n  '#title': 'Your Name'\n  '#required': true\n  '#format_items': comma\nyour_email_address:\n  '#type': email\n  '#title': 'Your email address'\n  '#required': true\n  '#format_items': comma\nyour_associate_director_s_email_address:\n  '#type': email\n  '#title': 'Your Associate Director''s email address'\n  '#format_items': comma\nyour_supervisor_s_email_address_if_different_than_your_ad_:\n  '#type': email\n  '#title': 'Your supervisor''s email address (if different than your AD)'\n  '#required': true\n  '#format_items': comma\nname_of_opportunity:\n  '#type': textfield\n  '#title': 'Name of opportunity'\n  '#required': true\n  '#format_items': comma\nexplain_how_participation_in_the_program_would_benefit_you_:\n  '#type': textarea\n  '#title': 'Explain how participation in the program would benefit you?'\n  '#required': true\n  '#format_items': comma\nwhat_concrete_actions_might_you_take_after_completion_of_the_pro:\n  '#type': textarea\n  '#title': 'What concrete actions might you take after completion of the program?'\n  '#required': true\n  '#format_items': comma\nhow_does_participation_align_with_your_short_and_long_term_caree:\n  '#type': textarea\n  '#title': 'How does participation align with your short and long term career goals?'\n  '#required': true\n  '#format_items': comma\nwhat_are_the_estimated_costs_of_attendance_will_any_part_of_this:\n  '#type': textarea\n  '#title': 'What are the estimated costs of attendance? Will any part of this be funded by your individual or department allocation?'\n  '#required': true\n  '#format_items': comma\ncopy_and_paste_your_final_or_draft_application_materials_if_an_a:\n  '#type': textarea\n  '#title': 'Copy and paste your final or draft application materials (if an application is required by the program)'\n  '#format_items': comma"
-css: ".form-required::after {\r\ncontent: '';\r\nvertical-align: super;\r\ndisplay: inline-block;\r\nbackground-image: url(/core/misc/icons/ee0000/required.svg);\r\nbackground-repeat: no-repeat;\r\nbackground-size: 6px 6px;\r\nwidth: 6px;\r\nheight: 6px;\r\nmargin: 0 0.3em;\r\n} "
+css: ''
 javascript: ''
 settings:
   ajax: false
@@ -202,7 +202,7 @@ handlers:
     settings:
       states:
         - completed
-      to_mail: '[webform_submission:values:your_name:raw]'
+      to_mail: '[webform_submission:values:your_email_address:raw]'
       to_options: {  }
       cc_mail: ''
       cc_options: {  }
@@ -247,7 +247,7 @@ handlers:
       bcc_options: {  }
       from_mail: '[webform_submission:values:your_email_address:raw]'
       from_options: {  }
-      from_name: _default
+      from_name: '[webform_submission:values:your_name:raw]'
       subject: _default
       body: "The following Library Leadership Funding Request has been submitted:<br />\r\n&lt;p&gt;Submitted values are:&lt;/p&gt;<br />\r\n[webform_submission:values]"
       excluded_elements: {  }
@@ -284,7 +284,7 @@ handlers:
       bcc_options: {  }
       from_mail: '[webform_submission:values:your_email_address:raw]'
       from_options: {  }
-      from_name: _default
+      from_name: '[webform_submission:values:your_name:raw]'
       subject: _default
       body: "The following Library Leadership Funding Request has been submitted:<br />\r\n&lt;p&gt;Submitted values are:&lt;/p&gt;<br />\r\n[webform_submission:values]"
       excluded_elements: {  }
