@@ -9,16 +9,18 @@ label: 'Generic Content'
 type: 'canonical_entities:node'
 pattern: '[node:title]'
 selection_criteria:
-  ad629c9d-1167-415d-b7a6-f677ce731ef9:
+  74e42e34-d0b6-454b-aaec-687704a026ab:
     id: node_type
     bundles:
       article: article
       page: page
+      shout_outs: shout_outs
+      story: story
       webform: webform
     negate: false
     context_mapping:
       node: node
-    uuid: ad629c9d-1167-415d-b7a6-f677ce731ef9
+    uuid: 74e42e34-d0b6-454b-aaec-687704a026ab
 selection_logic: and
 weight: -5
 relationships: {  }

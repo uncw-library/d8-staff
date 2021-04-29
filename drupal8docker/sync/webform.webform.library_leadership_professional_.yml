@@ -218,7 +218,7 @@ handlers:
       exclude_empty: true
       exclude_empty_checkbox: false
       exclude_attachments: false
-      html: true
+      html: false
       attachments: false
       twig: false
       debug: false
@@ -249,13 +249,13 @@ handlers:
       from_options: {  }
       from_name: '[webform_submission:values:your_name:raw]'
       subject: _default
-      body: "The following Library Leadership Funding Request has been submitted:<br />\r\n&lt;p&gt;Submitted values are:&lt;/p&gt;<br />\r\n[webform_submission:values]"
+      body: "Submitted on [webform_submission:created]\r\nSubmitted by: [webform_submission:user]\r\n\r\nSubmitted values are:\r\n[webform_submission:values]\r\n"
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
       exclude_empty_checkbox: false
       exclude_attachments: false
-      html: true
+      html: false
       attachments: false
       twig: false
       debug: false
@@ -286,13 +286,13 @@ handlers:
       from_options: {  }
       from_name: '[webform_submission:values:your_name:raw]'
       subject: _default
-      body: "The following Library Leadership Funding Request has been submitted:<br />\r\n&lt;p&gt;Submitted values are:&lt;/p&gt;<br />\r\n[webform_submission:values]"
+      body: "Submitted on [webform_submission:created]\r\nSubmitted by: [webform_submission:user]\r\n\r\nSubmitted values are:\r\n[webform_submission:values]\r\n"
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
       exclude_empty_checkbox: false
       exclude_attachments: false
-      html: true
+      html: false
       attachments: false
       twig: false
       debug: false

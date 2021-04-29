@@ -1,18 +1,18 @@
-uuid: 978e77a9-9ec1-477f-92de-45454e8bbfad
+uuid: f7e88df7-c520-4d27-93bb-40a35fcae2bd
 langcode: en
 status: open
 dependencies: {  }
 open: null
 close: null
 weight: 0
-uid: 1
+uid: 13
 template: false
 archive: false
-id: incident_event_report
-title: 'Incident Event Report'
+id: complaint_or_suggestion_report_f
+title: 'Complaint or Suggestion Report Form'
 description: ''
 category: ''
-elements: "date_and_time_the_incident_occurred:\n  '#type': datetime\n  '#title': 'Date and time the incident occurred'\n  '#title_display': before\n  '#date_date_format': ''\n  '#date_year_range': '-1:+1'\n  '#date_time_format': ''\n  '#date_time_step': '900'\ncategory:\n  '#type': select\n  '#title': Category\n  '#description': 'Emails are automatically sent to the UL and all ADs, unless otherwise noted.'\n  '#options':\n    '01': 'Theft - Personal Property '\n    '02': 'Theft - Library Property'\n    '03': Assault/Harassment\n    '04': Injury/Illness\n    '05': 'Damage to Property/Vandalism'\n    '06': 'Alarm sounding - Fire or door (No email sent)'\n    '07': 'Problem Patron - Irate, abusive, disorderly conduct, physical altercation'\n    '08': 'Person trapped on elevator (Email will automatically be sent to Christopher Rhodes and Nicole Tekulve)'\n    '09': 'Other – When the incident doesn’t fit any category already listed above; an example is a person sitting in bathroom in a lawn chair '\n  '#required': true\nbrief_description_of_incident:\n  '#type': textarea\n  '#title': 'Brief Description of incident'\n  '#description': |\n    &nbsp; &nbsp; (include names of staff involved in taking action or resolving the issue)<br />\n    &nbsp;&nbsp; &nbsp;Example: Student came to the desk and reported a creepy looking character who wouldn&#39;t leave her alone on the second floor. Called the Police (non-emergency number unless a weapon or threat is involved) and asked student if she was willing to wait; She couldn&#39;t wait so I got a description of the creepy looking character. I gave the Police the physical description the student shared and they went to the 2nd floor. Police came back about 10 minutes with the creepy looking character and they left the building.<br />\n    &nbsp;\n    \n  '#required': true\n  '#format_items': comma\naction_taken:\n  '#type': textfield\n  '#title': 'Action Taken'\n  '#description': '(Police, EMS called, supervisor notified, etc.)'\n  '#required': true\n  '#format_items': comma\nyour_name:\n  '#type': textfield\n  '#title': 'Your Name'\n  '#required': true\n  '#format_items': comma\nyour_email:\n  '#type': email\n  '#title': 'Your Email'\n  '#description': |\n    You will be sent a email copy of your report.<br />\n    &nbsp;\n    \n  '#required': true\n  '#format_items': comma"
+elements: "date_received:\n  '#type': date\n  '#title': 'Date Received'\n  '#required': true\n  '#datepicker': true\nsource_of_complaint_or_suggestion:\n  '#type': select\n  '#title': 'Source of Complaint or Suggestion'\n  '#options':\n    In-Person: In-Person\n    Phone: Phone\n    Email: Email\n    Chat: Chat\n    Other: Other\n  '#required': true\ncomplaint_or_suggestion:\n  '#type': textarea\n  '#title': 'Complaint or Suggestion'\n  '#description': 'Provide details about the complaint or suggestion. Copy and paste text if from email or other written source.'\n  '#required': true\naction_taken_if_any:\n  '#type': textarea\n  '#title': 'Action Taken, if any'\n  '#description': 'Describe any response or action taken.'\n  '#required': true\nfollow_up_needed_:\n  '#type': radios\n  '#title': 'Follow-up needed?'\n  '#options':\n    'yes': 'Yes'\n    'no': 'No'\n  '#required': true\npatron_contact_info:\n  '#type': textarea\n  '#title': 'Patron Contact Info'\n  '#description': 'If follow-up needed, provide patron name and email or phone.'\nyour_name:\n  '#type': textfield\n  '#title': 'Your name'\n  '#required': true\nyour_email:\n  '#type': email\n  '#title': 'Your email'\n  '#required': true"
 css: ''
 javascript: ''
 settings:
@@ -25,7 +25,7 @@ settings:
   page_submit_path: ''
   page_confirm_path: ''
   page_theme_name: ''
-  form_title: source_entity_webform
+  form_title: both
   form_submit_once: false
   form_exception_message: ''
   form_open_message: ''
@@ -43,7 +43,7 @@ settings:
   form_disable_autocomplete: false
   form_novalidate: false
   form_disable_inline_errors: false
-  form_required: true
+  form_required: false
   form_unsaved: false
   form_disable_back: false
   form_submit_back: false
@@ -85,6 +85,8 @@ settings:
   wizard_progress_link: false
   wizard_progress_states: false
   wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
   wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
@@ -92,7 +94,7 @@ settings:
   wizard_track: ''
   wizard_prev_button_label: ''
   wizard_next_button_label: ''
-  wizard_toggle: true
+  wizard_toggle: false
   wizard_toggle_show_label: ''
   wizard_toggle_hide_label: ''
   preview: 0
@@ -112,7 +114,7 @@ settings:
   draft_pending_multiple_message: ''
   confirmation_type: page
   confirmation_title: ''
-  confirmation_message: ''
+  confirmation_message: 'This form will send a copy to you, as well as send an email to Randall UL and ADs.'
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
@@ -140,8 +142,7 @@ settings:
   results_customize: false
   token_view: false
   token_update: false
-  wizard_auto_forward_hide_next_button: false
-  wizard_keyboard: true
+  token_delete: false
   serial_disabled: false
 access:
   create:
@@ -202,32 +203,8 @@ handlers:
     settings:
       states:
         - completed
-      to_mail: '[webform_submission:values:category:raw]'
-      to_options:
-        -
-          value: '01'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, tekulven@uncw.edu, pembertona@uncw.edu, saundersn@uncw.edu'
-        -
-          value: '02'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, tekulven@uncw.edu, pembertona@uncw.edu, saundersn@uncw.edu'
-        -
-          value: '03'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, tekulven@uncw.edu, pembertona@uncw.edu, saundersn@uncw.edu'
-        -
-          value: '04'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, tekulven@uncw.edu, pembertona@uncw.edu, saundersn@uncw.edu'
-        -
-          value: '05'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, tekulven@uncw.edu, pembertona@uncw.edu, saundersn@uncw.edu'
-        -
-          value: '07'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, tekulven@uncw.edu, pembertona@uncw.edu, saundersn@uncw.edu'
-        -
-          value: '08'
-          text: 'rhodesc@uncw.edu, tekulven@uncw.edu'
-        -
-          value: '09'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, tekulven@uncw.edu, pembertona@uncw.edu, saundersn@uncw.edu'
+      to_mail: '[webform_submission:values:your_email:raw]'
+      to_options: {  }
       cc_mail: ''
       cc_options: {  }
       bcc_mail: ''
@@ -235,11 +212,11 @@ handlers:
       from_mail: _default
       from_options: {  }
       from_name: _default
-      subject: 'Incident Event Report'
-      body: "Submitted on [webform_submission:created]\r\nSubmitted by: [webform_submission:user]\r\n\r\nSubmitted values are:\r\n[webform_submission:values]\r\n"
+      subject: _default
+      body: _default
       excluded_elements: {  }
       ignore_access: false
-      exclude_empty: true
+      exclude_empty: false
       exclude_empty_checkbox: false
       exclude_attachments: false
       html: false
@@ -254,7 +231,7 @@ handlers:
       parameters: {  }
   email_1:
     id: email
-    label: 'Your Email'
+    label: 'Email UL and ADs'
     notes: ''
     handler_id: email_1
     status: true
@@ -263,20 +240,20 @@ handlers:
     settings:
       states:
         - completed
-      to_mail: '[webform_submission:values:your_email:raw]'
+      to_mail: 'benedettis@uncw.edu,holmanl@uncw.edu,mcbrayerl@uncw.edu,pembertona@uncw.edu,saundersn@uncw.edu,tekulven@uncw.edu'
       to_options: {  }
       cc_mail: ''
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
-      from_mail: '[webform_submission:values:your_email:raw]'
+      from_mail: _default
       from_options: {  }
-      from_name: '[webform_submission:values:your_name:raw]'
+      from_name: _default
       subject: _default
       body: _default
       excluded_elements: {  }
       ignore_access: false
-      exclude_empty: true
+      exclude_empty: false
       exclude_empty_checkbox: false
       exclude_attachments: false
       html: false

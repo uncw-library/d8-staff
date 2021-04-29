@@ -1,23 +1,18 @@
-uuid: 8b3535e5-0263-4445-93c5-ca9cf0247925
+uuid: 9b3672f2-73ab-4531-bc73-4035902411fc
 langcode: en
-status: open
-dependencies:
-  enforced:
-    module:
-      - webform
-_core:
-  default_config_hash: OPbEEQAzvu7mP33Ykbxa3jKQIHhzedZf1pY27da5baU
+status: closed
+dependencies: {  }
 open: null
 close: null
 weight: 0
-uid: null
+uid: 13
 template: false
 archive: false
-id: contact
-title: Contact
-description: 'Basic email contact webform.'
+id: research_data_librarian
+title: 'Research Data Librarian'
+description: ''
 category: ''
-elements: "name:\n  '#title': 'Your Name'\n  '#type': textfield\n  '#required': true\n  '#default_value': '[current-user:display-name]'\nemail:\n  '#title': 'Your Email'\n  '#type': email\n  '#required': true\n  '#default_value': '[current-user:mail]'\nsubject:\n  '#title': Subject\n  '#type': textfield\n  '#required': true\n  '#test': 'Testing contact webform from [site:name]'\nmessage:\n  '#title': Message\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Send message'\n"
+elements: "candidate:\n  '#type': select\n  '#title': Candidate\n  '#options':\n    'Lynnee Argabright': 'Lynnee Argabright'\n    'Matthew Benzing': 'Matthew Benzing'\n  '#required': true\nrate_the_candidate_s_knowledge_of_data_services_including_data_c:\n  '#type': webform_rating\n  '#title': 'Rate the candidate’s knowledge of data services including data curation and management, analysis and presentation, sharing and stewardship'\n  '#required': true\ncomment:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nrate_the_candidate_s_ability_to_develop_and_assess_library_resea:\n  '#type': webform_rating\n  '#title': 'Rate the candidate’s ability to develop and assess library research data services for faculty and students'\n  '#required': true\ncomment1:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nrate_the_candidate_s_ability_to_provide_library_data_services_th:\n  '#type': webform_rating\n  '#title': 'Rate the candidate’s ability to provide library data services though outreach, instruction, and consultation through collaboration in and outside of the library'\n  '#required': true\ncomment2:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\ndoes_this_candidate_appear_to_be_able_to_perform_the_job_of_rese:\n  '#type': textarea\n  '#title': 'Does this candidate appear to be able to perform the job of Research Data Librarian? Why or why not?'\n  '#required': true\ndid_the_candidate_answer_all_questions_to_your_satisfaction_if_n:\n  '#type': textarea\n  '#title': 'Did the candidate answer all questions to your satisfaction? If not, which questions were left unanswered?'\n  '#required': true\ndo_you_have_any_reservations_about_this_candidate_s_ability_to_s:\n  '#type': textarea\n  '#title': 'Do you have any reservations about this candidate’s ability to succeed at UNCW? If yes, explain.'\n  '#required': true\nhow_would_you_rank_this_candidate_in_relation_to_the_other_candi:\n  '#type': textarea\n  '#title': 'How would you rank this candidate in relation to the other candidates who have interviewed for this position? How did you arrive at this rank?'\n  '#required': true\nadditional_comments:\n  '#type': textarea\n  '#title': 'Additional Comments'"
 css: ''
 javascript: ''
 settings:
@@ -90,6 +85,8 @@ settings:
   wizard_progress_link: false
   wizard_progress_states: false
   wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
   wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
@@ -97,7 +94,7 @@ settings:
   wizard_track: ''
   wizard_prev_button_label: ''
   wizard_next_button_label: ''
-  wizard_toggle: false
+  wizard_toggle: true
   wizard_toggle_show_label: ''
   wizard_toggle_hide_label: ''
   preview: 0
@@ -115,10 +112,10 @@ settings:
   draft_loaded_message: ''
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
-  confirmation_type: url_message
+  confirmation_type: page
   confirmation_title: ''
-  confirmation_message: 'Your message has been sent.'
-  confirmation_url: '<front>'
+  confirmation_message: ''
+  confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
@@ -145,6 +142,8 @@ settings:
   results_customize: false
   token_view: false
   token_update: false
+  token_delete: false
+  serial_disabled: false
 access:
   create:
     roles:
@@ -192,79 +191,5 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
-handlers:
-  email_confirmation:
-    id: email
-    label: 'Email confirmation'
-    notes: ''
-    handler_id: email_confirmation
-    status: true
-    conditions: {  }
-    weight: 1
-    settings:
-      states:
-        - completed
-      to_mail: '[current-user:mail]'
-      to_options: {  }
-      cc_mail: ''
-      cc_options: {  }
-      bcc_mail: ''
-      bcc_options: {  }
-      from_mail: _default
-      from_options: {  }
-      from_name: _default
-      subject: '[webform_submission:values:subject:raw]'
-      body: '[webform_submission:values:message:value]'
-      excluded_elements: {  }
-      ignore_access: false
-      exclude_empty: true
-      exclude_empty_checkbox: false
-      exclude_attachments: false
-      html: false
-      attachments: false
-      twig: false
-      theme_name: ''
-      parameters: {  }
-      debug: false
-      reply_to: ''
-      return_path: ''
-      sender_mail: ''
-      sender_name: ''
-  email_notification:
-    id: email
-    label: 'Email notification'
-    notes: ''
-    handler_id: email_notification
-    status: true
-    conditions: {  }
-    weight: 2
-    settings:
-      states:
-        - completed
-      to_mail: _default
-      to_options: {  }
-      cc_mail: ''
-      cc_options: {  }
-      bcc_mail: ''
-      bcc_options: {  }
-      from_mail: '[webform_submission:values:email:raw]'
-      from_options: {  }
-      from_name: '[webform_submission:values:name:raw]'
-      subject: '[webform_submission:values:subject:raw]'
-      body: '[webform_submission:values:message:value]'
-      excluded_elements: {  }
-      ignore_access: false
-      exclude_empty: true
-      exclude_empty_checkbox: false
-      exclude_attachments: false
-      html: false
-      attachments: false
-      twig: false
-      theme_name: ''
-      parameters: {  }
-      debug: false
-      reply_to: ''
-      return_path: ''
-      sender_mail: ''
-      sender_name: ''
+handlers: {  }
 variants: {  }
