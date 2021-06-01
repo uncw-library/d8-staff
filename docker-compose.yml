@@ -9,7 +9,7 @@ networks:
 
 services:
   webapp:
-    image: libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base:latest
+    image: libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base:9.1.9
     container_name: webapp
     env_file: .env
     volumes:

@@ -83,7 +83,7 @@ RUN wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/down
 # creating a bare drupal8 project, then using composer to install drupal8 + modules
 
 WORKDIR /var/www/html
-RUN composer create-project drupal/recommended-project:8.9.16 /var/www/html --stability dev --no-interaction
+RUN composer create-project drupal/recommended-project:9.1.9 /var/www/html --stability dev --no-interaction
 
 RUN php -d memory_limit=-1 /usr/bin/composer update 
 
@@ -92,19 +92,21 @@ RUN cp web/sites/default/default.settings.php web/sites/default/settings.php \
 	&& chown www-data:www-data web/sites/default/settings.php \
 	&& chown www-data:www-data web/sites/default/services.yml
 
-RUN php -d memory_limit=-1 /usr/bin/composer require \
+RUN php -d memory_limit=-1 /usr/bin/composer config minimum-stability dev && \
+    php -d memory_limit=-1 /usr/bin/composer config prefer-stable true && \
+    php -d memory_limit=-1 /usr/bin/composer require \
         "cweagans/composer-patches:>=1" \
-        "drupal/backup_migrate:^4.1" \
+        "drupal/backup_migrate:^5.0@RC" \
         "drupal/bootstrap_barrio:>=4" \
         "drupal/ctools:^3.4" \
         "drupal/imce:^2.3" \
-        "drupal/ldap:^3.0@beta" \
+        "drupal/ldap:^4.0@beta" \
         "drupal/menu_block:^1.6" \
         "drupal/pathauto:^1.8" \
         "drupal/search_api:^1.18" \
         "drupal/smtp:^1.0" \
         "drupal/token:^1.6" \
-        "drupal/webform:^5.22" \
+        "drupal/webform:^6.0" \
         "drush/drush:>=9"
 
 # injecting our additions to settings.php
