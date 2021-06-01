@@ -96,19 +96,18 @@ Some bug requires you go to the web interface > Appearances > Staff Subtheme > S
 
 Revise the app via the Drupal interface or via a text editor.  The repo & container folders are linked.
 
-This stops the dev box:
-
-```
-ctrl-C
--and/or-
-docker-compose stop 
-```
 
 ### After you are happy with your changes:
+
+Stop the dev box: `Ctrl-C` -and/or- docker-compose stop 
 
 - git merge your branch to master branch
 - git push master branch
 - make a new image & push it to production as described earlier
+
+-------------------------
+
+## Misc Dev box tools:
 
 ### How to clear the cache
 

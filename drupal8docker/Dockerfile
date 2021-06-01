@@ -83,7 +83,7 @@ RUN wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/down
 # creating a bare drupal8 project, then using composer to install drupal8 + modules
 
 WORKDIR /var/www/html
-RUN composer create-project drupal/recommended-project:8.9.10 /var/www/html --stability dev --no-interaction
+RUN composer create-project drupal/recommended-project:8.9.16 /var/www/html --stability dev --no-interaction
 
 RUN php -d memory_limit=-1 /usr/bin/composer update 
 
