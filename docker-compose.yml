@@ -26,7 +26,7 @@ services:
     restart: always
 
   db:
-    image: mysql:8.0.16
+    image: amd64/mysql:8.0.16
     container_name: db
     env_file: .env
     volumes:
@@ -38,7 +38,7 @@ services:
     command: --default-authentication-plugin=mysql_native_password
 
   pma:
-    image: phpmyadmin/phpmyadmin:4.7
+    image: amd64/phpmyadmin/phpmyadmin:4.7
     container_name: pma
     env_file: .env
     environment:

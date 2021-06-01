@@ -2,7 +2,7 @@
 # Starting from php image was necessary for adding ldap php extension
 
 # from https://www.drupal.org/docs/8/system-requirements/drupal-8-php-requirements
-FROM php:7.4-apache-buster
+FROM amd64/php:7.4-apache-buster
 # TODO switch to buster once https://github.com/docker-library/php/issues/865 is resolved in a clean way (either in the PHP image or in PHP itself)
 
 # install the PHP extensions we need
