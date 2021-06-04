@@ -1,4 +1,4 @@
-uuid: f7e88df7-c520-4d27-93bb-40a35fcae2bd
+uuid: 51fafc80-2b8d-4193-9dce-3dc55e70ab29
 langcode: en
 status: open
 dependencies: {  }
@@ -8,11 +8,11 @@ weight: 0
 uid: 13
 template: false
 archive: false
-id: complaint_or_suggestion_report_f
-title: 'Complaint or Suggestion Report Form'
+id: humanities_librarian_ranking
+title: 'Humanities Librarian Ranking'
 description: ''
 category: ''
-elements: "date_received:\n  '#type': date\n  '#title': 'Date Received'\n  '#required': true\n  '#datepicker': true\nsource_of_complaint_or_suggestion:\n  '#type': select\n  '#title': 'Source of Complaint or Suggestion'\n  '#options':\n    In-Person: In-Person\n    Phone: Phone\n    Email: Email\n    Chat: Chat\n    Other: Other\n  '#required': true\ncomplaint_or_suggestion:\n  '#type': textarea\n  '#title': 'Complaint or Suggestion'\n  '#description': 'Provide details about the complaint or suggestion. Copy and paste text if from email or other written source.'\n  '#required': true\naction_taken_if_any:\n  '#type': textarea\n  '#title': 'Action Taken, if any'\n  '#description': 'Describe any response or action taken.'\n  '#required': true\nfollow_up_needed_:\n  '#type': radios\n  '#title': 'Follow-up needed?'\n  '#options':\n    'yes': 'Yes'\n    'no': 'No'\n  '#required': true\npatron_contact_info:\n  '#type': textarea\n  '#title': 'Patron Contact Info'\n  '#description': 'If follow-up needed, provide patron name and email or phone.'\nyour_name:\n  '#type': textfield\n  '#title': 'Your name'\n  '#required': true\nyour_email:\n  '#type': email\n  '#title': 'Your email'\n  '#required': true"
+elements: "first_place:\n  '#type': select\n  '#title': 'First Place'\n  '#options':\n    'Emily Deinert': 'Emily Deinert'\n    'Cait Kennedy': 'Cait Kennedy'\n    'Eva Sclippa': 'Eva Sclippa'\n    'Kiana Webster': 'Kiana Webster'\n  '#required': true\nsecond_place:\n  '#type': select\n  '#title': 'Second Place'\n  '#options':\n    'Emily Deinert': 'Emily Deinert'\n    'Cait Kennedy': 'Cait Kennedy'\n    'Eva Sclippa': 'Eva Sclippa'\n    'Kiana Webster': 'Kiana Webster'\n  '#required': true\nthird_place:\n  '#type': select\n  '#title': 'Third Place'\n  '#options':\n    'Emily Deinert': 'Emily Deinert'\n    'Cait Kennedy': 'Cait Kennedy'\n    'Eva Sclippa': 'Eva Sclippa'\n    'Kiana Webster': 'Kiana Webster'\n  '#required': true\nfourth_place:\n  '#type': select\n  '#title': 'Fourth Place'\n  '#options':\n    'Emily Deinert': 'Emily Deinert'\n    'Cait Kennedy': 'Cait Kennedy'\n    'Eva Sclippa': 'Eva Sclippa'\n    'Kiana Webster': 'Kiana Webster'\n  '#required': true"
 css: ''
 javascript: ''
 settings:
@@ -33,7 +33,7 @@ settings:
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
-  form_remote_addr: false
+  form_remote_addr: true
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false
@@ -114,7 +114,7 @@ settings:
   draft_pending_multiple_message: ''
   confirmation_type: page
   confirmation_title: ''
-  confirmation_message: 'This form will send a copy to you, as well as send an email to Randall UL and ADs.'
+  confirmation_message: ''
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
@@ -191,79 +191,5 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
-handlers:
-  email:
-    id: email
-    label: Email
-    notes: ''
-    handler_id: email
-    status: true
-    conditions: {  }
-    weight: 0
-    settings:
-      states:
-        - completed
-      to_mail: '[webform_submission:values:your_email:raw]'
-      to_options: {  }
-      cc_mail: ''
-      cc_options: {  }
-      bcc_mail: ''
-      bcc_options: {  }
-      from_mail: _default
-      from_options: {  }
-      from_name: _default
-      subject: _default
-      body: _default
-      excluded_elements: {  }
-      ignore_access: false
-      exclude_empty: false
-      exclude_empty_checkbox: false
-      exclude_attachments: false
-      html: false
-      attachments: false
-      twig: false
-      debug: false
-      reply_to: ''
-      return_path: ''
-      sender_mail: ''
-      sender_name: ''
-      theme_name: ''
-      parameters: {  }
-  email_1:
-    id: email
-    label: 'Email UL and ADs'
-    notes: ''
-    handler_id: email_1
-    status: true
-    conditions: {  }
-    weight: 0
-    settings:
-      states:
-        - completed
-      to_mail: 'benedettis@uncw.edu,holmanl@uncw.edu,mcbrayerl@uncw.edu,pembertona@uncw.edu,saundersn@uncw.edu,tekulven@uncw.edu'
-      to_options: {  }
-      cc_mail: ''
-      cc_options: {  }
-      bcc_mail: ''
-      bcc_options: {  }
-      from_mail: _default
-      from_options: {  }
-      from_name: _default
-      subject: _default
-      body: _default
-      excluded_elements: {  }
-      ignore_access: false
-      exclude_empty: false
-      exclude_empty_checkbox: false
-      exclude_attachments: false
-      html: false
-      attachments: false
-      twig: false
-      debug: false
-      reply_to: ''
-      return_path: ''
-      sender_mail: ''
-      sender_name: ''
-      theme_name: ''
-      parameters: {  }
+handlers: {  }
 variants: {  }

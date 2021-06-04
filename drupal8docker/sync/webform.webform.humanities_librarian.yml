@@ -1,4 +1,4 @@
-uuid: f7e88df7-c520-4d27-93bb-40a35fcae2bd
+uuid: 2a46f96b-ee6b-48c2-91d3-5f1c41ecd200
 langcode: en
 status: open
 dependencies: {  }
@@ -8,11 +8,11 @@ weight: 0
 uid: 13
 template: false
 archive: false
-id: complaint_or_suggestion_report_f
-title: 'Complaint or Suggestion Report Form'
+id: humanities_librarian
+title: 'Humanities Librarian'
 description: ''
 category: ''
-elements: "date_received:\n  '#type': date\n  '#title': 'Date Received'\n  '#required': true\n  '#datepicker': true\nsource_of_complaint_or_suggestion:\n  '#type': select\n  '#title': 'Source of Complaint or Suggestion'\n  '#options':\n    In-Person: In-Person\n    Phone: Phone\n    Email: Email\n    Chat: Chat\n    Other: Other\n  '#required': true\ncomplaint_or_suggestion:\n  '#type': textarea\n  '#title': 'Complaint or Suggestion'\n  '#description': 'Provide details about the complaint or suggestion. Copy and paste text if from email or other written source.'\n  '#required': true\naction_taken_if_any:\n  '#type': textarea\n  '#title': 'Action Taken, if any'\n  '#description': 'Describe any response or action taken.'\n  '#required': true\nfollow_up_needed_:\n  '#type': radios\n  '#title': 'Follow-up needed?'\n  '#options':\n    'yes': 'Yes'\n    'no': 'No'\n  '#required': true\npatron_contact_info:\n  '#type': textarea\n  '#title': 'Patron Contact Info'\n  '#description': 'If follow-up needed, provide patron name and email or phone.'\nyour_name:\n  '#type': textfield\n  '#title': 'Your name'\n  '#required': true\nyour_email:\n  '#type': email\n  '#title': 'Your email'\n  '#required': true"
+elements: "select_the_candidate:\n  '#type': select\n  '#title': 'Select the Candidate'\n  '#options':\n    'Emily Deinert': 'Emily Deinert'\n    'Cait Kennedy': 'Cait Kennedy'\n    'Eva Sclippa': 'Eva Sclippa'\n    'Kiana Webster': 'Kiana Webster'\nrate_the_quality_of_the_candidate_s_presentation_:\n  '#type': webform_rating\n  '#title': 'Rate the quality of the candidate''s presentation.'\n  '#required': true\ncomment:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nrate_the_candidate_s_demonstrated_knowledge_of_current_and_emerg:\n  '#type': webform_rating\n  '#title': 'Rate the candidate''s demonstrated knowledge of current and emerging trends in academic library services/resources'\n  '#required': true\ncomment1:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nrate_the_candidate_s_demonstrated_knowledge_of_research_tools_in:\n  '#type': webform_rating\n  '#title': 'Rate the candidate''s demonstrated knowledge of research tools in the humanities'\n  '#required': true\ncomment2:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nrate_the_candidate_s_demonstrated_commitment_to_fostering_an_equ:\n  '#type': webform_rating\n  '#title': 'Rate the candidate’s demonstrated commitment to fostering an equitable and inclusive educational environment and workplace and an ability to work effectively with a diverse faculty, student, staff, and community population'\n  '#required': true\ncomment3:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nrate_the_candidate_s_ability_to_provide_information_literacy_ins:\n  '#type': webform_rating\n  '#title': 'Rate the candidate''s ability to provide information literacy instruction, research support and collaboration, outreach, and collection development in the humanities'\n  '#required': true\ncomment4:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nrate_the_candidate_s_demonstrated_experience_with_digital_humani:\n  '#type': webform_rating\n  '#title': 'Rate the candidate''s demonstrated experience with digital humanities methods, tools, and/or research areas'\n  '#required': true\ncomment5:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nrate_the_candidate_s_communication_skills:\n  '#type': webform_rating\n  '#title': 'Rate the candidate''s communication skills'\n  '#required': true\ncomment6:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\ndoes_this_candidate_appear_to_be_able_to_perform_the_job_of_huma:\n  '#type': textarea\n  '#title': 'Does this candidate appear to be able to perform the job of Humanities Librarian? Why or why not?'\n  '#required': true\ndid_the_candidate_answer_all_questions_to_your_satisfaction_if_n:\n  '#type': textarea\n  '#title': 'Did the candidate answer all questions to your satisfaction? If not, which questions were left unanswered?'\n  '#required': true\ndo_you_have_any_reservations_about_this_candidate_s_ability_to_s:\n  '#type': textarea\n  '#title': 'Do you have any reservations about this candidate’s ability to succeed at UNCW? If yes, explain.'\n  '#required': true"
 css: ''
 javascript: ''
 settings:
@@ -33,7 +33,7 @@ settings:
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
-  form_remote_addr: false
+  form_remote_addr: true
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false
@@ -114,7 +114,7 @@ settings:
   draft_pending_multiple_message: ''
   confirmation_type: page
   confirmation_title: ''
-  confirmation_message: 'This form will send a copy to you, as well as send an email to Randall UL and ADs.'
+  confirmation_message: ''
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
@@ -191,79 +191,5 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
-handlers:
-  email:
-    id: email
-    label: Email
-    notes: ''
-    handler_id: email
-    status: true
-    conditions: {  }
-    weight: 0
-    settings:
-      states:
-        - completed
-      to_mail: '[webform_submission:values:your_email:raw]'
-      to_options: {  }
-      cc_mail: ''
-      cc_options: {  }
-      bcc_mail: ''
-      bcc_options: {  }
-      from_mail: _default
-      from_options: {  }
-      from_name: _default
-      subject: _default
-      body: _default
-      excluded_elements: {  }
-      ignore_access: false
-      exclude_empty: false
-      exclude_empty_checkbox: false
-      exclude_attachments: false
-      html: false
-      attachments: false
-      twig: false
-      debug: false
-      reply_to: ''
-      return_path: ''
-      sender_mail: ''
-      sender_name: ''
-      theme_name: ''
-      parameters: {  }
-  email_1:
-    id: email
-    label: 'Email UL and ADs'
-    notes: ''
-    handler_id: email_1
-    status: true
-    conditions: {  }
-    weight: 0
-    settings:
-      states:
-        - completed
-      to_mail: 'benedettis@uncw.edu,holmanl@uncw.edu,mcbrayerl@uncw.edu,pembertona@uncw.edu,saundersn@uncw.edu,tekulven@uncw.edu'
-      to_options: {  }
-      cc_mail: ''
-      cc_options: {  }
-      bcc_mail: ''
-      bcc_options: {  }
-      from_mail: _default
-      from_options: {  }
-      from_name: _default
-      subject: _default
-      body: _default
-      excluded_elements: {  }
-      ignore_access: false
-      exclude_empty: false
-      exclude_empty_checkbox: false
-      exclude_attachments: false
-      html: false
-      attachments: false
-      twig: false
-      debug: false
-      reply_to: ''
-      return_path: ''
-      sender_mail: ''
-      sender_name: ''
-      theme_name: ''
-      parameters: {  }
+handlers: {  }
 variants: {  }
