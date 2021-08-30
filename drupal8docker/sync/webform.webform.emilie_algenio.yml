@@ -12,7 +12,89 @@ id: emilie_algenio
 title: 'ScholComm Candidates'
 description: ''
 category: ''
-elements: "candidate:\n  '#type': select\n  '#title': Candidate\n  '#options':\n    'Emilie Algenio': 'Emilie Algenio'\n    'Lynnee Argabright': 'Lynnee Argabright'\n    'Allison Kittinger': 'Allison Kittinger'\n  '#required': true\nrate_the_quality_of_the_candidate_s_presentation:\n  '#type': webform_rating\n  '#title': 'Rate the quality of the candidate''s presentation'\n  '#required': true\ncomment_on_presentation:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nrate_the_candidate_s_knowledge_of_current_and_emerging_trends_in:\n  '#type': webform_rating\n  '#title': 'Rate the candidate''s knowledge of current and emerging trends in scholarly communications librarianship'\n  '#required': true\ncomment_on_knowledge_of_trends:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nrate_the_candidate_s_awareness_of_information_technologies_and_a:\n  '#type': webform_rating\n  '#title': 'Rate the candidate''s awareness of information technologies and ability to integrate appropriate technologies into the work setting'\n  '#required': true\ncomment_on_awareness_of_information_technologies:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nrate_the_candidate_s_ability_to_develop_and_enhance_service_mode:\n  '#type': webform_rating\n  '#title': 'Rate the candidate''s ability to develop and enhance service models for scholarly communication services'\n  '#required': true\ncomment:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nrate_the_candidate_s_ability_to_collaborate_with_randall_library:\n  '#type': webform_rating\n  '#title': 'Rate the candidate''s ability to collaborate with Randall Library faculty and staff as well as with faculty in the colleges.'\n  '#required': true\ncomment_collaborate:\n  '#type': textarea\n  '#title': Comment\nrate_the_candidate_s_communication_skills:\n  '#type': webform_rating\n  '#title': 'Rate the candidate''s communication skills'\n  '#required': true\ncomment_communication:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nrate_the_candidate_s_organizational_analytical_and_problem_solvi:\n  '#type': webform_rating\n  '#title': 'Rate the candidate''s organizational, analytical and problem-solving skills'\n  '#required': true\ncomment_organizational:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\ndoes_this_candidate_appear_to_be_able_to_perform_the_job_of_scho:\n  '#type': textarea\n  '#title': 'Does this candidate appear to be able to perform the job of Scholarly Communications Librarian? Why or why not?'\n  '#required': true\ndid_the_candidate_answer_all_questions_to_your_satisfaction_if_n:\n  '#type': textarea\n  '#title': 'Did the candidate answer all questions to your satisfaction? If not, which questions were left unanswered?'\n  '#required': true\ndo_you_have_any_reservations_about_this_candidate_s_ability_to_s:\n  '#type': textarea\n  '#title': 'Do you have any reservations about this candidate’s ability to succeed at UNCW? If yes, explain.'\n  '#required': true\nhow_would_you_rank_this_candidate_in_relation_to_the_other_candi:\n  '#type': textarea\n  '#title': 'How would you rank this candidate in relation to the other candidates who have come to campus? How did you arrive at this rank?'\n  '#required': true\nadditional_comments:\n  '#type': textarea\n  '#title': 'Additional Comments'"
+elements: |-
+  candidate:
+    '#type': select
+    '#title': Candidate
+    '#options':
+      'Emilie Algenio': 'Emilie Algenio'
+      'Lynnee Argabright': 'Lynnee Argabright'
+      'Allison Kittinger': 'Allison Kittinger'
+    '#required': true
+  rate_the_quality_of_the_candidate_s_presentation:
+    '#type': webform_rating
+    '#title': 'Rate the quality of the candidate''s presentation'
+    '#required': true
+  comment_on_presentation:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  rate_the_candidate_s_knowledge_of_current_and_emerging_trends_in:
+    '#type': webform_rating
+    '#title': 'Rate the candidate''s knowledge of current and emerging trends in scholarly communications librarianship'
+    '#required': true
+  comment_on_knowledge_of_trends:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  rate_the_candidate_s_awareness_of_information_technologies_and_a:
+    '#type': webform_rating
+    '#title': 'Rate the candidate''s awareness of information technologies and ability to integrate appropriate technologies into the work setting'
+    '#required': true
+  comment_on_awareness_of_information_technologies:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  rate_the_candidate_s_ability_to_develop_and_enhance_service_mode:
+    '#type': webform_rating
+    '#title': 'Rate the candidate''s ability to develop and enhance service models for scholarly communication services'
+    '#required': true
+  comment:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  rate_the_candidate_s_ability_to_collaborate_with_randall_library:
+    '#type': webform_rating
+    '#title': 'Rate the candidate''s ability to collaborate with Randall Library faculty and staff as well as with faculty in the colleges.'
+    '#required': true
+  comment_collaborate:
+    '#type': textarea
+    '#title': Comment
+  rate_the_candidate_s_communication_skills:
+    '#type': webform_rating
+    '#title': 'Rate the candidate''s communication skills'
+    '#required': true
+  comment_communication:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  rate_the_candidate_s_organizational_analytical_and_problem_solvi:
+    '#type': webform_rating
+    '#title': 'Rate the candidate''s organizational, analytical and problem-solving skills'
+    '#required': true
+  comment_organizational:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  does_this_candidate_appear_to_be_able_to_perform_the_job_of_scho:
+    '#type': textarea
+    '#title': 'Does this candidate appear to be able to perform the job of Scholarly Communications Librarian? Why or why not?'
+    '#required': true
+  did_the_candidate_answer_all_questions_to_your_satisfaction_if_n:
+    '#type': textarea
+    '#title': 'Did the candidate answer all questions to your satisfaction? If not, which questions were left unanswered?'
+    '#required': true
+  do_you_have_any_reservations_about_this_candidate_s_ability_to_s:
+    '#type': textarea
+    '#title': 'Do you have any reservations about this candidate’s ability to succeed at UNCW? If yes, explain.'
+    '#required': true
+  how_would_you_rank_this_candidate_in_relation_to_the_other_candi:
+    '#type': textarea
+    '#title': 'How would you rank this candidate in relation to the other candidates who have come to campus? How did you arrive at this rank?'
+    '#required': true
+  additional_comments:
+    '#type': textarea
+    '#title': 'Additional Comments'
 css: ''
 javascript: ''
 settings:
@@ -33,7 +115,7 @@ settings:
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
-  form_remote_addr: true
+  form_disable_remote_addr: false
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false

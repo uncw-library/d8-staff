@@ -12,7 +12,43 @@ id: special_collections_archivist_an
 title: 'Special Collections Archivist and Diversity Resident Librarian Ranking'
 description: ''
 category: ''
-elements: "first_place:\n  '#type': select\n  '#title': 'First place'\n  '#options':\n    'Challen Wright': 'Challen Wright'\n    'Elizabeth Garcia': 'Elizabeth Garcia'\n    'Lencia Beltran': 'Lencia Beltran'\n    'Mariah Isbell': 'Mariah Isbell'\n  '#required': true\nsecond_place:\n  '#type': select\n  '#title': 'Second place'\n  '#options':\n    'Challen Wright': 'Challen Wright'\n    'Elizabeth Garcia': 'Elizabeth Garcia'\n    'Lencia Beltran': 'Lencia Beltran'\n    'Mariah Isbell': 'Mariah Isbell'\n  '#required': true\nthird_place:\n  '#type': select\n  '#title': 'Third place'\n  '#options':\n    'Challen Wright': 'Challen Wright'\n    'Elizabeth Garcia': 'Elizabeth Garcia'\n    'Lencia Beltran': 'Lencia Beltran'\n    'Mariah Isbell': 'Mariah Isbell'\n  '#required': true\nfourth_place:\n  '#type': select\n  '#title': 'Fourth place'\n  '#options':\n    'Challen Wright': 'Challen Wright'\n    'Elizabeth Garcia': 'Elizabeth Garcia'\n    'Lencia Beltran': 'Lencia Beltran'\n    'Mariah Isbell': 'Mariah Isbell'\n  '#required': true"
+elements: |-
+  first_place:
+    '#type': select
+    '#title': 'First place'
+    '#options':
+      'Challen Wright': 'Challen Wright'
+      'Elizabeth Garcia': 'Elizabeth Garcia'
+      'Lencia Beltran': 'Lencia Beltran'
+      'Mariah Isbell': 'Mariah Isbell'
+    '#required': true
+  second_place:
+    '#type': select
+    '#title': 'Second place'
+    '#options':
+      'Challen Wright': 'Challen Wright'
+      'Elizabeth Garcia': 'Elizabeth Garcia'
+      'Lencia Beltran': 'Lencia Beltran'
+      'Mariah Isbell': 'Mariah Isbell'
+    '#required': true
+  third_place:
+    '#type': select
+    '#title': 'Third place'
+    '#options':
+      'Challen Wright': 'Challen Wright'
+      'Elizabeth Garcia': 'Elizabeth Garcia'
+      'Lencia Beltran': 'Lencia Beltran'
+      'Mariah Isbell': 'Mariah Isbell'
+    '#required': true
+  fourth_place:
+    '#type': select
+    '#title': 'Fourth place'
+    '#options':
+      'Challen Wright': 'Challen Wright'
+      'Elizabeth Garcia': 'Elizabeth Garcia'
+      'Lencia Beltran': 'Lencia Beltran'
+      'Mariah Isbell': 'Mariah Isbell'
+    '#required': true
 css: ''
 javascript: ''
 settings:
@@ -33,7 +69,7 @@ settings:
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
-  form_remote_addr: true
+  form_disable_remote_addr: false
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false

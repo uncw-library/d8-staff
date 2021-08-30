@@ -12,7 +12,64 @@ id: technology_equipment_for_library
 title: 'Technology Equipment for Library Staff & Faculty Survey'
 description: 'Please think back over the last 6 months, and into the future 12 months, when answering these questions. Thank you for your time!'
 category: ''
-elements: "your_name:\n  '#type': textfield\n  '#title': 'Your Name'\n  '#required': true\n  '#format_items': comma\npast_needs:\n  '#type': fieldset\n  '#title': 'Past Needs'\n  have_you_had_equipment_needs_that_we_were_unable_to_meet_:\n    '#type': select\n    '#title': 'Have you had equipment needs that we were unable to meet?'\n    '#description': '(i.e., wanted to borrow a laptop or webcam but none were available, needed a peripheral that we didn&rsquo;t own.)'\n    '#options': yes_no\n    '#required': true\n  if_so_what_did_you_need_and_what_did_you_need_it_for_:\n    '#type': textarea\n    '#title': 'If so, what did you need and what did you need it for?'\n    '#format_items': comma\n  do_you_have_any_technology_equipment_in_your_office_that_you_don:\n    '#type': textfield\n    '#title': 'Do you have any technology equipment in your office that you don’t use or need anymore? If so, what is it?'\n    '#format_items': comma\nfuture_needs:\n  '#type': fieldset\n  '#title': 'Future Needs'\n  can_you_think_of_any_technology_equipment_that_would_improve_you:\n    '#type': select\n    '#title': 'Can you think of any technology equipment that would improve your job performance?'\n    '#options': yes_no\n    '#required': true\n  if_so_what_is_it_and_how_would_you_use_it_:\n    '#type': textarea\n    '#title': 'If so, what is it and how would you use it?'\n    '#format_items': comma\n  do_you_see_yourself_needing_any_of_these_things_in_the_next_12_m:\n    '#type': tableselect\n    '#title': 'Do you see yourself needing any of these things in the next 12 months?'\n    '#options':\n      1: 'Dell Laptop'\n      'Apple Laptop': 'Apple Laptop'\n      2: Tablet\n      3: Microphone\n      4: Webcam\n      5: 'External storage'\n      6: 'Additional monitors'\n      7: 'Wireless keyboard/mouse'\n      8: 'Cables and connectors (please specify below)'\n      9: 'Other (please specify below)'\n      10: None\n  if_you_checked_any_of_the_above_please_specify_type_duration_use:\n    '#type': textfield\n    '#title': 'If you checked any of the above, please specify type/duration/use'\n    '#format_items': comma\nadditional_comments:\n  '#type': textarea\n  '#title': Comments\n  '#format_items': comma"
+elements: |-
+  your_name:
+    '#type': textfield
+    '#title': 'Your Name'
+    '#required': true
+    '#format_items': comma
+  past_needs:
+    '#type': fieldset
+    '#title': 'Past Needs'
+    have_you_had_equipment_needs_that_we_were_unable_to_meet_:
+      '#type': select
+      '#title': 'Have you had equipment needs that we were unable to meet?'
+      '#description': '(i.e., wanted to borrow a laptop or webcam but none were available, needed a peripheral that we didn&rsquo;t own.)'
+      '#options': yes_no
+      '#required': true
+    if_so_what_did_you_need_and_what_did_you_need_it_for_:
+      '#type': textarea
+      '#title': 'If so, what did you need and what did you need it for?'
+      '#format_items': comma
+    do_you_have_any_technology_equipment_in_your_office_that_you_don:
+      '#type': textfield
+      '#title': 'Do you have any technology equipment in your office that you don’t use or need anymore? If so, what is it?'
+      '#format_items': comma
+  future_needs:
+    '#type': fieldset
+    '#title': 'Future Needs'
+    can_you_think_of_any_technology_equipment_that_would_improve_you:
+      '#type': select
+      '#title': 'Can you think of any technology equipment that would improve your job performance?'
+      '#options': yes_no
+      '#required': true
+    if_so_what_is_it_and_how_would_you_use_it_:
+      '#type': textarea
+      '#title': 'If so, what is it and how would you use it?'
+      '#format_items': comma
+    do_you_see_yourself_needing_any_of_these_things_in_the_next_12_m:
+      '#type': tableselect
+      '#title': 'Do you see yourself needing any of these things in the next 12 months?'
+      '#options':
+        1: 'Dell Laptop'
+        'Apple Laptop': 'Apple Laptop'
+        2: Tablet
+        3: Microphone
+        4: Webcam
+        5: 'External storage'
+        6: 'Additional monitors'
+        7: 'Wireless keyboard/mouse'
+        8: 'Cables and connectors (please specify below)'
+        9: 'Other (please specify below)'
+        10: None
+    if_you_checked_any_of_the_above_please_specify_type_duration_use:
+      '#type': textfield
+      '#title': 'If you checked any of the above, please specify type/duration/use'
+      '#format_items': comma
+  additional_comments:
+    '#type': textarea
+    '#title': Comments
+    '#format_items': comma
 css: ''
 javascript: ''
 settings:
@@ -33,7 +90,7 @@ settings:
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
-  form_remote_addr: false
+  form_disable_remote_addr: true
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false
@@ -85,6 +142,8 @@ settings:
   wizard_progress_link: false
   wizard_progress_states: false
   wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
   wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
@@ -140,8 +199,7 @@ settings:
   results_customize: false
   token_view: false
   token_update: false
-  wizard_auto_forward_hide_next_button: false
-  wizard_keyboard: true
+  token_delete: false
   serial_disabled: false
 access:
   create:

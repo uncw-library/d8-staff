@@ -12,7 +12,74 @@ id: webinar_online_training_request_
 title: 'Webinar/Online Training Request Form'
 description: "<ul>\r\n\t<li>Fill out this form AFTER the webinar/online training has been approved by your supervisor.</li>\r\n\t<li>This form will send an email to you, your supervisor and to Sherry.</li>\r\n\t<li>Angie will purchase the webinar/training on your behalf and you will receive the viewing/registration info.</li>\r\n</ul>"
 category: ''
-elements: "your_name:\n  '#type': textfield\n  '#title': 'Your name'\n  '#required': true\n  '#format_items': comma\nyour_email:\n  '#type': email\n  '#title': 'Your email'\n  '#required': true\nyour_supervisor_s_email:\n  '#type': email\n  '#title': 'Your supervisor''s email'\n  '#required': true\n  '#format_items': comma\nrequest_approved:\n  '#type': select\n  '#title': 'Request approved'\n  '#options':\n    1: 'I certify that this travel request has already been approved by my supervisor, and this funding type indicated below is accurate.'\n    2: 'This request has not been approved.'\n  '#required': true\ndivisional_or_library_wide_funding:\n  '#type': select\n  '#title': 'Divisional or Library-wide Funding'\n  '#options':\n    - 'Division (RIS, ITS, TS, etc.)'\n    - 'Library-wide (Relevant to whole library)'\n  '#required': true\ncovid_spending_guidance_and_restrictions_for_2020:\n  '#type': textarea\n  '#title': 'Covid Spending Guidance and Restrictions for 2020'\n  '#description': 'Is this webinar/training &quot;necessary and essential&quot; for your position? If so, please explain why. Please work with your supervisor for this justification language.'\n  '#required': true\nwebinar_training_title:\n  '#type': textfield\n  '#title': 'Webinar/Training Title'\n  '#required': true\n  '#format_items': comma\ndate_of_webinar_training:\n  '#type': date\n  '#title': 'Date of webinar/training'\n  '#format_items': comma\n  '#step': '1'\n  '#date_date_format': ''\nurl_for_registration:\n  '#type': textfield\n  '#title': 'URL for registration'\n  '#required': true\n  '#format_items': comma\nregistration_amount:\n  '#type': textfield\n  '#title': 'Registration amount'\n  '#required': true\n  '#format_items': comma\ndo_you_have_a_relevant_membership_:\n  '#type': select\n  '#title': 'Do you have a relevant membership?'\n  '#options': yes_no\n  '#required': true\nprovide_membership_information:\n  '#type': textfield\n  '#title': 'Provide membership information'\n  '#format_items': comma\nnotes:\n  '#type': textarea\n  '#title': Notes\n  '#format_items': comma"
+elements: |-
+  your_name:
+    '#type': textfield
+    '#title': 'Your name'
+    '#required': true
+    '#format_items': comma
+  your_email:
+    '#type': email
+    '#title': 'Your email'
+    '#required': true
+  your_supervisor_s_email:
+    '#type': email
+    '#title': 'Your supervisor''s email'
+    '#required': true
+    '#format_items': comma
+  request_approved:
+    '#type': select
+    '#title': 'Request approved'
+    '#options':
+      1: 'I certify that this travel request has already been approved by my supervisor, and this funding type indicated below is accurate.'
+      2: 'This request has not been approved.'
+    '#required': true
+  divisional_or_library_wide_funding:
+    '#type': select
+    '#title': 'Divisional or Library-wide Funding'
+    '#options':
+      - 'Division (RIS, ITS, TS, etc.)'
+      - 'Library-wide (Relevant to whole library)'
+    '#required': true
+  covid_spending_guidance_and_restrictions_for_2020:
+    '#type': textarea
+    '#title': 'Covid Spending Guidance and Restrictions for 2020'
+    '#description': 'Is this webinar/training &quot;necessary and essential&quot; for your position? If so, please explain why. Please work with your supervisor for this justification language.'
+    '#required': true
+  webinar_training_title:
+    '#type': textfield
+    '#title': 'Webinar/Training Title'
+    '#required': true
+    '#format_items': comma
+  date_of_webinar_training:
+    '#type': date
+    '#title': 'Date of webinar/training'
+    '#format_items': comma
+    '#step': '1'
+    '#date_date_format': ''
+  url_for_registration:
+    '#type': textfield
+    '#title': 'URL for registration'
+    '#required': true
+    '#format_items': comma
+  registration_amount:
+    '#type': textfield
+    '#title': 'Registration amount'
+    '#required': true
+    '#format_items': comma
+  do_you_have_a_relevant_membership_:
+    '#type': select
+    '#title': 'Do you have a relevant membership?'
+    '#options': yes_no
+    '#required': true
+  provide_membership_information:
+    '#type': textfield
+    '#title': 'Provide membership information'
+    '#format_items': comma
+  notes:
+    '#type': textarea
+    '#title': Notes
+    '#format_items': comma
 css: ''
 javascript: ''
 settings:
@@ -33,7 +100,7 @@ settings:
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
-  form_remote_addr: false
+  form_disable_remote_addr: true
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false
@@ -142,8 +209,8 @@ settings:
   results_customize: false
   token_view: false
   token_update: false
-  serial_disabled: false
   token_delete: false
+  serial_disabled: false
 access:
   create:
     roles:

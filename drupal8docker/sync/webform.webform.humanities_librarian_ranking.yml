@@ -12,7 +12,43 @@ id: humanities_librarian_ranking
 title: 'Humanities Librarian Ranking'
 description: ''
 category: ''
-elements: "first_place:\n  '#type': select\n  '#title': 'First Place'\n  '#options':\n    'Emily Deinert': 'Emily Deinert'\n    'Cait Kennedy': 'Cait Kennedy'\n    'Eva Sclippa': 'Eva Sclippa'\n    'Kiana Webster': 'Kiana Webster'\n  '#required': true\nsecond_place:\n  '#type': select\n  '#title': 'Second Place'\n  '#options':\n    'Emily Deinert': 'Emily Deinert'\n    'Cait Kennedy': 'Cait Kennedy'\n    'Eva Sclippa': 'Eva Sclippa'\n    'Kiana Webster': 'Kiana Webster'\n  '#required': true\nthird_place:\n  '#type': select\n  '#title': 'Third Place'\n  '#options':\n    'Emily Deinert': 'Emily Deinert'\n    'Cait Kennedy': 'Cait Kennedy'\n    'Eva Sclippa': 'Eva Sclippa'\n    'Kiana Webster': 'Kiana Webster'\n  '#required': true\nfourth_place:\n  '#type': select\n  '#title': 'Fourth Place'\n  '#options':\n    'Emily Deinert': 'Emily Deinert'\n    'Cait Kennedy': 'Cait Kennedy'\n    'Eva Sclippa': 'Eva Sclippa'\n    'Kiana Webster': 'Kiana Webster'\n  '#required': true"
+elements: |-
+  first_place:
+    '#type': select
+    '#title': 'First Place'
+    '#options':
+      'Emily Deinert': 'Emily Deinert'
+      'Cait Kennedy': 'Cait Kennedy'
+      'Eva Sclippa': 'Eva Sclippa'
+      'Kiana Webster': 'Kiana Webster'
+    '#required': true
+  second_place:
+    '#type': select
+    '#title': 'Second Place'
+    '#options':
+      'Emily Deinert': 'Emily Deinert'
+      'Cait Kennedy': 'Cait Kennedy'
+      'Eva Sclippa': 'Eva Sclippa'
+      'Kiana Webster': 'Kiana Webster'
+    '#required': true
+  third_place:
+    '#type': select
+    '#title': 'Third Place'
+    '#options':
+      'Emily Deinert': 'Emily Deinert'
+      'Cait Kennedy': 'Cait Kennedy'
+      'Eva Sclippa': 'Eva Sclippa'
+      'Kiana Webster': 'Kiana Webster'
+    '#required': true
+  fourth_place:
+    '#type': select
+    '#title': 'Fourth Place'
+    '#options':
+      'Emily Deinert': 'Emily Deinert'
+      'Cait Kennedy': 'Cait Kennedy'
+      'Eva Sclippa': 'Eva Sclippa'
+      'Kiana Webster': 'Kiana Webster'
+    '#required': true
 css: ''
 javascript: ''
 settings:
@@ -33,7 +69,7 @@ settings:
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
-  form_remote_addr: true
+  form_disable_remote_addr: false
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false

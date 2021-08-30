@@ -12,7 +12,51 @@ id: complaint_or_suggestion_report_f
 title: 'Complaint or Suggestion Report Form'
 description: ''
 category: ''
-elements: "date_received:\n  '#type': date\n  '#title': 'Date Received'\n  '#required': true\n  '#datepicker': true\nsource_of_complaint_or_suggestion:\n  '#type': select\n  '#title': 'Source of Complaint or Suggestion'\n  '#options':\n    In-Person: In-Person\n    Phone: Phone\n    Email: Email\n    Chat: Chat\n    Other: Other\n  '#required': true\ncomplaint_or_suggestion:\n  '#type': textarea\n  '#title': 'Complaint or Suggestion'\n  '#description': 'Provide details about the complaint or suggestion. Copy and paste text if from email or other written source.'\n  '#required': true\naction_taken_if_any:\n  '#type': textarea\n  '#title': 'Action Taken, if any'\n  '#description': 'Describe any response or action taken.'\n  '#required': true\nfollow_up_needed_:\n  '#type': radios\n  '#title': 'Follow-up needed?'\n  '#options':\n    'yes': 'Yes'\n    'no': 'No'\n  '#required': true\npatron_contact_info:\n  '#type': textarea\n  '#title': 'Patron Contact Info'\n  '#description': 'If follow-up needed, provide patron name and email or phone.'\nyour_name:\n  '#type': textfield\n  '#title': 'Your name'\n  '#required': true\nyour_email:\n  '#type': email\n  '#title': 'Your email'\n  '#required': true"
+elements: |-
+  date_received:
+    '#type': date
+    '#title': 'Date Received'
+    '#required': true
+    '#datepicker': true
+  source_of_complaint_or_suggestion:
+    '#type': select
+    '#title': 'Source of Complaint or Suggestion'
+    '#options':
+      In-Person: In-Person
+      Phone: Phone
+      Email: Email
+      Chat: Chat
+      Other: Other
+    '#required': true
+  complaint_or_suggestion:
+    '#type': textarea
+    '#title': 'Complaint or Suggestion'
+    '#description': 'Provide details about the complaint or suggestion. Copy and paste text if from email or other written source.'
+    '#required': true
+  action_taken_if_any:
+    '#type': textarea
+    '#title': 'Action Taken, if any'
+    '#description': 'Describe any response or action taken.'
+    '#required': true
+  follow_up_needed_:
+    '#type': radios
+    '#title': 'Follow-up needed?'
+    '#options':
+      'yes': 'Yes'
+      'no': 'No'
+    '#required': true
+  patron_contact_info:
+    '#type': textarea
+    '#title': 'Patron Contact Info'
+    '#description': 'If follow-up needed, provide patron name and email or phone.'
+  your_name:
+    '#type': textfield
+    '#title': 'Your name'
+    '#required': true
+  your_email:
+    '#type': email
+    '#title': 'Your email'
+    '#required': true
 css: ''
 javascript: ''
 settings:
@@ -33,7 +77,7 @@ settings:
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
-  form_remote_addr: false
+  form_disable_remote_addr: true
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false

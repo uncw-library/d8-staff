@@ -12,7 +12,90 @@ id: sciences_librarian_feedback_form
 title: 'Sciences Librarian Feedback Form'
 description: ''
 category: ''
-elements: "candidate:\n  '#type': select\n  '#title': Candidate\n  '#options':\n    zelick: 'Sam Zelick'\n    cline: 'Ellen Cline'\n    gidakovic: 'Sanja Gidakovic'\n  '#required': true\nquality_of_the_candidate_s_presentation:\n  '#type': webform_rating\n  '#title': 'Quality of the candidate''s presentation'\n  '#required': true\ncomment:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nthe_candidate_s_knowledge_of_current_and_emerging_trends_knowled:\n  '#type': webform_rating\n  '#title': 'The candidate''s knowledge of current and emerging trends, knowledge of key sciences information resources in an academic library '\n  '#required': true\ncomment1:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nthe_candidate_s_awareness_of_information_technologies_and_abilit:\n  '#type': webform_rating\n  '#title': 'The candidate''s awareness of information technologies and ability to integrate appropriate technologies into the work setting '\n  '#required': true\ncomment2:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nthe_candidate_s_ability_to_develop_and_enhance_service_models_fo:\n  '#type': webform_rating\n  '#title': 'The candidate''s ability to develop and enhance service models for sciences disciplines '\n  '#required': true\ncomment3:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nthe_candidate_s_ability_to_combine_information_literacy_instruct:\n  '#type': webform_rating\n  '#title': 'The candidate''s ability to combine information literacy instruction, research expertise, and outreach with collection development in the sciences'\n  '#required': true\ncomment4:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nthe_candidate_s_communication_skills:\n  '#type': webform_rating\n  '#title': 'The candidate''s communication skills'\n  '#required': true\ncomment5:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nthe_candidate_s_organizational_analytical_and_problem_solving_sk:\n  '#type': webform_rating\n  '#title': 'The candidate''s organizational, analytical and problem-solving skills'\n  '#required': true\ncomment6:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\ndoes_this_candidate_appear_to_be_able_to_perform_the_job_of_scie:\n  '#type': textarea\n  '#title': 'Does this candidate appear to be able to perform the job of Sciences Librarian? Why or why not? '\n  '#required': true\ndid_the_candidate_answer_all_questions_to_your_satisfaction_if_n:\n  '#type': textarea\n  '#title': 'Did the candidate answer all questions to your satisfaction? If not, which questions were left unanswered? '\n  '#required': true\ndo_you_have_any_reservations_about_this_candidate_s_ability_to_s:\n  '#type': textarea\n  '#title': 'Do you have any reservations about this candidate’s ability to succeed at UNCW? If yes, explain.'\n  '#required': true\nhow_would_you_rank_this_candidate_in_relation_to_the_other_candi:\n  '#type': textarea\n  '#title': 'How would you rank this candidate in relation to the other candidates who have come to campus? How did you arrive at this rank?'\n  '#required': true\nadditional_comments:\n  '#type': textarea\n  '#title': 'Additional Comments'"
+elements: |-
+  candidate:
+    '#type': select
+    '#title': Candidate
+    '#options':
+      zelick: 'Sam Zelick'
+      cline: 'Ellen Cline'
+      gidakovic: 'Sanja Gidakovic'
+    '#required': true
+  quality_of_the_candidate_s_presentation:
+    '#type': webform_rating
+    '#title': 'Quality of the candidate''s presentation'
+    '#required': true
+  comment:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  the_candidate_s_knowledge_of_current_and_emerging_trends_knowled:
+    '#type': webform_rating
+    '#title': 'The candidate''s knowledge of current and emerging trends, knowledge of key sciences information resources in an academic library '
+    '#required': true
+  comment1:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  the_candidate_s_awareness_of_information_technologies_and_abilit:
+    '#type': webform_rating
+    '#title': 'The candidate''s awareness of information technologies and ability to integrate appropriate technologies into the work setting '
+    '#required': true
+  comment2:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  the_candidate_s_ability_to_develop_and_enhance_service_models_fo:
+    '#type': webform_rating
+    '#title': 'The candidate''s ability to develop and enhance service models for sciences disciplines '
+    '#required': true
+  comment3:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  the_candidate_s_ability_to_combine_information_literacy_instruct:
+    '#type': webform_rating
+    '#title': 'The candidate''s ability to combine information literacy instruction, research expertise, and outreach with collection development in the sciences'
+    '#required': true
+  comment4:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  the_candidate_s_communication_skills:
+    '#type': webform_rating
+    '#title': 'The candidate''s communication skills'
+    '#required': true
+  comment5:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  the_candidate_s_organizational_analytical_and_problem_solving_sk:
+    '#type': webform_rating
+    '#title': 'The candidate''s organizational, analytical and problem-solving skills'
+    '#required': true
+  comment6:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  does_this_candidate_appear_to_be_able_to_perform_the_job_of_scie:
+    '#type': textarea
+    '#title': 'Does this candidate appear to be able to perform the job of Sciences Librarian? Why or why not? '
+    '#required': true
+  did_the_candidate_answer_all_questions_to_your_satisfaction_if_n:
+    '#type': textarea
+    '#title': 'Did the candidate answer all questions to your satisfaction? If not, which questions were left unanswered? '
+    '#required': true
+  do_you_have_any_reservations_about_this_candidate_s_ability_to_s:
+    '#type': textarea
+    '#title': 'Do you have any reservations about this candidate’s ability to succeed at UNCW? If yes, explain.'
+    '#required': true
+  how_would_you_rank_this_candidate_in_relation_to_the_other_candi:
+    '#type': textarea
+    '#title': 'How would you rank this candidate in relation to the other candidates who have come to campus? How did you arrive at this rank?'
+    '#required': true
+  additional_comments:
+    '#type': textarea
+    '#title': 'Additional Comments'
 css: ''
 javascript: ''
 settings:
@@ -33,7 +116,7 @@ settings:
   form_previous_submissions: false
   form_confidential: false
   form_confidential_message: ''
-  form_remote_addr: false
+  form_disable_remote_addr: true
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false

@@ -12,7 +12,57 @@ id: research_data_librarian
 title: 'Research Data Librarian'
 description: ''
 category: ''
-elements: "candidate:\n  '#type': select\n  '#title': Candidate\n  '#options':\n    'Lynnee Argabright': 'Lynnee Argabright'\n    'Matthew Benzing': 'Matthew Benzing'\n  '#required': true\nrate_the_candidate_s_knowledge_of_data_services_including_data_c:\n  '#type': webform_rating\n  '#title': 'Rate the candidate’s knowledge of data services including data curation and management, analysis and presentation, sharing and stewardship'\n  '#required': true\ncomment:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nrate_the_candidate_s_ability_to_develop_and_assess_library_resea:\n  '#type': webform_rating\n  '#title': 'Rate the candidate’s ability to develop and assess library research data services for faculty and students'\n  '#required': true\ncomment1:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\nrate_the_candidate_s_ability_to_provide_library_data_services_th:\n  '#type': webform_rating\n  '#title': 'Rate the candidate’s ability to provide library data services though outreach, instruction, and consultation through collaboration in and outside of the library'\n  '#required': true\ncomment2:\n  '#type': textarea\n  '#title': Comment\n  '#required': true\ndoes_this_candidate_appear_to_be_able_to_perform_the_job_of_rese:\n  '#type': textarea\n  '#title': 'Does this candidate appear to be able to perform the job of Research Data Librarian? Why or why not?'\n  '#required': true\ndid_the_candidate_answer_all_questions_to_your_satisfaction_if_n:\n  '#type': textarea\n  '#title': 'Did the candidate answer all questions to your satisfaction? If not, which questions were left unanswered?'\n  '#required': true\ndo_you_have_any_reservations_about_this_candidate_s_ability_to_s:\n  '#type': textarea\n  '#title': 'Do you have any reservations about this candidate’s ability to succeed at UNCW? If yes, explain.'\n  '#required': true\nhow_would_you_rank_this_candidate_in_relation_to_the_other_candi:\n  '#type': textarea\n  '#title': 'How would you rank this candidate in relation to the other candidates who have interviewed for this position? How did you arrive at this rank?'\n  '#required': true\nadditional_comments:\n  '#type': textarea\n  '#title': 'Additional Comments'"
+elements: |-
+  candidate:
+    '#type': select
+    '#title': Candidate
+    '#options':
+      'Lynnee Argabright': 'Lynnee Argabright'
+      'Matthew Benzing': 'Matthew Benzing'
+    '#required': true
+  rate_the_candidate_s_knowledge_of_data_services_including_data_c:
+    '#type': webform_rating
+    '#title': 'Rate the candidate’s knowledge of data services including data curation and management, analysis and presentation, sharing and stewardship'
+    '#required': true
+  comment:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  rate_the_candidate_s_ability_to_develop_and_assess_library_resea:
+    '#type': webform_rating
+    '#title': 'Rate the candidate’s ability to develop and assess library research data services for faculty and students'
+    '#required': true
+  comment1:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  rate_the_candidate_s_ability_to_provide_library_data_services_th:
+    '#type': webform_rating
+    '#title': 'Rate the candidate’s ability to provide library data services though outreach, instruction, and consultation through collaboration in and outside of the library'
+    '#required': true
+  comment2:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  does_this_candidate_appear_to_be_able_to_perform_the_job_of_rese:
+    '#type': textarea
+    '#title': 'Does this candidate appear to be able to perform the job of Research Data Librarian? Why or why not?'
+    '#required': true
+  did_the_candidate_answer_all_questions_to_your_satisfaction_if_n:
+    '#type': textarea
+    '#title': 'Did the candidate answer all questions to your satisfaction? If not, which questions were left unanswered?'
+    '#required': true
+  do_you_have_any_reservations_about_this_candidate_s_ability_to_s:
+    '#type': textarea
+    '#title': 'Do you have any reservations about this candidate’s ability to succeed at UNCW? If yes, explain.'
+    '#required': true
+  how_would_you_rank_this_candidate_in_relation_to_the_other_candi:
+    '#type': textarea
+    '#title': 'How would you rank this candidate in relation to the other candidates who have interviewed for this position? How did you arrive at this rank?'
+    '#required': true
+  additional_comments:
+    '#type': textarea
+    '#title': 'Additional Comments'
 css: ''
 javascript: ''
 settings:
@@ -33,7 +83,7 @@ settings:
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
-  form_remote_addr: true
+  form_disable_remote_addr: false
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false

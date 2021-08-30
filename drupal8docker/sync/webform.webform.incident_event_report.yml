@@ -12,7 +12,60 @@ id: incident_event_report
 title: 'Incident Event Report'
 description: ''
 category: ''
-elements: "date_and_time_the_incident_occurred:\n  '#type': datetime\n  '#title': 'Date and time the incident occurred'\n  '#title_display': before\n  '#date_date_format': ''\n  '#date_year_range': '-1:+1'\n  '#date_time_format': ''\n  '#date_time_step': '900'\ncategory:\n  '#type': select\n  '#title': Category\n  '#description': 'Emails are automatically sent to the UL and all ADs, unless otherwise noted.'\n  '#options':\n    '01': 'Theft - Personal Property '\n    '02': 'Theft - Library Property'\n    '03': Assault/Harassment\n    '04': Injury/Illness\n    '05': 'Damage to Property/Vandalism'\n    '06': 'Alarm sounding - Fire or door (No email sent)'\n    '07': 'Problem Patron - Irate, abusive, disorderly conduct, physical altercation'\n    '08': 'Person trapped on elevator (Email will automatically be sent to Christopher Rhodes and Nicole Tekulve)'\n    '09': 'Other – When the incident doesn’t fit any category already listed above; an example is a person sitting in bathroom in a lawn chair '\n  '#required': true\nbrief_description_of_incident:\n  '#type': textarea\n  '#title': 'Brief Description of incident'\n  '#description': |\n    &nbsp; &nbsp; (include names of staff involved in taking action or resolving the issue)<br />\n    &nbsp;&nbsp; &nbsp;Example: Student came to the desk and reported a creepy looking character who wouldn&#39;t leave her alone on the second floor. Called the Police (non-emergency number unless a weapon or threat is involved) and asked student if she was willing to wait; She couldn&#39;t wait so I got a description of the creepy looking character. I gave the Police the physical description the student shared and they went to the 2nd floor. Police came back about 10 minutes with the creepy looking character and they left the building.<br />\n    &nbsp;\n    \n  '#required': true\n  '#format_items': comma\naction_taken:\n  '#type': textfield\n  '#title': 'Action Taken'\n  '#description': '(Police, EMS called, supervisor notified, etc.)'\n  '#required': true\n  '#format_items': comma\nyour_name:\n  '#type': textfield\n  '#title': 'Your Name'\n  '#required': true\n  '#format_items': comma\nyour_email:\n  '#type': email\n  '#title': 'Your Email'\n  '#description': |\n    You will be sent a email copy of your report.<br />\n    &nbsp;\n    \n  '#required': true\n  '#format_items': comma"
+elements: |-
+  date_and_time_the_incident_occurred:
+    '#type': datetime
+    '#title': 'Date and time the incident occurred'
+    '#title_display': before
+    '#date_date_format': ''
+    '#date_year_range': '-1:+1'
+    '#date_time_format': ''
+    '#date_time_step': '900'
+  category:
+    '#type': select
+    '#title': Category
+    '#description': 'Emails are automatically sent to the UL and all ADs, unless otherwise noted.'
+    '#options':
+      '01': 'Theft - Personal Property '
+      '02': 'Theft - Library Property'
+      '03': Assault/Harassment
+      '04': Injury/Illness
+      '05': 'Damage to Property/Vandalism'
+      '06': 'Alarm sounding - Fire or door (No email sent)'
+      '07': 'Problem Patron - Irate, abusive, disorderly conduct, physical altercation'
+      '08': 'Person trapped on elevator (Email will automatically be sent to Christopher Rhodes and Nicole Tekulve)'
+      '09': 'Other – When the incident doesn’t fit any category already listed above; an example is a person sitting in bathroom in a lawn chair '
+    '#required': true
+  brief_description_of_incident:
+    '#type': textarea
+    '#title': 'Brief Description of incident'
+    '#description': |
+      &nbsp; &nbsp; (include names of staff involved in taking action or resolving the issue)<br />
+      &nbsp;&nbsp; &nbsp;Example: Student came to the desk and reported a creepy looking character who wouldn&#39;t leave her alone on the second floor. Called the Police (non-emergency number unless a weapon or threat is involved) and asked student if she was willing to wait; She couldn&#39;t wait so I got a description of the creepy looking character. I gave the Police the physical description the student shared and they went to the 2nd floor. Police came back about 10 minutes with the creepy looking character and they left the building.<br />
+      &nbsp;
+      
+    '#required': true
+    '#format_items': comma
+  action_taken:
+    '#type': textfield
+    '#title': 'Action Taken'
+    '#description': '(Police, EMS called, supervisor notified, etc.)'
+    '#required': true
+    '#format_items': comma
+  your_name:
+    '#type': textfield
+    '#title': 'Your Name'
+    '#required': true
+    '#format_items': comma
+  your_email:
+    '#type': email
+    '#title': 'Your Email'
+    '#description': |
+      You will be sent a email copy of your report.<br />
+      &nbsp;
+      
+    '#required': true
+    '#format_items': comma
 css: ''
 javascript: ''
 settings:
@@ -33,7 +86,7 @@ settings:
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
-  form_remote_addr: false
+  form_disable_remote_addr: true
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false
@@ -85,6 +138,8 @@ settings:
   wizard_progress_link: false
   wizard_progress_states: false
   wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
   wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
@@ -140,8 +195,7 @@ settings:
   results_customize: false
   token_view: false
   token_update: false
-  wizard_auto_forward_hide_next_button: false
-  wizard_keyboard: true
+  token_delete: false
   serial_disabled: false
 access:
   create:

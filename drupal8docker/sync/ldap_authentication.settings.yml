@@ -1,12 +1,12 @@
 sids:
   uncw: uncw
-authenticationMode: 2
+authenticationMode: exclusive
 loginUIUsernameTxt: 'Your UNCW username (email without the @uncw.edu)'
 loginUIPasswordTxt: 'Your UNCW password (email)'
 ldapUserHelpLinkUrl: 'https://uncw.edu/passwordreset/'
 ldapUserHelpLinkText: 'Forgot password?'
-emailOption: 3
-emailUpdate: 2
+emailOption: disable
+emailUpdate: update
 emailTemplateHandling: none
 emailTemplate: '@username@example.com'
 emailTemplateUsageResolveConflict: false
@@ -14,10 +14,11 @@ emailTemplateUsageNeverUpdate: false
 emailTemplateUsagePromptUser: false
 emailTemplateUsageRedirectOnLogin: false
 emailTemplateUsagePromptRegex: '.*@example\\.com'
-passwordOption: 2
+passwordOption: disable
 allowOnlyIfTextInDn: {  }
 excludeIfTextInDn: {  }
-excludeIfNoAuthorizations: 0
+excludeIfNoAuthorizations: false
 langcode: en
 _core:
   default_config_hash: hSFOSjTAPcCBordJmChil6mui8q7uLwYfc5STlXL0yY
+skipAdministrators: false
