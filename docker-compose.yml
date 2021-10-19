@@ -9,6 +9,7 @@ networks:
 
 services:
   webapp:
+    platform: linux/x86_64/v8
     image: libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base:latest
     container_name: webapp
     env_file: .env
@@ -26,7 +27,8 @@ services:
     restart: always
 
   db:
-    image: amd64/mysql:8.0.16
+    platform: linux/x86_64/v8
+    image: mysql/mysql-server:8.0.16
     container_name: db
     env_file: .env
     volumes:

@@ -32,7 +32,7 @@ But sometimes you need to update that image:
  - anytime you've finished a feature/bug-fix on the dev box
  - anytime you need to update Drupal version or some dependency
 
-`docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker `
+`docker build -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base --no-cache --platform linux/x86_64/v8  ./drupal8docker `
 
 ## Pushing a new image to production
 
