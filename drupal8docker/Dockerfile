@@ -107,7 +107,8 @@ RUN php -d memory_limit=-1 /usr/bin/composer config minimum-stability dev && \
         "drupal/smtp:^1.0" \
         "drupal/token:^1.6" \
         "drupal/webform:^6.0" \
-        "drush/drush:>=9"
+        "drush/drush:>=9" \
+        "drupal/honeypot:^2.0"
 
 # injecting our additions to settings.php
 
