@@ -73,7 +73,7 @@ git checkout -b {your branch name}
 ### Spin up the dev box:
 
 ```
-docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base ./drupal8docker
+docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base --platform linux/x86_64/v8 ./drupal8docker
 docker-compose up --build -d
 docker-compose logs -f
 ```
