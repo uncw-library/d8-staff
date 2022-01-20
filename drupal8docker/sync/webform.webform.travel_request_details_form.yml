@@ -2,9 +2,9 @@ uuid: cd117573-cd9d-4115-ba2f-0109a6c869d1
 langcode: en
 status: open
 dependencies: {  }
+weight: 0
 open: null
 close: null
-weight: 0
 uid: 1
 template: false
 archive: false
@@ -45,11 +45,6 @@ elements: |-
         ':input[name="request_approved"]':
           value: '2'
     '#markup': '<strong>You have indicated that your travel has not been approved yet. DO NOT submit this form yet. Please contact your supervisor.</strong>'
-  covid_spending_guidance_and_restrictions_for_2020:
-    '#type': textarea
-    '#title': 'Covid Spending Guidance and Restrictions for 2020'
-    '#description': 'Is this travel &quot;necessary and essential&quot; for your position? If so, please explain why. Please work with your supervisor for this justification language.'
-    '#required': true
   type_of_travel:
     '#type': checkboxes
     '#title': 'Type of Travel'
@@ -285,14 +280,14 @@ elements: |-
   meals:
     '#type': fieldset
     '#title': Meals
-    '#description': |
+    '#description': |-
       You do not have to take the per diem if you do not want to; please indicate this below. No per diem is paid for travel beginning and ending on the same day. No per diem is paid for meals provided by the conference/meeting. Accounting will not pay for meals/extra events that are included with the registration fee. If you want to attend such a meal/event, you will need to write a check and include it with the registration fee. You will then be reimbursed for the usual per diem meal allowance.<br />
       <br />
-      Per diem allowances, as of July 1, 2017:
+      Per diem allowances, as of July 1, 2021:
       <ul>
-      	<li>Breakfast = $8.40 (reimbursed if departing at 6:00am or before)</li>
-      	<li>Lunch = $11.00</li>
-      	<li>Dinner = $18.90 (in state), $21.60 (out of state) (reimbursed if returning at 8:00pm or later)</li>
+      	<li>Breakfast = $9.00 (reimbursed if departing at 6:00am or before)</li>
+      	<li>Lunch = $11.80</li>
+      	<li>Dinner = $20.50 (in state), $23.30 (out of state) (reimbursed if returning at 8:00pm or later)</li>
       </ul>
       Upon return provide Angie with a list of meals for which you are requesting per diem; no receipts needed. For more campus guidance see UNCW&#39;s&nbsp;<a href="http://uncw.edu/travel/nonemployees/meals.html" target="_blank">Eligible Meals</a>&nbsp;page.<br />
       &nbsp;
@@ -328,9 +323,9 @@ settings:
   page_theme_name: ''
   form_title: source_entity_webform
   form_submit_once: false
-  form_exception_message: ''
   form_open_message: ''
   form_close_message: ''
+  form_exception_message: ''
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
@@ -340,28 +335,36 @@ settings:
   form_prepopulate_source_entity: false
   form_prepopulate_source_entity_required: false
   form_prepopulate_source_entity_type: ''
-  form_reset: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
   form_disable_autocomplete: false
   form_novalidate: false
   form_disable_inline_errors: false
   form_required: false
-  form_unsaved: false
-  form_disable_back: false
-  form_submit_back: false
   form_autofocus: false
   form_details_toggle: false
+  form_reset: false
   form_access_denied: default
   form_access_denied_title: ''
   form_access_denied_message: ''
   form_access_denied_attributes: {  }
   form_file_limit: ''
+  form_attributes: {  }
+  form_method: ''
+  form_action: ''
   share: false
   share_node: false
   share_theme_name: ''
   share_title: true
   share_page_body_attributes: {  }
   submission_label: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
   submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
   submission_views: {  }
   submission_views_replace: {  }
   submission_user_columns: {  }
@@ -370,11 +373,6 @@ settings:
   submission_access_denied_title: ''
   submission_access_denied_message: ''
   submission_access_denied_attributes: {  }
-  submission_exception_message: ''
-  submission_locked_message: ''
-  submission_excluded_elements: {  }
-  submission_exclude_empty: false
-  submission_exclude_empty_checkbox: false
   previous_submission_message: ''
   previous_submissions_message: ''
   autofill: false
@@ -385,13 +383,13 @@ settings:
   wizard_progress_percentage: false
   wizard_progress_link: false
   wizard_progress_states: false
-  wizard_auto_forward: true
-  wizard_auto_forward_hide_next_button: false
-  wizard_keyboard: true
   wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
   wizard_confirmation_label: ''
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
   wizard_track: ''
   wizard_prev_button_label: ''
   wizard_next_button_label: ''
@@ -414,9 +412,9 @@ settings:
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
   confirmation_type: page
+  confirmation_url: ''
   confirmation_title: ''
   confirmation_message: "<p>Upon your return, provide Angie with receipts for any other expenses, such as rental car, taxi, shuttle, subway, ferry, parking, etc.</p>\r\n\r\n<p>** Reminder &ndash; Angie&nbsp;needs receipts for everything except meals!! **</p>\r\n\r\n<p><a href=\"https://randallstaff.uncw.edu/staff/logout\">Logout</a></p>"
-  confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
@@ -495,9 +493,9 @@ access:
 handlers:
   email:
     id: email
+    handler_id: email
     label: 'Email Your Name'
     notes: ''
-    handler_id: email
     status: true
     conditions: {  }
     weight: 0
@@ -506,13 +504,17 @@ handlers:
         - completed
       to_mail: '[webform_submission:values:your_email:raw]'
       to_options: {  }
-      cc_mail: ''
-      cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
       from_mail: '[webform_submission:values:your_email:raw]'
       from_options: {  }
       from_name: '[webform_submission:values:your_name:raw]'
+      reply_to: '[webform_submission:values:your_email:raw]'
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
       subject: _default
       body: _default
       excluded_elements: {  }
@@ -523,18 +525,14 @@ handlers:
       html: false
       attachments: false
       twig: false
-      debug: false
-      reply_to: '[webform_submission:values:your_email:raw]'
-      return_path: ''
-      sender_mail: ''
-      sender_name: ''
       theme_name: ''
       parameters: {  }
+      debug: false
   email_1:
     id: email
+    handler_id: email_1
     label: 'Supervisor''s Email'
     notes: ''
-    handler_id: email_1
     status: true
     conditions: {  }
     weight: 0
@@ -543,13 +541,17 @@ handlers:
         - completed
       to_mail: '[webform_submission:values:your_supervisor_s_email:raw]'
       to_options: {  }
-      cc_mail: ''
-      cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
       from_mail: '[webform_submission:values:your_email:raw]'
       from_options: {  }
       from_name: '[webform_submission:values:your_name:raw]'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
       subject: _default
       body: _default
       excluded_elements: {  }
@@ -560,18 +562,14 @@ handlers:
       html: false
       attachments: false
       twig: false
-      debug: false
-      reply_to: ''
-      return_path: ''
-      sender_mail: ''
-      sender_name: ''
       theme_name: ''
       parameters: {  }
+      debug: false
   email_2:
     id: email
+    handler_id: email_2
     label: 'Angie''s Email'
     notes: ''
-    handler_id: email_2
     status: true
     conditions: {  }
     weight: 0
@@ -580,13 +578,17 @@ handlers:
         - completed
       to_mail: edwardsa@uncw.edu
       to_options: {  }
-      cc_mail: ''
-      cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
       from_mail: '[webform_submission:values:your_email:raw]'
       from_options: {  }
       from_name: '[webform_submission:values:your_name:raw]'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
       subject: _default
       body: _default
       excluded_elements: {  }
@@ -597,18 +599,14 @@ handlers:
       html: false
       attachments: false
       twig: false
-      debug: false
-      reply_to: ''
-      return_path: ''
-      sender_mail: ''
-      sender_name: ''
       theme_name: ''
       parameters: {  }
+      debug: false
   email_3:
     id: email
+    handler_id: email_3
     label: 'Division Head Email'
     notes: ''
-    handler_id: email_3
     status: true
     conditions: {  }
     weight: 0
@@ -617,13 +615,17 @@ handlers:
         - completed
       to_mail: '[webform_submission:values:your_division_head_s_email_if_different_from_supervisor_:raw]'
       to_options: {  }
-      cc_mail: ''
-      cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
       from_mail: '[webform_submission:values:your_email:raw]'
       from_options: {  }
       from_name: '[webform_submission:values:your_name:raw]'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
       subject: _default
       body: _default
       excluded_elements: {  }
@@ -634,11 +636,7 @@ handlers:
       html: false
       attachments: false
       twig: false
-      debug: false
-      reply_to: ''
-      return_path: ''
-      sender_mail: ''
-      sender_name: ''
       theme_name: ''
       parameters: {  }
+      debug: false
 variants: {  }

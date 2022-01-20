@@ -1,7 +1,13 @@
 uuid: aa689c53-19c3-48cf-9929-570a712c3651
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.full_html
+  module:
+    - filter
+    - toolbar
+    - webform
 id: webform_editor
 label: 'Webform Editor'
 weight: 3

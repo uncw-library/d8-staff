@@ -15,23 +15,23 @@ bundle: shout_outs
 mode: default
 content:
   field_why_:
-    weight: 103
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 103
     region: content
   field_your_name:
-    weight: 102
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 102
     region: content
   links:
-    weight: 100
     settings: {  }
     third_party_settings: {  }
+    weight: 100
     region: content
 hidden: {  }

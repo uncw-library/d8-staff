@@ -1,6 +1,9 @@
+_core:
+  default_config_hash: hSFOSjTAPcCBordJmChil6mui8q7uLwYfc5STlXL0yY
+langcode: en
 sids:
   uncw: uncw
-authenticationMode: exclusive
+authenticationMode: mixed
 loginUIUsernameTxt: 'Your UNCW username (email without the @uncw.edu)'
 loginUIPasswordTxt: 'Your UNCW password (email)'
 ldapUserHelpLinkUrl: 'https://uncw.edu/passwordreset/'
@@ -18,7 +21,4 @@ passwordOption: disable
 allowOnlyIfTextInDn: {  }
 excludeIfTextInDn: {  }
 excludeIfNoAuthorizations: false
-langcode: en
-_core:
-  default_config_hash: hSFOSjTAPcCBordJmChil6mui8q7uLwYfc5STlXL0yY
 skipAdministrators: false

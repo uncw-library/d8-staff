@@ -18,16 +18,16 @@ bundle: webform
 mode: teaser
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 0
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
     region: content
   links:
-    weight: 1
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   webform: true

@@ -61,14 +61,17 @@ git checkout -b {your branch name}
 ### Get the production drupal-sync
 
 - in Drupal web interface > Configuration > Configuration synchronization > Export
-- delete *.yml in your computer's ./d8-staff/drupal8docker/sync
+- on your local computer, delete all the .yml files in ./d8-staff/drupal8docker/sync/
 - extract the downloaded file into that folder.
 
 
 ### Get the production database
 
+(This would be better if we had small dummy database that had sample data, but was similar to the production database.)
+
 - Use the production phpmyadmin to export the db.
 - Place that {dumpfile name}.sql at ./db_autoimport --- next to add_drupaluser.sql.  These should be the only two files in ./db_autoimport.  All sqldumps in this folder get autoimported into the dev box's mysql.
+- Remove the old db docker volume with `docker volume rm d8-staff_db_data`
 
 ### Spin up the dev box:
 
@@ -80,7 +83,7 @@ docker-compose logs -f
 
 Wait until the logs say "MySQL init process done. Ready for start up."  You may exit the log screen with `Ctrl-C`, or keep the log screen open & use a second terminal.  Your choice.
 
-...then spruce up the files to make drupal happy:
+...then spruce up the files to make the dev box happy:
 
 ```
 docker-compose exec webapp chown -R www-data:www-data /drupal_sync /var/www/html/web/modules/custom /var/www/html/web/themes/custom /etc/apache2/sites-enabled/000-default.conf

@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: hjgcuHpcsme6SW-7MKpZm3bhnR76f1yX2Y8Xe0STesw
 drupalAcctProvisionServer: uncw
 ldapEntryProvisionServer: null
 drupalAcctProvisionTriggers:
@@ -8,17 +10,15 @@ ldapEntryProvisionTriggers:
   ldap_on_login: '0'
   ldap_on_delete: '0'
   drupal_on_manual_creation: '0'
-userUpdateCronQuery: none
-userUpdateCronInterval: monthly
 orphanedDrupalAcctBehavior: ldap_user_orphan_do_not_check
 orphanedCheckQty: 100
 orphanedAccountCheckInterval: weekly
 userConflictResolve: resolve
 manualAccountConflict: conflict_associate
 acctCreation: ldap_behaviour
+disableAdminPasswordField: false
+userUpdateCronQuery: none
+userUpdateCronInterval: monthly
 ldapUserSyncMappings:
   drupal: {  }
   ldap: {  }
-_core:
-  default_config_hash: hjgcuHpcsme6SW-7MKpZm3bhnR76f1yX2Y8Xe0STesw
-disableAdminPasswordField: false

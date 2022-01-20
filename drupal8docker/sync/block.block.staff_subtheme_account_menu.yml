@@ -19,14 +19,14 @@ plugin: 'system_menu_block:account'
 settings:
   id: 'system_menu_block:account'
   label: Login
-  provider: system
   label_display: '0'
+  provider: system
   level: 1
   depth: 1
   expand_all_items: false
 visibility:
   request_path:
     id: request_path
-    pages: "<front>\r\nnode/add/*\r\nfys_critic_assessment"
     negate: false
     context_mapping: {  }
+    pages: "<front>\r\nnode/add/*\r\nfys_critic_assessment"

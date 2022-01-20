@@ -2,12 +2,12 @@ uuid: 47d39c43-85a9-49e2-be2e-5392e918a67d
 langcode: en
 status: true
 dependencies:
-  enforced:
-    module:
-      - webform_node
   module:
     - node
     - webform
+  enforced:
+    module:
+      - webform_node
 _core:
   default_config_hash: SJRNyZvo1lWcPLKxH_u6giTk1y51ymXvpKX65YUNd7w
 id: node.webform
