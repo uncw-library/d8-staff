@@ -44,6 +44,8 @@ When your image is confirmed good:
 
 and Rancher upgrade the d8-staff/webapp service.
 
+Check Reports > Status Report, to see if db updates or cron needs to be run.
+
 If the theme does not apply, the hack around this bug is to enter the site's admin panel > Appearances > Staff Subtheme > Save Configuration
 
 ---------------
