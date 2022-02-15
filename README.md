@@ -26,7 +26,7 @@ env GIT_SSL_NO_VERIFY=true git clone https://libapps-admin.uncw.edu/randall-dev/
 cd d8-staff
 ```
 
-### 2) Get the production drupal-sync
+### 2) Get the production drupal-sync ( *production's config changes often & we've gotta keep pulling it into the repo/image* )
 
 - in Drupal web interface > Configuration > Configuration synchronization > Export
 - on your local computer, delete all the .yml files in ./d8-staff/drupal8docker/sync/
@@ -42,11 +42,11 @@ cd d8-staff
 
 ### 4) Spin up the dev box (pick slow or fast way)
 
-#### a. Slow Way ( updates all modules and OS-level programs ) , or
+#### a. Slow Way ( this updates all modules and OS-level programs ) , or
 
 ```
 docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base --platform linux/x86_64/v8 ./drupal8docker
-docker-compose up --build -d
+docker-compose up --build
 docker-compose logs -f
 ```
 
@@ -54,7 +54,7 @@ docker-compose logs -f
 
 ```
 docker pull libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base
-docker-compose up --build -d
+docker-compose up --build
 docker-compose logs -f
 ```
 
@@ -103,7 +103,7 @@ If the theme does not show on production, the hack is to enter the site's admin 
 
 -------------------------
 
-# Misc Dev box tools:
+# Misc Dev box tricks:
 
 ### How to clear the cache
 
