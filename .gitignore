@@ -7,3 +7,5 @@ code/
 
 /mysql
 .htaccess
+
+.DS_Store

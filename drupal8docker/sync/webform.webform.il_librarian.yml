@@ -1,4 +1,4 @@
-uuid: 6266959e-53a1-4ead-a067-c7be6c1c5bd5
+uuid: 0b7368b6-66b4-4489-ae49-38a305e8ac70
 langcode: en
 status: open
 dependencies: {  }
@@ -8,64 +8,52 @@ close: null
 uid: 13
 template: false
 archive: false
-id: cataloging_and_metadata_libraria
-title: 'Cataloging and Metadata Librarian'
+id: il_librarian
+title: 'IL Librarian'
 description: ''
 category: ''
 elements: |-
-  first_select_the_candidate_then_complete_the_form_for_each_selec:
+  candidate_name:
     '#type': select
-    '#title': 'Select the candidate:'
+    '#title': 'Candidate Name'
     '#options':
-      'Jessica Mahn': 'Jessica Mahn'
-      'Chun Li': 'Chun Li'
+      'Brittany O''Neill': 'Brittany O''Neill'
+      'Criss Guy': 'Criss Guy'
+      'Keri O''Hern': 'Keri O''Hern'
     '#required': true
-  how_would_you_rate_the_candidate_s_presentation_:
-    '#type': webform_rating
-    '#title': 'How would you rate the candidate''s presentation?'
+  what_would_you_consider_to_be_this_candidate_s_strengths_:
+    '#type': textarea
+    '#title': 'What would you consider to be this candidate’s strengths?'
     '#required': true
-  how_would_you_rate_the_candidates_ability_to_perform_cataloging_:
-    '#type': webform_rating
-    '#title': 'How would you rate the candidates ability to perform cataloging and description of complex materials in a variety of formats.'
+  what_areas_could_this_candidate_improve_upon_:
+    '#type': textarea
+    '#title': 'What areas could this candidate improve upon?'
     '#required': true
-  did_the_candidate_answer_all_questions_to_your_satisfaction_:
+  did_the_candidate_answer_all_questions_to_your_satisfaction_if_n:
+    '#type': textarea
+    '#title': 'Did the candidate answer all questions to your satisfaction? If not, which questions were left unanswered? '
+    '#required': true
+  would_you_hire_this_candidate_:
     '#type': radios
-    '#title': 'Did the candidate answer all questions to your satisfaction?'
+    '#title': 'Would you hire this candidate?'
     '#options':
       'Yes': 'Yes'
       'No': 'No'
     '#required': true
-  comments_:
+  if_you_answered_no_please_explain:
     '#type': textarea
-    '#title': 'Comments:'
-    '#required': true
-  do_you_believe_the_candidate_has_the_ability_to_perform_all_duti:
-    '#type': radios
-    '#title': 'Do you believe the candidate has the ability to perform all duties required of the position?'
-    '#options':
-      'Yes': 'Yes'
-      'No': 'No'
-    '#required': true
-  comments1:
+    '#title': 'If you answered no, please explain'
+  do_you_have_any_reservations_about_this_candidate_s_ability_to_s:
     '#type': textarea
-    '#title': 'Comments:'
+    '#title': 'Do you have any reservations about this candidate’s ability to succeed at UNCW? If yes, please explain. '
     '#required': true
-  succeed:
-    '#type': radios
-    '#title': 'Do you feel the candidate can succeed as a faculty member at Randall Library?'
-    '#options': yes_no
-    '#required': true
-  comments2:
+  how_would_you_rank_this_candidate_in_relation_to_the_other_candi:
     '#type': textarea
-    '#title': 'Comments:'
+    '#title': 'How would you rank this candidate in relation to the other candidates who have come to campus? How did you arrive at this rank? '
     '#required': true
-  how_would_you_rank_the_candidate_compared_to_the_other_candidate:
-    '#type': select
-    '#title': 'How would you rank the candidate compared to the other candidates?'
-    '#options':
-      First: First
-      Second: Second
-    '#required': true
+  additional_comments:
+    '#type': textarea
+    '#title': 'Additional comments'
 css: ''
 javascript: ''
 settings:
