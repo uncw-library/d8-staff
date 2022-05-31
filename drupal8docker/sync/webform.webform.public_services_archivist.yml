@@ -1,4 +1,4 @@
-uuid: 6266959e-53a1-4ead-a067-c7be6c1c5bd5
+uuid: b7076d70-c96e-4d52-8c04-7027c2b074e3
 langcode: en
 status: open
 dependencies: {  }
@@ -8,60 +8,58 @@ close: null
 uid: 13
 template: false
 archive: false
-id: cataloging_and_metadata_libraria
-title: 'Cataloging and Metadata Librarian'
+id: public_services_archivist
+title: 'Public Services Archivist'
 description: ''
 category: ''
 elements: |-
-  first_select_the_candidate_then_complete_the_form_for_each_selec:
+  candidate_name:
     '#type': select
-    '#title': 'Select the candidate:'
+    '#title': 'Candidate Name'
     '#options':
-      'Kim Cull': 'Kim Cull'
-      'Emma Beck': 'Emma Beck'
-      'Emma May': 'Emma May'
-      'Jan Juliani': 'Jan Juliani'
+      'Jessica Cerri': 'Jessica Cerri'
+      'Samantha Crisp': 'Samantha Crisp'
+      'Claire Du Laney': 'Claire Du Laney'
+      'Merisa Tomczak': 'Merisa Tomczak'
     '#required': true
-  how_would_you_rate_the_candidate_s_presentation_:
+  please_rate_the_quality_of_the_candidate_s_presentation_and_prov:
     '#type': webform_rating
-    '#title': 'How would you rate the candidate''s presentation?'
-  how_would_you_rate_the_candidates_ability_to_perform_cataloging_:
-    '#type': webform_rating
-    '#title': 'How would you rate the candidates ability to perform cataloging and description of complex materials in a variety of formats.'
-  did_the_candidate_answer_all_questions_to_your_satisfaction_:
-    '#type': select
-    '#title': 'Did the candidate answer all questions to your satisfaction? If no, why?'
-    '#options':
-      'Yes': 'Yes'
-      'No': 'No'
-  comments_:
+    '#title': 'Please rate the quality of the candidate''s presentation and provide supporting comments'
+    '#required': true
+  comments:
     '#type': textarea
-    '#title': 'Comments:'
-  do_you_believe_the_candidate_has_the_ability_to_perform_all_duti:
+    '#title': Comments
+    '#required': true
+  did_the_candidate_answer_all_questions_following_the_presentatio:
     '#type': select
-    '#title': 'Do you believe the candidate has the ability to perform all duties required of the position?'
+    '#title': 'Did the candidate answer all questions following the presentation to your satisfaction? If not, which questions were left unanswered? '
     '#options': yes_no
+    '#required': true
+  comments0:
+    '#type': textarea
+    '#title': Comments
+    '#required': true
+  did_you_attend_any_meetings_with_this_candidate_if_yes_what_were:
+    '#type': select
+    '#title': 'Did you attend any meetings with this candidate? If yes, what were your impressions of their qualifications based on the position description? '
+    '#options': yes_no
+    '#required': true
   comments1:
     '#type': textarea
-    '#title': 'Comments:'
-  succeed:
+    '#title': Comments
+    '#required': true
+  do_you_have_any_reservations_about_this_candidate_s_ability_to_s:
     '#type': select
-    '#title': 'Do you feel the candidate can succeed as a faculty member at Randall Library?'
+    '#title': 'Do you have any reservations about this candidate’s ability to succeed at UNCW? '
     '#options': yes_no
+    '#required': true
   comments2:
     '#type': textarea
-    '#title': 'Comments:'
-  how_would_you_rank_the_candidate_compared_to_the_other_candidate:
-    '#type': select
-    '#title': 'How would you rank the candidate compared to the other candidates?'
-    '#options':
-      First: First
-      Second: Second
-      Third: Third
-      Fourth: Fourth
-  additional_comments_:
+    '#title': Comments
+    '#required': true
+  please_provide_any_additional_comments_you_wish_to_share:
     '#type': textarea
-    '#title': 'Additional Comments:'
+    '#title': 'Please provide any additional comments you wish to share'
 css: ''
 javascript: ''
 settings:

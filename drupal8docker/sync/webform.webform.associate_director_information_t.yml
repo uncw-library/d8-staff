@@ -1,67 +1,118 @@
-uuid: 6266959e-53a1-4ead-a067-c7be6c1c5bd5
+uuid: a6a67acc-d4b5-4159-8018-fff467d505df
 langcode: en
 status: open
 dependencies: {  }
 weight: 0
 open: null
 close: null
-uid: 13
+uid: 17
 template: false
 archive: false
-id: cataloging_and_metadata_libraria
-title: 'Cataloging and Metadata Librarian'
-description: ''
+id: associate_director_information_t
+title: 'Associate Director, Information Technology and Digital Services: Candidate Evaluation '
+description: 'Feedback Form for Library Staff'
 category: ''
 elements: |-
-  first_select_the_candidate_then_complete_the_form_for_each_selec:
+  candidate_name:
     '#type': select
-    '#title': 'Select the candidate:'
+    '#title': 'Which candidate are you ranking?'
     '#options':
-      'Kim Cull': 'Kim Cull'
-      'Emma Beck': 'Emma Beck'
-      'Emma May': 'Emma May'
-      'Jan Juliani': 'Jan Juliani'
+      'Jason Fleming': 'Jason Fleming'
+      'Liz Steyer': 'Liz Steyer'
     '#required': true
-  how_would_you_rate_the_candidate_s_presentation_:
+  the_quality_of_the_candidate_s_presentation_:
     '#type': webform_rating
-    '#title': 'How would you rate the candidate''s presentation?'
-  how_would_you_rate_the_candidates_ability_to_perform_cataloging_:
+    '#title': 'The quality of the candidate''s presentation. '
+    '#required': true
+  comment:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  the_candidate_s_demonstrated_ability_to_manage_library_technolog:
     '#type': webform_rating
-    '#title': 'How would you rate the candidates ability to perform cataloging and description of complex materials in a variety of formats.'
-  did_the_candidate_answer_all_questions_to_your_satisfaction_:
+    '#title': 'The candidate''s demonstrated ability to manage library technology services such as web technologies, information systems, integrated library systems, data storage and curation, desktop computing, makerspace, digital initiatives, and digital scholarship technologies. '
+    '#required': true
+  comment_manage_technology:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  the_candidate_s_demonstrated_experience_implementing_new_and_or_:
+    '#type': webform_rating
+    '#title': 'The candidate''s demonstrated experience implementing new and/or emerging technologies.'
+    '#required': true
+  comment_new_emerging:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  the_candidate_s_demonstrated_commitment_to_fostering_an_equitabl:
+    '#type': webform_rating
+    '#title': 'The candidate’s demonstrated commitment to fostering an equitable and inclusive educational environment and workplace and an ability to work effectively with a diverse faculty, student, staff, and community population.'
+    '#required': true
+  comment_commitment:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  the_candidate_s_ability_to_provide_strong_leadership_including_d:
+    '#type': webform_rating
+    '#title': 'The candidate''s ability to provide strong leadership, including demonstrated analytical and decision-making skills. '
+    '#required': true
+  comment_leadership:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  the_candidate_s_demonstrated_knowledge_of_emerging_practices_sta:
+    '#type': webform_rating
+    '#title': 'The candidate''s demonstrated knowledge of emerging practices, standards, and trends in academic librarianship, particularly in areas related to the home department’s focuses. '
+    '#required': true
+  comment_knowledge:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  the_candidate_s_communication_skills_:
+    '#type': webform_rating
+    '#title': 'The candidate''s communication skills. '
+    '#required': true
+  comment_communication:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  does_this_candidate_appear_to_be_able_to_perform_the_job_of_asso:
     '#type': select
-    '#title': 'Did the candidate answer all questions to your satisfaction? If no, why?'
+    '#title': 'Does this candidate appear to be able to perform the job of Associate Director, Information Technology and Digital Services? Why or why not?'
     '#options':
-      'Yes': 'Yes'
       'No': 'No'
-  comments_:
+      'Yes': 'Yes'
+    '#required': true
+  comment_perform:
     '#type': textarea
-    '#title': 'Comments:'
-  do_you_believe_the_candidate_has_the_ability_to_perform_all_duti:
+    '#title': Comment
+    '#required': true
+  did_the_candidate_answer_all_questions_to_your_satisfaction_if_n:
     '#type': select
-    '#title': 'Do you believe the candidate has the ability to perform all duties required of the position?'
-    '#options': yes_no
-  comments1:
-    '#type': textarea
-    '#title': 'Comments:'
-  succeed:
-    '#type': select
-    '#title': 'Do you feel the candidate can succeed as a faculty member at Randall Library?'
-    '#options': yes_no
-  comments2:
-    '#type': textarea
-    '#title': 'Comments:'
-  how_would_you_rank_the_candidate_compared_to_the_other_candidate:
-    '#type': select
-    '#title': 'How would you rank the candidate compared to the other candidates?'
+    '#title': 'Did the candidate answer all questions to your satisfaction? If not, which questions were left unanswered? '
     '#options':
-      First: First
-      Second: Second
-      Third: Third
-      Fourth: Fourth
-  additional_comments_:
+      'No': 'No'
+      'Yes': 'Yes'
+    '#required': true
+  comment_answer:
     '#type': textarea
-    '#title': 'Additional Comments:'
+    '#title': Comment
+    '#required': true
+  do_you_have_any_reservations_about_this_candidate_s_ability_to_s:
+    '#type': select
+    '#title': 'Do you have any reservations about this candidate’s ability to succeed at UNCW? If yes, explain. '
+    '#options':
+      'No': 'No'
+      'Yes': 'Yes'
+    '#required': true
+  comment_reservations:
+    '#type': textarea
+    '#title': Comment
+    '#required': true
+  additional_comments:
+    '#type': textarea
+    '#title': 'Additional Comments'
+    '#required': true
 css: ''
 javascript: ''
 settings:
@@ -71,7 +122,7 @@ settings:
   ajax_effect: ''
   ajax_speed: null
   page: true
-  page_submit_path: ''
+  page_submit_path: /associate_director_information_technology_digital_feedback_form
   page_confirm_path: ''
   page_theme_name: ''
   form_title: both
@@ -157,7 +208,7 @@ settings:
   preview_excluded_elements: {  }
   preview_exclude_empty: true
   preview_exclude_empty_checkbox: false
-  draft: none
+  draft: all
   draft_multiple: false
   draft_auto_save: false
   draft_saved_message: ''

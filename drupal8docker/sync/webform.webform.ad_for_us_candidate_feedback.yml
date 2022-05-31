@@ -1,4 +1,4 @@
-uuid: 6266959e-53a1-4ead-a067-c7be6c1c5bd5
+uuid: 9f4e013e-451a-416c-955d-85fe632f4563
 langcode: en
 status: open
 dependencies: {  }
@@ -8,60 +8,83 @@ close: null
 uid: 13
 template: false
 archive: false
-id: cataloging_and_metadata_libraria
-title: 'Cataloging and Metadata Librarian'
+id: ad_for_us_candidate_feedback
+title: 'AD for US Candidate Feedback'
 description: ''
 category: ''
 elements: |-
-  first_select_the_candidate_then_complete_the_form_for_each_selec:
+  which_candidate_are_you_ranking_:
     '#type': select
-    '#title': 'Select the candidate:'
+    '#title': 'Which candidate are you ranking?'
     '#options':
-      'Kim Cull': 'Kim Cull'
-      'Emma Beck': 'Emma Beck'
-      'Emma May': 'Emma May'
-      'Jan Juliani': 'Jan Juliani'
+      'William Weare': 'William Weare'
+      'Dawn Brown': 'Dawn Brown'
+      'Laura Sullivan': 'Laura Sullivan'
     '#required': true
-  how_would_you_rate_the_candidate_s_presentation_:
+  please_rate_the_candidates_presentation:
     '#type': webform_rating
-    '#title': 'How would you rate the candidate''s presentation?'
-  how_would_you_rate_the_candidates_ability_to_perform_cataloging_:
+    '#title': 'Please rate the candidates presentation'
+    '#required': true
+  comments:
+    '#type': textarea
+    '#title': Comments
+    '#required': true
+  please_rate_the_candidate_s_written_and_verbal_communication_ski:
     '#type': webform_rating
-    '#title': 'How would you rate the candidates ability to perform cataloging and description of complex materials in a variety of formats.'
-  did_the_candidate_answer_all_questions_to_your_satisfaction_:
-    '#type': select
-    '#title': 'Did the candidate answer all questions to your satisfaction? If no, why?'
-    '#options':
-      'Yes': 'Yes'
-      'No': 'No'
-  comments_:
-    '#type': textarea
-    '#title': 'Comments:'
-  do_you_believe_the_candidate_has_the_ability_to_perform_all_duti:
-    '#type': select
-    '#title': 'Do you believe the candidate has the ability to perform all duties required of the position?'
-    '#options': yes_no
-  comments1:
-    '#type': textarea
-    '#title': 'Comments:'
-  succeed:
-    '#type': select
-    '#title': 'Do you feel the candidate can succeed as a faculty member at Randall Library?'
-    '#options': yes_no
+    '#title': 'Please rate the candidate’s written and verbal communication skills'
+    '#required': true
   comments2:
     '#type': textarea
-    '#title': 'Comments:'
-  how_would_you_rank_the_candidate_compared_to_the_other_candidate:
-    '#type': select
-    '#title': 'How would you rank the candidate compared to the other candidates?'
-    '#options':
-      First: First
-      Second: Second
-      Third: Third
-      Fourth: Fourth
-  additional_comments_:
+    '#title': Comments
+    '#required': true
+  did_the_candidate_answer_all_questions_post_presentation_group_a:
+    '#type': webform_rating
+    '#title': 'Did the candidate answer all questions (post-presentation, group and individual meeting interactions, etc.) to your satisfaction?'
+    '#required': true
+  comments3:
     '#type': textarea
-    '#title': 'Additional Comments:'
+    '#title': Comments
+    '#required': true
+  please_rate_the_candidate_s_knowledge_of_broader_trends_in_acade:
+    '#type': webform_rating
+    '#title': 'Please rate the candidate’s knowledge of broader trends in academic librarianship related to user experience.'
+    '#required': true
+  comments4:
+    '#type': textarea
+    '#title': Comments
+    '#required': true
+  please_rate_the_candidate_s_ability_to_lead_and_manage_a_service:
+    '#type': webform_rating
+    '#title': 'Please rate the candidate’s ability to lead and manage a service program that meets the diverse needs of Randall Library’s patrons.'
+    '#required': true
+  comments5:
+    '#type': textarea
+    '#title': Comments
+    '#required': true
+  please_rate_the_candidate_s_ability_to_collaborate_with_stakehol:
+    '#type': webform_rating
+    '#title': 'Please rate the candidate’s ability to collaborate with stakeholders within Randall Library as well as campus and community partners.'
+    '#required': true
+  comments6:
+    '#type': textarea
+    '#title': Comments
+    '#required': true
+  8_please_rate_the_candidate_s_ability_to_function_as_an_effectiv:
+    '#type': webform_rating
+    '#title': 'Please rate the candidate’s ability to function as an effective supervisor at Randall Library.'
+    '#required': true
+  comments7:
+    '#type': textarea
+    '#title': Comments
+    '#required': true
+  does_the_candidate_appear_to_have_the_ability_to_perform_the_dut:
+    '#type': textarea
+    '#title': 'Does the candidate appear to have the ability to perform the duties of the Associate Director for User Services and Assessment?'
+    '#required': true
+  do_you_have_any_reservations_about_this_candidate_s_ability_to_s:
+    '#type': textarea
+    '#title': 'Do you have any reservations about this candidate’s ability to succeed at Randall Library?'
+    '#required': true
 css: ''
 javascript: ''
 settings:

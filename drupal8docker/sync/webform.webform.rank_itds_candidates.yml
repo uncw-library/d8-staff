@@ -1,67 +1,32 @@
-uuid: 6266959e-53a1-4ead-a067-c7be6c1c5bd5
+uuid: 7ef840f7-d5f9-4265-b8cf-b1823ebd9664
 langcode: en
 status: open
 dependencies: {  }
 weight: 0
 open: null
 close: null
-uid: 13
+uid: 17
 template: false
 archive: false
-id: cataloging_and_metadata_libraria
-title: 'Cataloging and Metadata Librarian'
+id: rank_itds_candidates
+title: 'Rank iTDS Candidates'
 description: ''
 category: ''
 elements: |-
-  first_select_the_candidate_then_complete_the_form_for_each_selec:
+  jason_fleming:
     '#type': select
-    '#title': 'Select the candidate:'
-    '#options':
-      'Kim Cull': 'Kim Cull'
-      'Emma Beck': 'Emma Beck'
-      'Emma May': 'Emma May'
-      'Jan Juliani': 'Jan Juliani'
-    '#required': true
-  how_would_you_rate_the_candidate_s_presentation_:
-    '#type': webform_rating
-    '#title': 'How would you rate the candidate''s presentation?'
-  how_would_you_rate_the_candidates_ability_to_perform_cataloging_:
-    '#type': webform_rating
-    '#title': 'How would you rate the candidates ability to perform cataloging and description of complex materials in a variety of formats.'
-  did_the_candidate_answer_all_questions_to_your_satisfaction_:
-    '#type': select
-    '#title': 'Did the candidate answer all questions to your satisfaction? If no, why?'
-    '#options':
-      'Yes': 'Yes'
-      'No': 'No'
-  comments_:
-    '#type': textarea
-    '#title': 'Comments:'
-  do_you_believe_the_candidate_has_the_ability_to_perform_all_duti:
-    '#type': select
-    '#title': 'Do you believe the candidate has the ability to perform all duties required of the position?'
-    '#options': yes_no
-  comments1:
-    '#type': textarea
-    '#title': 'Comments:'
-  succeed:
-    '#type': select
-    '#title': 'Do you feel the candidate can succeed as a faculty member at Randall Library?'
-    '#options': yes_no
-  comments2:
-    '#type': textarea
-    '#title': 'Comments:'
-  how_would_you_rank_the_candidate_compared_to_the_other_candidate:
-    '#type': select
-    '#title': 'How would you rank the candidate compared to the other candidates?'
+    '#title': 'Jason Fleming'
     '#options':
       First: First
       Second: Second
-      Third: Third
-      Fourth: Fourth
-  additional_comments_:
-    '#type': textarea
-    '#title': 'Additional Comments:'
+    '#required': true
+  liz_steyer:
+    '#type': select
+    '#title': 'Liz Steyer'
+    '#options':
+      First: First
+      Second: Second
+    '#required': true
 css: ''
 javascript: ''
 settings:
@@ -71,7 +36,7 @@ settings:
   ajax_effect: ''
   ajax_speed: null
   page: true
-  page_submit_path: ''
+  page_submit_path: /rank_ad_for_itds_candidates
   page_confirm_path: ''
   page_theme_name: ''
   form_title: both

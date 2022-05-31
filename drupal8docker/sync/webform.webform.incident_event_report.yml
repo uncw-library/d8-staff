@@ -21,29 +21,21 @@ elements: |-
     '#date_year_range': '-1:+1'
     '#date_time_format': ''
     '#date_time_step': '900'
+    '#required': true
   category:
     '#type': select
     '#title': Category
-    '#description': 'Emails are automatically sent to the UL and all ADs, unless otherwise noted.'
     '#options':
-      '01': 'Theft - Personal Property '
-      '02': 'Theft - Library Property'
-      '03': Assault/Harassment
-      '04': Injury/Illness
-      '05': 'Damage to Property/Vandalism'
-      '06': 'Alarm sounding - Fire or door (No email sent)'
-      '07': 'Problem Patron - Irate, abusive, disorderly conduct, physical altercation'
-      '08': 'Person trapped on elevator (Email will automatically be sent to Christopher Rhodes and Nicole Tekulve)'
-      '09': 'Other – When the incident doesn’t fit any category already listed above; an example is a person sitting in bathroom in a lawn chair '
+      theft: Theft
+      injury: 'Injury/Medical Emergency'
+      damage: 'Damage to property/vandalism'
+      assault: 'Assault/Physical Altercation'
+      disorderly: 'Disorderly/Irate Patron'
+      other: Other
     '#required': true
   brief_description_of_incident:
     '#type': textarea
-    '#title': 'Brief Description of incident'
-    '#description': |
-      &nbsp; &nbsp; (include names of staff involved in taking action or resolving the issue)<br />
-      &nbsp;&nbsp; &nbsp;Example: Student came to the desk and reported a creepy looking character who wouldn&#39;t leave her alone on the second floor. Called the Police (non-emergency number unless a weapon or threat is involved) and asked student if she was willing to wait; She couldn&#39;t wait so I got a description of the creepy looking character. I gave the Police the physical description the student shared and they went to the 2nd floor. Police came back about 10 minutes with the creepy looking character and they left the building.<br />
-      &nbsp;
-      
+    '#title': 'Brief Description of incident, including individuals involved'
     '#required': true
     '#format_items': comma
   action_taken:
@@ -52,6 +44,12 @@ elements: |-
     '#description': '(Police, EMS called, supervisor notified, etc.)'
     '#required': true
     '#format_items': comma
+  follow_up_needed_:
+    '#type': select
+    '#title': 'Follow up needed?'
+    '#description': 'Please select &quot;Yes&quot; if you would like someone to follow up with you about the incident, or if you have suggestions for alterations to policy or service in response to the incident'
+    '#options': yes_no
+    '#required': true
   your_name:
     '#type': textfield
     '#title': 'Your Name'
@@ -63,9 +61,12 @@ elements: |-
     '#description': |
       You will be sent a email copy of your report.<br />
       &nbsp;
-      
     '#required': true
     '#format_items': comma
+  your_supervisor_s_email:
+    '#type': email
+    '#title': 'Your Supervisor''s Email'
+    '#required': true
 css: ''
 javascript: ''
 settings:
@@ -259,35 +260,23 @@ handlers:
     settings:
       states:
         - completed
-      to_mail: '[webform_submission:values:category:raw]'
+      to_mail: 'mcbrayerl@uncw.edu,holmanl@uncw.edu,saundersn@uncw.edu,benedettis@uncw.edu,crowes@uncw.edu,brownmd@uncw.edu,rhodesc@uncw.edu'
       to_options:
         -
           value: '01'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, saundersn@uncw.edu, flemingj@uncw.edu, brownmd@uncw.edu, raya@uncw.edu, rhodesc@uncw.edu'
+          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, saundersn@uncw.edu, flemingj@uncw.edu, brownmd@uncw.edu, raya@uncw.edu, rhodesc@uncw.edu, crowes@uncw.edu'
         -
           value: '02'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, saundersn@uncw.edu, flemingj@uncw.edu, brownmd@uncw.edu, raya@uncw.edu, rhodesc@uncw.edu'
-        -
-          value: '03'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, saundersn@uncw.edu, flemingj@uncw.edu, brownmd@uncw.edu, raya@uncw.edu, rhodesc@uncw.edu'
-        -
-          value: '04'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, saundersn@uncw.edu, flemingj@uncw.edu, brownmd@uncw.edu, raya@uncw.edu, rhodesc@uncw.edu'
+          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, saundersn@uncw.edu, flemingj@uncw.edu, brownmd@uncw.edu, raya@uncw.edu, rhodesc@uncw.edu, crowes@uncw.edu'
         -
           value: '05'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, saundersn@uncw.edu, flemingj@uncw.edu, brownmd@uncw.edu, raya@uncw.edu, rhodesc@uncw.edu'
+          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, saundersn@uncw.edu, flemingj@uncw.edu, brownmd@uncw.edu, raya@uncw.edu, rhodesc@uncw.edu, crowes@uncw.edu'
         -
-          value: '06'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, saundersn@uncw.edu, flemingj@uncw.edu, brownmd@uncw.edu, raya@uncw.edu, rhodesc@uncw.edu'
+          value: '03'
+          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, saundersn@uncw.edu, flemingj@uncw.edu, brownmd@uncw.edu, raya@uncw.edu, rhodesc@uncw.edu, crowes@uncw.edu'
         -
-          value: '07'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, saundersn@uncw.edu, flemingj@uncw.edu, brownmd@uncw.edu, raya@uncw.edu, rhodesc@uncw.edu'
-        -
-          value: '08'
-          text: 'rhodesc@uncw.edu, tekulven@uncw.edu'
-        -
-          value: '09'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, saundersn@uncw.edu, flemingj@uncw.edu, brownmd@uncw.edu, raya@uncw.edu, rhodesc@uncw.edu'
+          value: '04'
+          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, saundersn@uncw.edu, flemingj@uncw.edu, brownmd@uncw.edu, raya@uncw.edu, rhodesc@uncw.edu, crowes@uncw.edu'
       bcc_mail: ''
       bcc_options: {  }
       cc_mail: ''
@@ -332,6 +321,43 @@ handlers:
       from_mail: '[webform_submission:values:your_email:raw]'
       from_options: {  }
       from_name: '[webform_submission:values:your_name:raw]'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  your_supervisor_s_email:
+    id: email
+    handler_id: your_supervisor_s_email
+    label: 'Your Supervisor''s Email'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:your_supervisor_s_email:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
       reply_to: ''
       return_path: ''
       sender_mail: ''

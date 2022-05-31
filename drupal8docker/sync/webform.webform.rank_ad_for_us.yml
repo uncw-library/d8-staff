@@ -1,4 +1,4 @@
-uuid: 6266959e-53a1-4ead-a067-c7be6c1c5bd5
+uuid: ae9bb82e-796c-423b-bcd1-a599fd1133ba
 langcode: en
 status: open
 dependencies: {  }
@@ -8,60 +8,23 @@ close: null
 uid: 13
 template: false
 archive: false
-id: cataloging_and_metadata_libraria
-title: 'Cataloging and Metadata Librarian'
+id: rank_ad_for_us
+title: 'Rank AD for US'
 description: ''
 category: ''
 elements: |-
-  first_select_the_candidate_then_complete_the_form_for_each_selec:
+  william_weare:
     '#type': select
-    '#title': 'Select the candidate:'
-    '#options':
-      'Kim Cull': 'Kim Cull'
-      'Emma Beck': 'Emma Beck'
-      'Emma May': 'Emma May'
-      'Jan Juliani': 'Jan Juliani'
-    '#required': true
-  how_would_you_rate_the_candidate_s_presentation_:
-    '#type': webform_rating
-    '#title': 'How would you rate the candidate''s presentation?'
-  how_would_you_rate_the_candidates_ability_to_perform_cataloging_:
-    '#type': webform_rating
-    '#title': 'How would you rate the candidates ability to perform cataloging and description of complex materials in a variety of formats.'
-  did_the_candidate_answer_all_questions_to_your_satisfaction_:
-    '#type': select
-    '#title': 'Did the candidate answer all questions to your satisfaction? If no, why?'
-    '#options':
-      'Yes': 'Yes'
-      'No': 'No'
-  comments_:
-    '#type': textarea
-    '#title': 'Comments:'
-  do_you_believe_the_candidate_has_the_ability_to_perform_all_duti:
-    '#type': select
-    '#title': 'Do you believe the candidate has the ability to perform all duties required of the position?'
-    '#options': yes_no
-  comments1:
-    '#type': textarea
-    '#title': 'Comments:'
-  succeed:
-    '#type': select
-    '#title': 'Do you feel the candidate can succeed as a faculty member at Randall Library?'
-    '#options': yes_no
-  comments2:
-    '#type': textarea
-    '#title': 'Comments:'
-  how_would_you_rank_the_candidate_compared_to_the_other_candidate:
-    '#type': select
-    '#title': 'How would you rank the candidate compared to the other candidates?'
+    '#title': 'William Weare'
     '#options':
       First: First
       Second: Second
-      Third: Third
-      Fourth: Fourth
-  additional_comments_:
-    '#type': textarea
-    '#title': 'Additional Comments:'
+  dawn_brown:
+    '#type': select
+    '#title': 'Dawn Brown'
+    '#options':
+      First: First
+      Second: Second
 css: ''
 javascript: ''
 settings:
