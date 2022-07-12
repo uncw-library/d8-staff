@@ -1,88 +1,59 @@
-uuid: 9f4e013e-451a-416c-955d-85fe632f4563
+uuid: 66425eb3-917b-4574-b7d5-d99521aad36d
 langcode: en
 status: open
 dependencies: {  }
 weight: 0
 open: null
 close: null
-uid: 13
+uid: 17
 template: false
 archive: false
-id: ad_for_us_candidate_feedback
-title: 'AD for US Candidate Feedback'
+id: head_of_liaison_librarian_servic
+title: 'Head of Liaison Librarian Services Feedback Form'
 description: ''
 category: ''
 elements: |-
-  which_candidate_are_you_ranking_:
+  candidate_name:
     '#type': select
-    '#title': 'Which candidate are you ranking?'
+    '#title': 'Candidate Name'
     '#options':
-      'Dawn Walton': 'Dawn Walton'
+      'Meghan Smith': 'Meghan Smith'
     '#required': true
-  please_rate_the_candidates_presentation:
+  the_quality_of_the_candidate_s_presentation_:
     '#type': webform_rating
-    '#title': 'Please rate the candidates presentation'
+    '#title': 'The quality of the candidate''s presentation:'
     '#required': true
-  comments:
+  comment:
     '#type': textarea
-    '#title': Comments
-    '#required': true
-  please_rate_the_candidate_s_written_and_verbal_communication_ski:
+    '#title': Comment
+  the_candidate_s_management_and_leadership_potential_:
     '#type': webform_rating
-    '#title': 'Please rate the candidate’s written and verbal communication skills'
+    '#title': 'The candidate''s management and leadership potential:'
     '#required': true
-  comments2:
+  comment_leadership_pot:
     '#type': textarea
-    '#title': Comments
-    '#required': true
-  did_the_candidate_answer_all_questions_post_presentation_group_a:
+    '#title': Comment
+  the_candidate_s_knowledge_and_understanding_of_emerging_practice:
     '#type': webform_rating
-    '#title': 'Did the candidate answer all questions (post-presentation, group and individual meeting interactions, etc.) to your satisfaction?'
+    '#title': 'The candidate''s knowledge and understanding of emerging practices, standards, and trends relating to liaison librarianship:'
     '#required': true
-  comments3:
+  comment_libraianship:
     '#type': textarea
-    '#title': Comments
+    '#title': Comment
+  does_this_candidate_appear_to_be_able_to_perform_the_job_of_head:
+    '#type': select
+    '#title': 'Does this candidate appear to be able to perform the job of Head of Liaison Librarian Services? Why or why not?'
+    '#options':
+      'No': 'No'
+      'Yes': 'Yes'
     '#required': true
-  please_rate_the_candidate_s_knowledge_of_broader_trends_in_acade:
-    '#type': webform_rating
-    '#title': 'Please rate the candidate’s knowledge of broader trends in academic librarianship related to user experience.'
-    '#required': true
-  comments4:
+  comment_extra:
     '#type': textarea
-    '#title': Comments
+    '#title': Comment
     '#required': true
-  please_rate_the_candidate_s_ability_to_lead_and_manage_a_service:
-    '#type': webform_rating
-    '#title': 'Please rate the candidate’s ability to lead and manage a service program that meets the diverse needs of Randall Library’s patrons.'
-    '#required': true
-  comments5:
+  additional_comments_2:
     '#type': textarea
-    '#title': Comments
-    '#required': true
-  please_rate_the_candidate_s_ability_to_collaborate_with_stakehol:
-    '#type': webform_rating
-    '#title': 'Please rate the candidate’s ability to collaborate with stakeholders within Randall Library as well as campus and community partners.'
-    '#required': true
-  comments6:
-    '#type': textarea
-    '#title': Comments
-    '#required': true
-  8_please_rate_the_candidate_s_ability_to_function_as_an_effectiv:
-    '#type': webform_rating
-    '#title': 'Please rate the candidate’s ability to function as an effective supervisor at Randall Library.'
-    '#required': true
-  comments7:
-    '#type': textarea
-    '#title': Comments
-    '#required': true
-  does_the_candidate_appear_to_have_the_ability_to_perform_the_dut:
-    '#type': textarea
-    '#title': 'Does the candidate appear to have the ability to perform the duties of the Associate Director for User Services and Assessment?'
-    '#required': true
-  do_you_have_any_reservations_about_this_candidate_s_ability_to_s:
-    '#type': textarea
-    '#title': 'Do you have any reservations about this candidate’s ability to succeed at Randall Library?'
-    '#required': true
+    '#title': 'Additional Comments'
 css: ''
 javascript: ''
 settings:
@@ -95,7 +66,7 @@ settings:
   page_submit_path: ''
   page_confirm_path: ''
   page_theme_name: ''
-  form_title: both
+  form_title: source_entity_webform
   form_submit_once: false
   form_open_message: ''
   form_close_message: ''
@@ -167,7 +138,7 @@ settings:
   wizard_track: ''
   wizard_prev_button_label: ''
   wizard_next_button_label: ''
-  wizard_toggle: false
+  wizard_toggle: true
   wizard_toggle_show_label: ''
   wizard_toggle_hide_label: ''
   preview: 0
@@ -178,7 +149,7 @@ settings:
   preview_excluded_elements: {  }
   preview_exclude_empty: true
   preview_exclude_empty_checkbox: false
-  draft: none
+  draft: all
   draft_multiple: false
   draft_auto_save: false
   draft_saved_message: ''
