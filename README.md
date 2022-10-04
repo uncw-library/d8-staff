@@ -28,9 +28,9 @@ cd d8-staff
 
 ### 2) Get the production drupal-sync ( *production's config changes often & we've gotta keep pulling it into the repo/image* )
 
-- in Drupal web interface > Configuration > Configuration synchronization > Export
+- in production Drupal web interface > Configuration > Configuration synchronization > Export
 - on your local computer, delete all the .yml files in ./d8-staff/drupal8docker/sync/
-- unzip the downloaded file into that folder.
+- unzip the downloaded configsync file into that folder.
 
 ### 3) Get the production database
 
@@ -46,16 +46,14 @@ cd d8-staff
 
 ```
 docker build --no-cache -t libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base --platform linux/x86_64/v8 ./drupal8docker
-docker-compose up --build
-docker-compose logs -f
+docker-compose up
 ```
 
 #### b. Fast Way ( does not update modules & programs )
 
 ```
 docker pull libapps-admin.uncw.edu:8000/randall-dev/d8-staff/drupal8base
-docker-compose up --build
-docker-compose logs -f
+docker-compose up
 ```
 
 

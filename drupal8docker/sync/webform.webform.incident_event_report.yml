@@ -260,23 +260,8 @@ handlers:
     settings:
       states:
         - completed
-      to_mail: 'mcbrayerl@uncw.edu,holmanl@uncw.edu,saundersn@uncw.edu,benedettis@uncw.edu,crowes@uncw.edu,brownmd@uncw.edu,rhodesc@uncw.edu'
-      to_options:
-        -
-          value: '01'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, saundersn@uncw.edu, flemingj@uncw.edu, brownmd@uncw.edu, raya@uncw.edu, rhodesc@uncw.edu, crowes@uncw.edu'
-        -
-          value: '02'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, saundersn@uncw.edu, flemingj@uncw.edu, brownmd@uncw.edu, raya@uncw.edu, rhodesc@uncw.edu, crowes@uncw.edu'
-        -
-          value: '05'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, saundersn@uncw.edu, flemingj@uncw.edu, brownmd@uncw.edu, raya@uncw.edu, rhodesc@uncw.edu, crowes@uncw.edu'
-        -
-          value: '03'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, saundersn@uncw.edu, flemingj@uncw.edu, brownmd@uncw.edu, raya@uncw.edu, rhodesc@uncw.edu, crowes@uncw.edu'
-        -
-          value: '04'
-          text: 'holmanl@uncw.edu, mcbrayerl@uncw.edu, benedettis@uncw.edu, saundersn@uncw.edu, flemingj@uncw.edu, brownmd@uncw.edu, raya@uncw.edu, rhodesc@uncw.edu, crowes@uncw.edu'
+      to_mail: 'mcbrayerl@uncw.edu,holmanl@uncw.edu,saundersn@uncw.edu,benedettis@uncw.edu,crowes@uncw.edu,waltond@uncw.edu,steyere@uncw.edu,rhodesc@uncw.edu'
+      to_options: {  }
       bcc_mail: ''
       bcc_options: {  }
       cc_mail: ''
