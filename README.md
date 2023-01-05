@@ -22,7 +22,7 @@ Just enough to build our site.
 ### 1) Clone this repo to your local computer
 
 ```
-git clone https://libapps-admin.uncw.edu/randall-dev/d8-staff.git
+git clone https://github.com/uncw-library/d8-staff.git
 cd d8-staff
 ```
 
